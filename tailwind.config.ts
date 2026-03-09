@@ -8,7 +8,7 @@ const config: Config = {
       colors: {
         brand: {
           dark: "#020617",
-          primary: "#2563eb",
+          primary: "#0B2356",
           secondary: "#f97316",
           accent: "#3b82f6",
           glass: "rgba(255, 255, 255, 0.03)",
