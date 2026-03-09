@@ -1,28 +1,36 @@
 export default function ClientLogos() {
+  const logos = [
+    { src: "/assets/client-logos/sermedicod.png", alt: "Sermedicod" },
+    { src: "/assets/client-logos/north_bayou.png", alt: "North Bayou" },
+    { src: "/assets/client-logos/dm_terapia.png", alt: "DM Terapia" },
+    { src: "/assets/client-logos/aniklab.png", alt: "ANIK LAB" },
+    { src: "/assets/client-logos/cerebrum.png", alt: "Cerebrum" },
+    { src: "/assets/client-logos/pedroluisgallo.png", alt: "Pedro Luis Gallo" },
+    { src: "/assets/client-logos/sotto_voce.png", alt: "Sotto Voce" },
+  ];
+
   return (
-    <section className="py-20">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-sm font-semibold tracking-widest text-slate-500 uppercase mb-12">
-          Empresas que confían en V&A PROFESIONALES
+    <section className="py-20 relative overflow-hidden bg-white">
+      <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+        <h2 className="text-sm font-semibold tracking-widest text-slate-700 uppercase mb-12">
+          Empresas que confian en V&A PROFESIONALES
         </h2>
-        <div className="flex flex-wrap justify-center gap-12 items-center opacity-40">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Logo_de_Interbank.png"
-            alt="Interbank"
-            className="h-8 md:h-12 hover:opacity-100 transition-opacity invert"
-          />
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Logo_Scotiabank.svg/1200px-Logo_Scotiabank.svg.png"
-            alt="Scotiabank"
-            className="h-8 md:h-10 hover:opacity-100 transition-opacity invert"
-          />
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Alicorp_logo.svg/1200px-Alicorp_logo.svg.png"
-            alt="Alicorp"
-            className="h-8 md:h-10 hover:opacity-100 transition-opacity invert"
-          />
-          <div className="text-2xl font-black text-slate-300">CONSTRUCTORA X</div>
-          <div className="text-2xl font-black text-slate-300">RETAIL PERÚ</div>
+        <div className="relative overflow-hidden">
+          <div className="client-logos-track flex w-max items-center gap-10 py-2 opacity-100">
+            {[...logos, ...logos].map((logo, index) => (
+              <div
+                key={`${logo.alt}-${index}`}
+                aria-hidden={index >= logos.length}
+                className="flex items-center justify-center min-w-[220px] md:min-w-[280px] h-24 md:h-28 px-6 rounded-2xl bg-white/60 border border-slate-200/70"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-16 md:h-24 w-auto object-contain hover:opacity-100 transition-opacity"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

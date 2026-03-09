@@ -45,6 +45,28 @@ body {
   font-weight: 500;
 }
 
+.brand-logo-text {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  color: #0b2356;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.brand-logo-top {
+  font-size: clamp(1.65rem, 2.1vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.brand-logo-bottom {
+  margin-top: 0.12rem;
+  font-size: clamp(0.68rem, 0.95vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
 .hero-gradient {
   background: radial-gradient(
     circle at 50% 50%,
@@ -69,6 +91,69 @@ body {
 .sidebar-active {
   background: linear-gradient(90deg, rgba(37, 99, 235, 0.2) 0%, transparent 100%);
   border-left: 3px solid #2563eb;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 1.5rem;
+  border: 1px solid transparent;
+  background: linear-gradient(120deg, rgba(11, 35, 86, 0.35), rgba(249, 115, 22, 0.28))
+    border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.service-card:hover::after {
+  opacity: 1;
+}
+
+.who-we-help-track {
+  animation: whoWeHelpScroll 42s linear infinite;
+}
+
+.client-logos-track {
+  animation: clientLogosScroll 42s linear infinite;
+}
+
+@keyframes whoWeHelpScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
+@keyframes clientLogosScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 1.25rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .who-we-help-track {
+    animation: none;
+  }
+
+  .client-logos-track {
+    animation: none;
+  }
 }
 
 ::-webkit-scrollbar {

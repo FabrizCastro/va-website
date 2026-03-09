@@ -7,12 +7,10 @@ export default function SiteFooter() {
         <div className="grid md:grid-cols-6 gap-12 mb-16">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-gradient-to-tr from-brand-primary to-brand-secondary rounded-lg flex items-center justify-center font-bold text-white text-xs">
-                V&A
-              </div>
-              <span className="text-lg font-semibold wordmark">
-                V&A <span className="text-brand-secondary">PROFESIONALES</span>
-              </span>
+              <a href="#" className="brand-logo-text" aria-label="V&A Profesionales">
+                <span className="brand-logo-top">V&amp;A</span>
+                <span className="brand-logo-bottom">PROFESIONALES</span>
+              </a>
             </div>
             <p className="text-slate-500 max-w-sm mb-6">
               Liderando la transformación digital contable y financiera en el
@@ -135,7 +133,7 @@ export default function SiteFooter() {
             <ul className="text-slate-500 text-sm space-y-4">
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-orange-500" />{" "}
-                info@vaprofesionales.pe
+                vap.estudiocontable@gmail.com
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-orange-500" /> +51 987 654 321

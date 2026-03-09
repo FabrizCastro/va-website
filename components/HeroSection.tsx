@@ -2,25 +2,25 @@ import HeroChart from "./HeroChart";
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden grid-bg">
-      <div className="hero-gradient absolute inset-0 z-0"></div>
+    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-br from-white via-slate-50 to-sky-50">
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.12),transparent_40%),radial-gradient(circle_at_85%_80%,rgba(251,146,60,0.10),transparent_45%)]"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-xs font-bold uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-700 text-xs font-bold uppercase tracking-widest">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
               </span>
               Contabilidad 4.0 en Perú
             </div>
-            <h1 className="text-5xl lg:text-7xl font-extrabold font-heading leading-[1.1] text-white">
+            <h1 className="text-5xl lg:text-7xl font-extrabold font-heading leading-[1.1] text-slate-900">
               Transformamos tu contabilidad en{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary">
                 inteligencia financiera
               </span>
             </h1>
-            <p className="text-xl text-slate-400 max-w-xl leading-relaxed">
+            <p className="text-xl text-slate-700 max-w-xl leading-relaxed">
               Asesoría contable, tributaria y financiera con automatización, análisis con IA y control
               total de tus finanzas empresariales para emprendedores y corporaciones.
             </p>
@@ -41,7 +41,7 @@ export default function HeroSection() {
                   ></path>
                 </svg>
               </button>
-              <button className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-xl border border-white/10 transition-all">
+              <button className="px-8 py-4 bg-white/60 hover:bg-white/80 text-slate-900 font-bold rounded-xl border border-slate-300/80 transition-all">
                 Conoce nuestros servicios
               </button>
             </div>
@@ -64,8 +64,8 @@ export default function HeroSection() {
                 />
               </div>
               <div className="text-sm">
-                <p className="font-bold text-white">+500 empresas</p>
-                <p className="text-slate-500 text-xs">Confían en V&A Profesionales</p>
+                <p className="font-bold text-slate-900">+500 empresas</p>
+                <p className="text-slate-600 text-xs">Confían en V&A Profesionales</p>
               </div>
             </div>
           </div>
