@@ -98,28 +98,6 @@ body {
   overflow: hidden;
 }
 
-.service-card::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: 1.5rem;
-  border: 1px solid transparent;
-  background: linear-gradient(120deg, rgba(11, 35, 86, 0.35), rgba(249, 115, 22, 0.28))
-    border-box;
-  -webkit-mask:
-    linear-gradient(#fff 0 0) padding-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
-
-.service-card:hover::after {
-  opacity: 1;
-}
-
 .who-we-help-track {
   animation: whoWeHelpScroll 42s linear infinite;
 }

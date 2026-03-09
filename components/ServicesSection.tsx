@@ -2,14 +2,14 @@
   return (
     <section
       id="servicios"
-      className="py-24 relative overflow-hidden bg-gradient-to-br from-white via-slate-50 to-sky-50"
+      className="py-24 relative overflow-hidden bg-gradient-to-br from-sky-100 via-blue-50 to-orange-100"
     >
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.12),transparent_40%),radial-gradient(circle_at_85%_80%,rgba(251,146,60,0.10),transparent_45%)]" />
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.22),transparent_40%),radial-gradient(circle_at_85%_80%,rgba(251,146,60,0.20),transparent_45%)]" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-2xl">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-4xl lg:text-5xl font-bold font-heading mb-4">
               <span className="gradient-text">Servicios Especializados</span>
             </h2>
             <p className="text-slate-400">
@@ -20,7 +20,7 @@
         </div>
 
         <div className="grid md:grid-cols-4 gap-4">
-          <div className="service-card glass-card p-6 rounded-3xl col-span-1 md:col-span-2 group !bg-[rgba(11,35,86,0.12)] hover:!bg-[rgba(11,35,86,0.16)] transition-all duration-500 border border-white/5 hover:-translate-y-1">
+          <div className="service-card glass-card p-6 rounded-3xl col-span-1 md:col-span-2 group !bg-[rgba(11,35,86,0.14)] hover:!bg-[rgba(11,35,86,0.18)] transition-all duration-500 !border !border-[rgba(37,99,235,0.75)] shadow-[inset_0_0_0_1px_rgba(59,130,246,0.35),0_10px_30px_-18px_rgba(37,99,235,0.65)] hover:-translate-y-1">
             <div className="flex justify-between items-start mb-12">
               <div className="w-14 h-14 bg-brand-primary/20 rounded-2xl flex items-center justify-center text-brand-primary transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                 <svg
@@ -58,7 +58,7 @@
             </div>
           </div>
 
-          <div className="service-card glass-card p-6 rounded-3xl group !bg-[rgba(249,115,22,0.22)] hover:!bg-[rgba(249,115,22,0.28)] transition-all duration-500 border border-white/5 hover:-translate-y-1">
+          <div className="service-card glass-card p-6 rounded-3xl group !bg-[rgba(249,115,22,0.2)] hover:!bg-[rgba(249,115,22,0.26)] transition-all duration-500 !border !border-[rgba(249,115,22,0.78)] shadow-[inset_0_0_0_1px_rgba(251,146,60,0.34),0_10px_30px_-18px_rgba(249,115,22,0.6)] hover:-translate-y-1">
             <div className="flex justify-between items-start mb-12">
               <div className="w-14 h-14 bg-brand-secondary/20 rounded-2xl flex items-center justify-center text-brand-secondary transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                 <svg
@@ -89,7 +89,7 @@
             </ul>
           </div>
 
-          <div className="service-card glass-card p-6 rounded-3xl group !bg-[rgba(16,185,129,0.24)] hover:!bg-[rgba(16,185,129,0.32)] transition-all duration-500 border border-white/5 hover:-translate-y-1">
+          <div className="service-card glass-card p-6 rounded-3xl group !bg-[rgba(16,185,129,0.22)] hover:!bg-[rgba(16,185,129,0.3)] transition-all duration-500 !border !border-[rgba(16,185,129,0.8)] shadow-[inset_0_0_0_1px_rgba(52,211,153,0.34),0_10px_30px_-18px_rgba(16,185,129,0.6)] hover:-translate-y-1">
             <div className="flex justify-between items-start mb-12">
               <div className="w-14 h-14 bg-emerald-500/20 rounded-2xl flex items-center justify-center text-emerald-400 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                 <svg
@@ -123,10 +123,10 @@
         </div>
 
         <div className="grid md:grid-cols-3 gap-4 mt-4">
-          <div className="service-card glass-card p-6 rounded-3xl md:col-span-1 !bg-[rgba(239,68,68,0.18)] border border-white/5 hover:!bg-[rgba(239,68,68,0.24)] hover:-translate-y-1 transition-all duration-500">
+          <div className="service-card glass-card p-6 rounded-3xl md:col-span-1 !bg-[rgba(239,68,68,0.17)] !border !border-[rgba(239,68,68,0.78)] shadow-[inset_0_0_0_1px_rgba(248,113,113,0.33),0_10px_30px_-18px_rgba(239,68,68,0.58)] hover:!bg-[rgba(239,68,68,0.24)] hover:-translate-y-1 transition-all duration-500">
             <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
               <svg
-                className="w-4 h-4 text-brand-primary"
+                className="w-4 h-4 text-red-500"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -144,7 +144,7 @@
               Estados Financieros, Balances, Flujo de Efectivo y Reportes
               Gerenciales con visualización moderna.
             </p>
-            <button className="text-xs font-bold text-brand-primary flex items-center gap-1 hover:underline transition-transform duration-300 hover:translate-x-1">
+            <button className="text-xs font-bold text-red-600 flex items-center gap-1 hover:underline transition-transform duration-300 hover:translate-x-1">
               Ver ejemplo de reporte
               <svg
                 className="w-3 h-3"
@@ -161,7 +161,7 @@
               </svg>
             </button>
           </div>
-          <div className="service-card glass-card p-6 rounded-3xl md:col-span-2 flex items-center justify-between overflow-hidden relative group border border-white/5 !bg-[rgba(250,204,21,0.26)] hover:!bg-[rgba(250,204,21,0.30)] hover:-translate-y-1 transition-all duration-500">
+          <div className="service-card glass-card p-6 rounded-3xl md:col-span-2 flex items-center justify-between overflow-hidden relative group !border !border-[rgba(234,179,8,0.82)] !bg-[rgba(250,204,21,0.24)] shadow-[inset_0_0_0_1px_rgba(250,204,21,0.35),0_10px_30px_-18px_rgba(234,179,8,0.58)] hover:!bg-[rgba(250,204,21,0.3)] hover:-translate-y-1 transition-all duration-500">
             <div className="relative z-10 max-w-sm">
               <h3 className="text-xl font-bold mb-2">
                 Auditoría & Control Interno
@@ -173,7 +173,7 @@
             </div>
             <div className="absolute -right-10 -bottom-10 w-48 h-48 bg-brand-primary/15 rounded-full blur-3xl transition-all duration-700 group-hover:scale-150"></div>
             <svg
-              className="w-32 h-32 text-white/5 relative z-0"
+              className="w-32 h-32 text-yellow-700/20 relative z-0"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

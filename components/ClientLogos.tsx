@@ -10,7 +10,8 @@ export default function ClientLogos() {
   ];
 
   return (
-    <section className="py-20 relative overflow-hidden bg-white">
+    <section className="py-20 relative overflow-hidden bg-gradient-to-tl from-sky-100 via-blue-50 to-orange-100">
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_85%_80%,rgba(56,189,248,0.22),transparent_40%),radial-gradient(circle_at_15%_20%,rgba(251,146,60,0.20),transparent_45%)]" />
       <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
         <h2 className="text-sm font-semibold tracking-widest text-slate-700 uppercase mb-12">
           Empresas que confian en V&A PROFESIONALES

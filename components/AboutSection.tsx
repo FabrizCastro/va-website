@@ -1,7 +1,11 @@
 export default function AboutSection() {
   return (
-    <section id="nosotros" className="py-24 grid-bg">
-      <div className="max-w-7xl mx-auto px-4">
+    <section
+      id="nosotros"
+      className="py-24 relative overflow-hidden bg-gradient-to-br from-sky-100 via-blue-50 to-orange-100"
+    >
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.22),transparent_40%),radial-gradient(circle_at_85%_80%,rgba(251,146,60,0.20),transparent_45%)]" />
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-8">
             <h2 className="text-4xl lg:text-5xl font-extrabold font-heading text-white">

@@ -107,7 +107,7 @@ export default function ProcessSection() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="md:col-span-2 glass-panel p-4 rounded-2xl border-white/5 bg-slate-900/40 h-64">
+              <div className="md:col-span-2 glass-panel p-4 rounded-2xl border-white/5 bg-slate-900/40 h-64 flex flex-col">
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-xs font-semibold">Flujo de Caja vs Proyección</span>
                   <div className="flex gap-4">
@@ -119,7 +119,9 @@ export default function ProcessSection() {
                     </span>
                   </div>
                 </div>
-                <HeroChart />
+                <div className="flex-1 min-h-0">
+                  <HeroChart />
+                </div>
               </div>
 
               <div className="space-y-4">
