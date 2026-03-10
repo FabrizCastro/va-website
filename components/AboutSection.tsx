@@ -9,13 +9,14 @@ export default function AboutSection() {
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-8">
             <h2 className="text-4xl lg:text-5xl font-extrabold font-heading text-white">
-              Liderazgo con visión <span className="text-brand-secondary">estratégica</span>
+              Liderazgo con visión{" "}
+              <span className="text-brand-secondary">estratégica</span>
             </h2>
             <div className="prose prose-invert prose-slate">
               <p className="text-lg text-slate-400 italic border-l-4 border-brand-primary pl-6">
-                "En V&A PROFESIONALES, no solo registramos transacciones; construimos el soporte
-                financiero que las empresas necesitan para escalar sin miedo a las contingencias
-                tributarias."
+                "En V&A PROFESIONALES, no solo registramos transacciones;
+                construimos el soporte financiero que las empresas necesitan
+                para escalar sin miedo a las contingencias tributarias."
               </p>
             </div>
             <div className="flex items-center gap-6">
@@ -28,7 +29,9 @@ export default function AboutSection() {
                 />
               </div>
               <div>
-                <h4 className="text-2xl font-bold text-white">Henry Valladares</h4>
+                <h4 className="text-2xl font-bold text-white">
+                  Henry Valladares
+                </h4>
                 <p className="text-brand-primary font-bold uppercase tracking-widest text-xs">
                   Fundador & CEO
                 </p>
@@ -44,30 +47,40 @@ export default function AboutSection() {
             </div>
             <div className="grid grid-cols-2 gap-6 pt-6">
               <div className="bg-white/5 p-6 rounded-2xl border border-white/5">
-                <h5 className="text-3xl font-bold text-white mb-2">99%</h5>
+                <h5 className="text-3xl font-bold text-brand-primary mb-2">
+                  99%
+                </h5>
                 <p className="text-xs text-slate-500 uppercase tracking-widest">
                   Cumplimiento Tributario
                 </p>
               </div>
               <div className="bg-white/5 p-6 rounded-2xl border border-white/5">
-                <h5 className="text-3xl font-bold text-brand-secondary mb-2">10+</h5>
-                <p className="text-xs text-slate-500 uppercase tracking-widest">Años de experiencia</p>
+                <h5 className="text-3xl font-bold text-brand-secondary mb-2">
+                  10+
+                </h5>
+                <p className="text-xs text-slate-500 uppercase tracking-widest">
+                  Años de experiencia
+                </p>
               </div>
             </div>
           </div>
           <div className="grid gap-6">
             <div className="glass-card p-8 rounded-3xl border-l-4 border-brand-primary">
-              <h4 className="text-xl font-bold text-white mb-3">Visión del Futuro</h4>
+              <h4 className="text-xl font-bold text-white mb-3">
+                Visión del Futuro
+              </h4>
               <p className="text-slate-400">
-                Digitalizamos la contabilidad en Perú para que dejes de ser un espectador y te
-                conviertas en el estratega de tu propia empresa.
+                Digitalizamos la contabilidad en Perú para que dejes de ser un
+                espectador y te conviertas en el estratega de tu propia empresa.
               </p>
             </div>
             <div className="glass-card p-8 rounded-3xl border-l-4 border-brand-secondary">
-              <h4 className="text-xl font-bold text-white mb-3">Rapidez y Confianza</h4>
+              <h4 className="text-xl font-bold text-white mb-3">
+                Rapidez y Confianza
+              </h4>
               <p className="text-slate-400">
-                Atención personalizada con tiempos de respuesta reducidos gracias a nuestros flujos
-                automatizados de trabajo.
+                Atención personalizada con tiempos de respuesta reducidos
+                gracias a nuestros flujos automatizados de trabajo.
               </p>
             </div>
           </div>

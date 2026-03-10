@@ -14,7 +14,7 @@ export default function HeroSection() {
               </span>
               Contabilidad 4.0 en Perú
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold font-heading leading-[1.1] text-slate-900">
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold font-heading leading-[1.1] text-brand-primary">
               Transformamos tu contabilidad en{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary">
                 inteligencia financiera
@@ -27,7 +27,7 @@ export default function HeroSection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button className="px-6 sm:px-8 py-3.5 sm:py-4 bg-brand-primary hover:bg-brand-primary/90 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 group">
-                Agendar consulta gratis
+                Agendar consulta
                 <svg
                   className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                   fill="none"

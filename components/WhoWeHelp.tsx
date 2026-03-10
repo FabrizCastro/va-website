@@ -16,11 +16,13 @@ export default function WhoWeHelp() {
   ];
 
   return (
-    <section className="py-20 bg-slate-900/30">
+    <section className="py-20 bg-brand-primary">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Soluciones a tu medida</h2>
-          <p className="text-slate-400">
+          <h2 className="text-4xl font-bold mb-4 text-white">
+            Soluciones a tu medida
+          </h2>
+          <p className="text-blue-100/80">
             Atendemos todos los niveles de madurez empresarial con un enfoque
             personalizado.
           </p>
@@ -36,8 +38,8 @@ export default function WhoWeHelp() {
                   aria-hidden={index >= cards.length}
                   className={`glass-card min-w-[220px] sm:min-w-[250px] p-8 rounded-3xl transition-all border relative overflow-hidden ${
                     isOrange
-                      ? "border-orange-500/30 bg-orange-500/5"
-                      : "border-white/5 hover:border-blue-500/50"
+                      ? "border-orange-300/40 bg-orange-500/10"
+                      : "border-white/15 bg-white/5 hover:border-blue-200/60"
                   }`}
                 >
                   {card.popular && (
@@ -50,9 +52,13 @@ export default function WhoWeHelp() {
                       isOrange ? "bg-orange-500/20" : "bg-blue-500/20"
                     }`}
                   >
-                    <Icon className={isOrange ? "text-orange-400" : "text-blue-400"} />
+                    <Icon
+                      className={isOrange ? "text-orange-400" : "text-blue-400"}
+                    />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 whitespace-nowrap">{card.title}</h3>
+                  <h3 className="text-xl font-bold mb-3 whitespace-nowrap">
+                    {card.title}
+                  </h3>
                 </div>
               );
             })}

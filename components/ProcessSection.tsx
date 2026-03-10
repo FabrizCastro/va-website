@@ -10,10 +10,10 @@ import HeroChart from "@/components/HeroChart";
 
 export default function ProcessSection() {
   return (
-    <section id="proceso" className="py-24">
+    <section id="proceso" className="py-24 bg-brand-primary">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-center text-4xl font-bold mb-20">
-          Nuestra <span className="text-blue-500">Metodología</span>
+        <h2 className="text-center text-4xl font-bold text-white mb-20">
+          Nuestra <span className="text-orange-300">Metodología</span>
         </h2>
         <div className="grid md:grid-cols-5 gap-4 relative">
           <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500/50 to-orange-500/50 -z-10"></div>

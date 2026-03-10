@@ -11,17 +11,7 @@ export default function TechnologySection() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
             <div className="glass-panel p-8 rounded-[40px] border-white/10 relative overflow-hidden">
-              <div className="grid sm:grid-cols-3 gap-3 mb-8">
-                <div className="flex items-center gap-2 p-3 rounded-2xl bg-blue-600/15 border border-blue-500/25">
-                  <div className="w-9 h-9 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center">
-                    <Cpu className="text-blue-400 w-4 h-4" />
-                  </div>
-                  <p className="text-[11px] font-semibold text-blue-300 leading-tight">
-                    Automatizacion
-                    <br />
-                    SUNAT
-                  </p>
-                </div>
+              <div className="grid sm:grid-cols-2 gap-3 mb-8">
                 <div className="flex items-center gap-2 p-3 rounded-2xl bg-orange-600/15 border border-orange-500/25">
                   <div className="w-9 h-9 rounded-full bg-orange-600/20 border border-orange-500/30 flex items-center justify-center">
                     <Zap className="text-orange-400 w-4 h-4" />
@@ -32,18 +22,20 @@ export default function TechnologySection() {
                     Automaticos
                   </p>
                 </div>
-                <div className="flex items-center gap-2 p-3 rounded-2xl bg-white/10 border border-white/20">
-                  <div className="w-9 h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
-                    <Bot className="text-white w-4 h-4" />
+                <div className="flex items-center gap-2 p-3 rounded-2xl bg-blue-600/15 border border-blue-500/25">
+                  <div className="w-9 h-9 rounded-full bg-blue-600/20 border border-blue-500/30 flex items-center justify-center">
+                    <Cpu className="text-blue-400 w-4 h-4" />
                   </div>
-                  <p className="text-[11px] font-semibold text-slate-200 leading-tight">
-                    Bot Tributario
+                  <p className="text-[11px] font-semibold text-blue-300 leading-tight">
+                    Automatizacion
                     <br />
-                    24/7
+                    SUNAT
                   </p>
                 </div>
               </div>
-              <h3 className="text-3xl font-bold mb-6">El "Tech-Stack" de tu exito</h3>
+              <h3 className="text-3xl font-bold mb-6">
+                El "Tech-Stack" de tu exito
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/5">
                   <div className="w-10 h-10 rounded-xl bg-blue-500 flex items-center justify-center font-bold">
@@ -72,11 +64,13 @@ export default function TechnologySection() {
           </div>
           <div className="space-y-8 order-1 lg:order-2">
             <h2 className="text-4xl lg:text-5xl font-extrabold font-heading text-slate-900">
-              Automatizacion contable con <span className="text-brand-primary">IA + SUNAT</span>
+              Automatizacion contable con{" "}
+              <span className="text-brand-primary">IA + SUNAT</span>
             </h2>
             <p className="text-lg text-slate-700">
-              Integramos procesos tributarios, operativos y financieros en un solo flujo digital
-              para que tu equipo trabaje mas rapido y con menos errores.
+              Integramos procesos tributarios, operativos y financieros en un
+              solo flujo digital para que tu equipo trabaje mas rapido y con
+              menos errores.
             </p>
 
             <div className="space-y-6">
@@ -85,10 +79,12 @@ export default function TechnologySection() {
                   <Zap className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-slate-900 mb-1">Automatizacion con SUNAT</h4>
+                  <h4 className="text-xl font-bold text-slate-900 mb-1">
+                    Flujos automaticos con IA
+                  </h4>
                   <p className="text-slate-600 text-sm">
-                    Emision, validacion y control de comprobantes con alertas de cumplimiento en
-                    tiempo real.
+                    Clasificacion inteligente de movimientos, conciliacion
+                    asistida y sugerencias de accion contable.
                   </p>
                 </div>
               </div>
@@ -97,22 +93,12 @@ export default function TechnologySection() {
                   <Cpu className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-slate-900 mb-1">Flujos automaticos con IA</h4>
+                  <h4 className="text-xl font-bold text-slate-900 mb-1">
+                    Automatizacion con SUNAT
+                  </h4>
                   <p className="text-slate-600 text-sm">
-                    Clasificacion inteligente de movimientos, conciliacion asistida y sugerencias
-                    de accion contable.
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-emerald-400 border border-white/10">
-                  <Bot className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold text-slate-900 mb-1">Bot tributario 24/7</h4>
-                  <p className="text-slate-600 text-sm">
-                    Resuelve dudas operativas y tributarias al instante con asistencia continua
-                    para tu equipo.
+                    Emision, validacion y control de comprobantes con alertas de
+                    cumplimiento en tiempo real.
                   </p>
                 </div>
               </div>

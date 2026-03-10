@@ -1,9 +1,12 @@
 import AboutSection from "@/components/AboutSection";
+import BenefitsSection from "@/components/BenefitsSection";
 import ClientLogos from "@/components/ClientLogos";
 import FinalCtaSection from "@/components/FinalCtaSection";
 import HeroSection from "@/components/HeroSection";
+import ImpactSection from "@/components/ImpactSection";
 import NavBar from "@/components/NavBar";
 import ProcessSection from "@/components/ProcessSection";
+import PricingSection from "@/components/PricingSection";
 import ServicesSection from "@/components/ServicesSection";
 import SiteFooter from "@/components/SiteFooter";
 import TechnologySection from "@/components/TechnologySection";
@@ -25,6 +28,9 @@ export default function HomePage() {
         <ProcessSection />
         <AboutSection />
         <TestimonialsSection />
+        <BenefitsSection />
+        <ImpactSection />
+        <PricingSection />
         <FinalCtaSection />
       </main>
       <SiteFooter />
