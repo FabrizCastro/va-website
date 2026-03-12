@@ -1,4 +1,4 @@
-export default function TestimonialsSection() {
+﻿export default function TestimonialsSection() {
   return (
     <section className="py-24 relative overflow-hidden bg-gradient-to-tr from-sky-100 via-blue-50 to-orange-100">
       <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_15%_80%,rgba(56,189,248,0.22),transparent_40%),radial-gradient(circle_at_85%_20%,rgba(251,146,60,0.20),transparent_45%)]" />
@@ -72,3 +72,4 @@ export default function TestimonialsSection() {
     </section>
   );
 }
+

@@ -1,4 +1,4 @@
-import HeroChart from "./HeroChart";
+﻿import HeroChart from "./HeroChart";
 
 export default function HeroSection() {
   return (
@@ -174,3 +174,4 @@ export default function HeroSection() {
     </section>
   );
 }
+

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 
@@ -35,3 +35,4 @@ export default function RootLayout({
     </html>
   );
 }
+

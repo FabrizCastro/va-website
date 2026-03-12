@@ -9,6 +9,7 @@ import ProcessSection from "@/components/ProcessSection";
 import PricingSection from "@/components/PricingSection";
 import ServicesSection from "@/components/ServicesSection";
 import SiteFooter from "@/components/SiteFooter";
+import SuccessRoadmapSection from "@/components/SuccessRoadmapSection";
 import TechnologySection from "@/components/TechnologySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import TrustBar from "@/components/TrustBar";
@@ -27,6 +28,7 @@ export default function HomePage() {
         <ServicesSection />
         <TechnologySection />
         <ProcessSection />
+        <SuccessRoadmapSection />
         <AboutSection />
         <TestimonialsSection />
         <ImpactSection />

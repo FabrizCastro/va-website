@@ -11,7 +11,7 @@
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading leading-[1.1] text-brand-primary">
               Liderazgo con{" "}
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary">
-                vision estratégica
+                visión estratégica
               </span>
             </h2>
             <div className="prose prose-invert prose-slate">
@@ -91,3 +91,4 @@
     </section>
   );
 }
+

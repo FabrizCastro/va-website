@@ -1,12 +1,12 @@
-const impactMetrics = [
+﻿const impactMetrics = [
   {
     value: "24/7",
-    label: "Visibilidad de informacion critica",
+    label: "Visibilidad de información crítica",
     tone: "orange",
   },
   {
     value: "3x",
-    label: "Mas rapidez para responder requerimientos",
+    label: "Más rapidez para responder requerimientos",
     tone: "blue",
   },
   {
@@ -19,7 +19,7 @@ const impactMetrics = [
 const impactSteps = [
   "Tableros y reportes con foco en caja, impuestos y obligaciones.",
   "Seguimiento operativo para detectar atrasos antes de que escalen.",
-  "Mayor confianza para decidir contrataciones, compras e inversion.",
+  "Mayor confianza para decidir contrataciones, compras e inversión.",
 ];
 
 export default function ImpactSection() {
@@ -33,12 +33,12 @@ export default function ImpactSection() {
           </p>
           <h2 className="mt-4 text-4xl font-extrabold font-heading leading-[1.05] text-white sm:text-5xl">
             Resultados que se notan en la{" "}
-            <span className="text-orange-300">gestion financiera</span>
+            <span className="text-orange-300">gestión financiera</span>
           </h2>
           <p className="mt-5 max-w-2xl text-lg text-blue-100/85">
-            El valor del servicio no esta solo en cumplir. Esta en ordenar la
-            operacion, reducir ruido y darte informacion util para mover el
-            negocio con mas precision.
+            El valor del servicio no está solo en cumplir. Está en ordenar la
+            operación, reducir ruido y darte información útil para mover el
+            negocio con más precisión.
           </p>
 
           <div className="mt-8 space-y-4">
@@ -81,3 +81,4 @@ export default function ImpactSection() {
     </section>
   );
 }
+

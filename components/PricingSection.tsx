@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 
@@ -36,21 +36,21 @@ const plans: PricingPlan[] = [
         name: "Plan Persona",
         monthlyPrice: "S/ 150",
         annualPrice: "S/ 120",
-        noteMonthly: "+ IGV | Para gestion personal",
+        noteMonthly: "+ IGV | Para gestión personal",
         noteAnnual: "+ IGV | Pago anual preferente",
       },
       {
         name: "Plan Empresa",
         monthlyPrice: "S/ 200",
         annualPrice: "S/ 180",
-        noteMonthly: "+ IGV | Para operacion empresarial",
+        noteMonthly: "+ IGV | Para operación empresarial",
         noteAnnual: "+ IGV | Mejor para negocio formal",
       },
     ],
     features: [
       "Registro compras y ventas",
-      "Calculo de Renta e IGV",
-      "Elaboracion de la Planilla",
+      "Cálculo de Renta e IGV",
+      "Elaboración de la Planilla",
       "PDT 621, Plame y AFPNet",
     ],
   },
@@ -72,10 +72,10 @@ const plans: PricingPlan[] = [
     ],
     features: [
       "Registro compras y ventas",
-      "Calculo de Renta e IGV",
-      "Elaboracion de la Planilla",
+      "Cálculo de Renta e IGV",
+      "Elaboración de la Planilla",
       "PDT 621, Plame y AFPNet",
-      "Asesoria Integral",
+      "Asesoría Integral",
     ],
   },
   {
@@ -96,25 +96,25 @@ const plans: PricingPlan[] = [
     ],
     features: [
       "Registro compras y ventas",
-      "Calculo de Renta e IGV",
-      "Elaboracion de la Planilla",
+      "Cálculo de Renta e IGV",
+      "Elaboración de la Planilla",
       "PDT 621, Plame y AFPNet",
-      "Asesoria Integral",
+      "Asesoría Integral",
     ],
   },
   {
     name: "Otros Planes",
     monthlyPrice: "S/ ----",
     annualPrice: "S/ ----",
-    noteMonthly: "Sujeto a evaluacion",
-    noteAnnual: "Sujeto a evaluacion",
+    noteMonthly: "Sujeto a evaluación",
+    noteAnnual: "Sujeto a evaluación",
     accent: "mixed",
     features: [
       "Registro compras y ventas",
-      "Calculo de Renta e IGV",
-      "Elaboracion de la Planilla",
+      "Cálculo de Renta e IGV",
+      "Elaboración de la Planilla",
       "PDT 621, Plame y AFPNet",
-      "Asesoria Integral",
+      "Asesoría Integral",
     ],
   },
 ];
@@ -162,8 +162,8 @@ export default function PricingSection() {
             </span>
           </h2>
           <p className="mt-4 text-slate-700 max-w-2xl mx-auto">
-            Estructura de servicios pensada para acompanar desde operaciones
-            basicas hasta necesidades empresariales mas complejas.
+            Estructura de servicios pensada para acompañar desde operaciones
+            básicas hasta necesidades empresariales más complejas.
           </p>
         </div>
 
@@ -279,7 +279,7 @@ export default function PricingSection() {
                   type="button"
                   className={`mt-10 w-full rounded-2xl py-4 text-sm font-extrabold transition-all ${accent.button}`}
                 >
-                  Mas informacion
+                  Más información
                 </button>
               </article>
             );
@@ -289,3 +289,4 @@ export default function PricingSection() {
     </section>
   );
 }
+

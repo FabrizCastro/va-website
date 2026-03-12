@@ -15,7 +15,7 @@ export default function ProcessSection() {
         <h2 className="mb-20 text-center text-4xl font-extrabold font-heading leading-[1.1] text-white sm:text-5xl lg:text-6xl">
           Nuestra{" "}
           <span className="bg-gradient-to-r from-blue-100 to-orange-300 bg-clip-text text-transparent">
-            Metodologia
+            Metodología
           </span>
         </h2>
         <div className="grid md:grid-cols-5 gap-4 relative">
@@ -25,25 +25,25 @@ export default function ProcessSection() {
             <div className="w-12 h-12 rounded-full bg-slate-800 border-2 border-blue-500 flex items-center justify-center font-bold text-blue-500 mb-4">
               01
             </div>
-            <h4 className="font-bold text-sm mb-2">DiagnÃ³stico</h4>
+            <h4 className="font-bold text-sm mb-2">Diagnóstico</h4>
             <p className="text-[10px] text-slate-500">
-              Evaluamos tu situaciÃ³n actual y riesgos potenciales.
+              Evaluamos tu situación actual y riesgos potenciales.
             </p>
           </div>
           <div className="glass-panel p-6 rounded-3xl text-center flex flex-col items-center">
             <div className="w-12 h-12 rounded-full bg-slate-800 border-2 border-blue-500 flex items-center justify-center font-bold text-blue-500 mb-4">
               02
             </div>
-            <h4 className="font-bold text-sm mb-2">OrganizaciÃ³n</h4>
+            <h4 className="font-bold text-sm mb-2">Organización</h4>
             <p className="text-[10px] text-slate-500">
-              Estructuramos tu data bajo estÃ¡ndares contables.
+              Estructuramos tu data bajo estándares contables.
             </p>
           </div>
           <div className="glass-panel p-6 rounded-3xl text-center flex flex-col items-center">
             <div className="w-12 h-12 rounded-full bg-slate-800 border-2 border-orange-500 flex items-center justify-center font-bold text-orange-500 mb-4">
               03
             </div>
-            <h4 className="font-bold text-sm mb-2">AutomatizaciÃ³n</h4>
+            <h4 className="font-bold text-sm mb-2">Automatización</h4>
             <p className="text-[10px] text-slate-500">
               Implementamos workflows para agilizar procesos.
             </p>
@@ -61,9 +61,9 @@ export default function ProcessSection() {
             <div className="w-12 h-12 rounded-full bg-slate-800 border-2 border-white flex items-center justify-center font-bold text-white mb-4">
               05
             </div>
-            <h4 className="font-bold text-sm mb-2">AcompaÃ±amiento</h4>
+            <h4 className="font-bold text-sm mb-2">Acompañamiento</h4>
             <p className="text-[10px] text-slate-500">
-              AsesorÃ­a estratÃ©gica continua para crecer.
+              Asesoría estratégica continua para crecer.
             </p>
           </div>
         </div>
@@ -112,7 +112,7 @@ export default function ProcessSection() {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="md:col-span-2 glass-panel p-4 rounded-2xl border-white/5 bg-slate-900/40 h-64 flex flex-col">
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-xs font-semibold">Flujo de Caja vs ProyecciÃ³n</span>
+                  <span className="text-xs font-semibold">Flujo de Caja vs Proyección</span>
                   <div className="flex gap-4">
                     <span className="flex items-center gap-1 text-[10px]">
                       <span className="w-2 h-2 rounded-full bg-blue-500"></span> Real
@@ -134,7 +134,7 @@ export default function ProcessSection() {
                     <span className="text-xs font-bold text-orange-200">Alertas SUNAT</span>
                   </div>
                   <p className="text-[10px] text-orange-100/70">
-                    Vencimiento de PDT 621 en 48 horas. Data enviada a revisiÃ³n.
+                    Vencimiento de PDT 621 en 48 horas. Data enviada a revisión.
                   </p>
                 </div>
                 <div className="glass-panel p-4 rounded-2xl border-blue-500/20 bg-blue-500/5">
@@ -143,7 +143,7 @@ export default function ProcessSection() {
                     <span className="text-xs font-bold text-blue-200">IA Insight</span>
                   </div>
                   <p className="text-[10px] text-blue-100/70">
-                    DeducciÃ³n de gastos optimizable en 15%. Ver reporte analÃ­tico.
+                    Deducción de gastos optimizable en 15%. Ver reporte analítico.
                   </p>
                 </div>
               </div>
@@ -153,7 +153,7 @@ export default function ProcessSection() {
               <table className="w-full text-left text-[11px]">
                 <thead className="bg-white/5 text-slate-400 uppercase">
                   <tr>
-                    <th className="px-4 py-2">TransacciÃ³n</th>
+                    <th className="px-4 py-2">Transacción</th>
                     <th className="px-4 py-2">Estado</th>
                     <th className="px-4 py-2">Monto</th>
                     <th className="px-4 py-2">Fecha</th>
@@ -174,7 +174,7 @@ export default function ProcessSection() {
                   </tr>
                   <tr>
                     <td className="px-4 py-3 flex items-center gap-2">
-                      <Database className="w-3 h-3 text-orange-400" /> Planilla ElectrÃ³nica
+                      <Database className="w-3 h-3 text-orange-400" /> Planilla Electrónica
                     </td>
                     <td className="px-4 py-3">
                       <span className="px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
@@ -193,4 +193,5 @@ export default function ProcessSection() {
     </section>
   );
 }
+
 

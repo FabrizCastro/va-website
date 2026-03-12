@@ -19,7 +19,7 @@ export default function TechnologySection() {
                   <p className="text-[11px] font-semibold text-orange-300 leading-tight">
                     Flujos
                     <br />
-                    Automaticos
+                    Automáticos
                   </p>
                 </div>
                 <div className="flex items-center gap-2 p-3 rounded-2xl bg-blue-600/15 border border-blue-500/25">
@@ -27,14 +27,14 @@ export default function TechnologySection() {
                     <Cpu className="text-blue-400 w-4 h-4" />
                   </div>
                   <p className="text-[11px] font-semibold text-blue-300 leading-tight">
-                    Automatizacion
+                    Automatización
                     <br />
                     SUNAT
                   </p>
                 </div>
               </div>
               <h3 className="text-3xl font-bold mb-6">
-                El "Tech-Stack" de tu exito
+                El "Tech-Stack" de tu éxito
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/5">
@@ -44,7 +44,7 @@ export default function TechnologySection() {
                   <div>
                     <p className="font-bold text-sm">IA Financial Analysis</p>
                     <p className="text-[10px] text-slate-500">
-                      Prediccion de tendencias y deteccion de anomalias.
+                      Predicción de tendencias y detección de anomalías.
                     </p>
                   </div>
                 </div>
@@ -55,7 +55,7 @@ export default function TechnologySection() {
                   <div>
                     <p className="font-bold text-sm">Auto-Sync SUNAT</p>
                     <p className="text-[10px] text-slate-500">
-                      Integracion directa con facturacion y libros electronicos.
+                      Integración directa con facturación y libros electrónicos.
                     </p>
                   </div>
                 </div>
@@ -64,12 +64,12 @@ export default function TechnologySection() {
           </div>
           <div className="space-y-8 order-1 lg:order-2">
             <h2 className="text-4xl lg:text-5xl font-extrabold font-heading text-slate-900">
-              Automatizacion contable con{" "}
+              Automatización contable con{" "}
               <span className="text-brand-primary">IA + SUNAT</span>
             </h2>
             <p className="text-lg text-slate-700">
               Integramos procesos tributarios, operativos y financieros en un
-              solo flujo digital para que tu equipo trabaje mas rapido y con
+              solo flujo digital para que tu equipo trabaje más rápido y con
               menos errores.
             </p>
 
@@ -80,11 +80,11 @@ export default function TechnologySection() {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-slate-900 mb-1">
-                    Flujos automaticos con IA
+                    Flujos automáticos con IA
                   </h4>
                   <p className="text-slate-600 text-sm">
-                    Clasificacion inteligente de movimientos, conciliacion
-                    asistida y sugerencias de accion contable.
+                    Clasificación inteligente de movimientos, conciliación
+                    asistida y sugerencias de acción contable.
                   </p>
                 </div>
               </div>
@@ -94,10 +94,10 @@ export default function TechnologySection() {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-slate-900 mb-1">
-                    Automatizacion con SUNAT
+                    Automatización con SUNAT
                   </h4>
                   <p className="text-slate-600 text-sm">
-                    Emision, validacion y control de comprobantes con alertas de
+                    Emisión, validación y control de comprobantes con alertas de
                     cumplimiento en tiempo real.
                   </p>
                 </div>
@@ -109,3 +109,5 @@ export default function TechnologySection() {
     </section>
   );
 }
+
+

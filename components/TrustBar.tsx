@@ -1,4 +1,4 @@
-import {
+﻿import {
   Activity,
   Landmark,
   RefreshCcw,
@@ -66,3 +66,4 @@ export default function TrustBar() {
     </div>
   );
 }
+
