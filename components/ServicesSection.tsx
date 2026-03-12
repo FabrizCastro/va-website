@@ -2,32 +2,43 @@
   return (
     <section
       id="servicios"
-      className="py-24 relative overflow-hidden bg-gradient-to-br from-sky-100 via-blue-50 to-orange-100"
+      className="relative overflow-hidden py-24 bg-gradient-to-br from-sky-100 via-blue-50 to-orange-100"
     >
       <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.22),transparent_40%),radial-gradient(circle_at_85%_80%,rgba(251,146,60,0.20),transparent_45%)]" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <div className="mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading leading-[1.1] text-brand-primary mb-4">
+            <h2 className="mb-4 text-4xl font-extrabold font-heading leading-[1.1] text-brand-primary sm:text-5xl lg:text-6xl">
               Servicios{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary">
+              <span className="bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
                 Especializados
               </span>
             </h2>
-            <p className="text-slate-400">
+            <p className="text-slate-700">
               Cubrimos todo el espectro financiero de tu organización con
               precisión milimétrica.
             </p>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-4">
-          <div className="service-card glass-card p-6 rounded-3xl col-span-1 md:col-span-2 group !bg-[rgba(11,35,86,0.14)] hover:!bg-[rgba(11,35,86,0.18)] transition-all duration-500 !border !border-[rgba(37,99,235,0.75)] shadow-[inset_0_0_0_1px_rgba(59,130,246,0.35),0_10px_30px_-18px_rgba(37,99,235,0.65)] hover:-translate-y-1">
-            <div className="flex justify-between items-start mb-12">
-              <div className="w-14 h-14 bg-brand-primary/20 rounded-2xl flex items-center justify-center text-brand-primary transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+        <div className="grid gap-6 md:grid-cols-4">
+          <article className="group relative overflow-hidden rounded-[2rem] border border-[rgba(37,99,235,0.75)] bg-white/80 p-7 shadow-[0_18px_50px_-28px_rgba(15,23,42,0.25)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 md:col-span-2">
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              style={{
+                backgroundImage:
+                  "url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80')",
+              }}
+            />
+            <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-gradient-to-br from-brand-primary/85 via-brand-primary/75 to-brand-primary/65" />
+            <div className="relative z-10 inline-flex rounded-full border border-brand-primary/20 bg-brand-primary/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] text-brand-primary transition-colors duration-500 group-hover:border-white/30 group-hover:bg-white/15 group-hover:text-white">
+              Contabilidad Integral
+            </div>
+            <div className="relative z-10 mt-6 flex items-start gap-5">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-primary/12 text-brand-primary transition-colors duration-500 group-hover:bg-white/15 group-hover:text-white">
                 <svg
-                  className="w-8 h-8"
+                  className="h-8 w-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -40,32 +51,42 @@
                   />
                 </svg>
               </div>
-              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-                Contabilidad Integral
-              </span>
+              <div className="flex-1">
+                <h3 className="text-2xl font-bold text-slate-900 transition-colors duration-500 group-hover:text-white">
+                  Gestión Contable Dinámica
+                </h3>
+                <div className="mt-5 grid gap-4 text-sm text-slate-700 transition-colors duration-500 group-hover:text-blue-50 sm:grid-cols-2">
+                  <ul className="space-y-3">
+                    <li>&bull; Libros Contables</li>
+                    <li>&bull; Conciliación Bancaria</li>
+                    <li>&bull; Control de Préstamos</li>
+                  </ul>
+                  <ul className="space-y-3">
+                    <li>&bull; Reconocimiento de Ingresos</li>
+                    <li>&bull; Análisis de Cuentas</li>
+                    <li>&bull; Formatos Contables</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <h3 className="text-2xl font-bold mb-4 transition-colors duration-300">
-              Gestión Contable Dinámica
-            </h3>
-            <div className="grid grid-cols-2 gap-4 text-xs text-slate-600">
-              <ul className="space-y-2">
-                <li>• Libros Contables</li>
-                <li>• Conciliación Bancaria</li>
-                <li>• Control de Préstamos</li>
-              </ul>
-              <ul className="space-y-2">
-                <li>• Reconocimiento de Ingresos</li>
-                <li>• Análisis de Cuentas</li>
-                <li>• Formatos Contables</li>
-              </ul>
-            </div>
-          </div>
+          </article>
 
-          <div className="service-card glass-card p-6 rounded-3xl group !bg-[rgba(249,115,22,0.2)] hover:!bg-[rgba(249,115,22,0.26)] transition-all duration-500 !border !border-[rgba(249,115,22,0.78)] shadow-[inset_0_0_0_1px_rgba(251,146,60,0.34),0_10px_30px_-18px_rgba(249,115,22,0.6)] hover:-translate-y-1">
-            <div className="flex justify-between items-start mb-12">
-              <div className="w-14 h-14 bg-brand-secondary/20 rounded-2xl flex items-center justify-center text-brand-secondary transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+          <article className="group relative overflow-hidden rounded-[2rem] border border-[rgba(249,115,22,0.78)] bg-white/80 p-7 shadow-[0_18px_50px_-28px_rgba(15,23,42,0.25)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1">
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              style={{
+                backgroundImage:
+                  "url('https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80')",
+              }}
+            />
+            <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-gradient-to-br from-brand-secondary/85 via-brand-secondary/70 to-brand-primary/70" />
+            <div className="relative z-10 inline-flex rounded-full border border-brand-secondary/20 bg-brand-secondary/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] text-brand-secondary transition-colors duration-500 group-hover:border-white/30 group-hover:bg-white/15 group-hover:text-white">
+              Sunat & Tax
+            </div>
+            <div className="relative z-10 mt-6 flex items-start gap-5">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-brand-secondary/12 text-brand-secondary transition-colors duration-500 group-hover:bg-white/15 group-hover:text-white">
                 <svg
-                  className="w-8 h-8"
+                  className="h-8 w-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -78,25 +99,35 @@
                   />
                 </svg>
               </div>
-              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-                SUNAT & TAX
-              </span>
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 transition-colors duration-500 group-hover:text-white">
+                  Estrategia Tributaria
+                </h3>
+                <ul className="mt-5 space-y-3 text-sm text-slate-700 transition-colors duration-500 group-hover:text-orange-50">
+                  <li>&bull; Liquidación de Impuestos</li>
+                  <li>&bull; Presentación de PDTs</li>
+                  <li>&bull; Libros Electrónicos SIRE</li>
+                </ul>
+              </div>
             </div>
-            <h3 className="text-xl font-bold mb-4 transition-colors duration-300">
-              Estrategia Tributaria
-            </h3>
-            <ul className="text-xs text-slate-600 space-y-2">
-              <li>• Liquidación de Impuestos</li>
-              <li>• Presentación de PDTs</li>
-              <li>• Libros Electrónicos SIRE</li>
-            </ul>
-          </div>
+          </article>
 
-          <div className="service-card glass-card p-6 rounded-3xl group !bg-[rgba(16,185,129,0.22)] hover:!bg-[rgba(16,185,129,0.3)] transition-all duration-500 !border !border-[rgba(16,185,129,0.8)] shadow-[inset_0_0_0_1px_rgba(52,211,153,0.34),0_10px_30px_-18px_rgba(16,185,129,0.6)] hover:-translate-y-1">
-            <div className="flex justify-between items-start mb-12">
-              <div className="w-14 h-14 bg-emerald-500/20 rounded-2xl flex items-center justify-center text-emerald-400 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
+          <article className="group relative overflow-hidden rounded-[2rem] border border-[rgba(16,185,129,0.8)] bg-white/80 p-7 shadow-[0_18px_50px_-28px_rgba(15,23,42,0.25)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1">
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              style={{
+                backgroundImage:
+                  "url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80')",
+              }}
+            />
+            <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-gradient-to-br from-emerald-700/80 via-emerald-600/70 to-brand-primary/70" />
+            <div className="relative z-10 inline-flex rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] text-emerald-500 transition-colors duration-500 group-hover:border-white/30 group-hover:bg-white/15 group-hover:text-white">
+              Hr & Payroll
+            </div>
+            <div className="relative z-10 mt-6 flex items-start gap-5">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/12 text-emerald-500 transition-colors duration-500 group-hover:bg-white/15 group-hover:text-white">
                 <svg
-                  className="w-8 h-8"
+                  className="h-8 w-8"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -109,27 +140,37 @@
                   />
                 </svg>
               </div>
-              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-                HR & Payroll
-              </span>
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 transition-colors duration-500 group-hover:text-white">
+                  Gestión Laboral
+                </h3>
+                <ul className="mt-5 space-y-3 text-sm text-slate-700 transition-colors duration-500 group-hover:text-emerald-50">
+                  <li>&bull; Planilla de Sueldos PLAME</li>
+                  <li>&bull; Boletas y Gratificaciones</li>
+                  <li>&bull; CTS y Beneficios Sociales</li>
+                  <li>&bull; Trámites AFP y ONP</li>
+                </ul>
+              </div>
             </div>
-            <h3 className="text-xl font-bold mb-4 transition-colors duration-300">
-              Gestión Laboral
-            </h3>
-            <ul className="text-xs text-slate-600 space-y-2">
-              <li>• Planilla de Sueldos PLAME</li>
-              <li>• Boletas & Gratificaciones</li>
-              <li>• CTS & Beneficios Sociales</li>
-              <li>• Trámites AFP / ONP</li>
-            </ul>
-          </div>
+          </article>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4 mt-4">
-          <div className="service-card glass-card p-6 rounded-3xl md:col-span-1 !bg-[rgba(249,115,22,0.2)] !border !border-[rgba(249,115,22,0.78)] shadow-[inset_0_0_0_1px_rgba(251,146,60,0.34),0_10px_30px_-18px_rgba(249,115,22,0.6)] hover:!bg-[rgba(249,115,22,0.26)] hover:-translate-y-1 transition-all duration-500">
-            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+        <div className="mt-6 grid gap-6 md:grid-cols-3">
+          <article className="group relative overflow-hidden rounded-[2rem] border border-[rgba(249,115,22,0.78)] bg-white/80 p-7 shadow-[0_18px_50px_-28px_rgba(15,23,42,0.25)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 md:col-span-1">
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              style={{
+                backgroundImage:
+                  "url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80')",
+              }}
+            />
+            <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-gradient-to-br from-brand-secondary/85 via-brand-primary/70 to-brand-secondary/60" />
+            <div className="relative z-10 inline-flex rounded-full border border-brand-secondary/20 bg-brand-secondary/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] text-brand-secondary transition-colors duration-500 group-hover:border-white/30 group-hover:bg-white/15 group-hover:text-white">
+              Finanzas
+            </div>
+            <h3 className="relative z-10 mt-6 flex items-center gap-2 text-2xl font-bold text-slate-900 transition-colors duration-500 group-hover:text-white">
               <svg
-                className="w-4 h-4 text-orange-500"
+                className="h-5 w-5 text-orange-500 transition-colors duration-500 group-hover:text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -143,14 +184,14 @@
               </svg>
               Analítica Financiera
             </h3>
-            <p className="text-sm text-slate-600 leading-relaxed mb-6">
-              Estados Financieros, Balances, Flujo de Efectivo y Reportes
-              Gerenciales con visualización moderna.
+            <p className="relative z-10 mt-4 text-sm leading-7 text-slate-700 transition-colors duration-500 group-hover:text-orange-50">
+              Estados financieros, balances, flujo de efectivo y reportes
+              gerenciales con visualización moderna.
             </p>
-            <button className="text-xs font-bold text-orange-600 flex items-center gap-1 hover:underline transition-transform duration-300 hover:translate-x-1">
+            <button className="relative z-10 mt-6 flex items-center gap-1 text-xs font-bold text-orange-600 transition-all duration-300 hover:translate-x-1 hover:underline group-hover:text-white">
               Ver ejemplo de reporte
               <svg
-                className="w-3 h-3"
+                className="h-3 w-3"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -163,32 +204,46 @@
                 />
               </svg>
             </button>
-          </div>
-          <div className="service-card glass-card p-6 rounded-3xl md:col-span-2 flex items-center justify-between overflow-hidden relative group !border !border-[rgba(37,99,235,0.75)] !bg-[rgba(11,35,86,0.14)] shadow-[inset_0_0_0_1px_rgba(59,130,246,0.35),0_10px_30px_-18px_rgba(37,99,235,0.65)] hover:!bg-[rgba(11,35,86,0.18)] hover:-translate-y-1 transition-all duration-500">
-            <div className="relative z-10 max-w-sm">
-              <h3 className="text-xl font-bold mb-2">
-                Auditoría & Control Interno
-              </h3>
-              <p className="text-sm text-slate-600">
-                Evaluamos la transparencia y salud de tus procesos para asegurar
-                el crecimiento sostenible.
-              </p>
+          </article>
+
+          <article className="group relative overflow-hidden rounded-[2rem] border border-[rgba(37,99,235,0.75)] bg-white/80 p-7 shadow-[0_18px_50px_-28px_rgba(15,23,42,0.25)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 md:col-span-2">
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              style={{
+                backgroundImage:
+                  "url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80')",
+              }}
+            />
+            <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-gradient-to-br from-brand-primary/85 via-brand-primary/75 to-slate-900/70" />
+            <div className="relative z-10 inline-flex rounded-full border border-brand-primary/20 bg-brand-primary/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.22em] text-brand-primary transition-colors duration-500 group-hover:border-white/30 group-hover:bg-white/15 group-hover:text-white">
+              Control Interno
             </div>
-            <div className="absolute -right-10 -bottom-10 w-48 h-48 bg-brand-primary/15 rounded-full blur-3xl transition-all duration-700 group-hover:scale-150"></div>
-            <svg
-              className="w-32 h-32 text-blue-700/20 relative z-0"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M9 12l2 2 4-4m-7 9h8a2 2 0 002-2V7l-6-4-6 4v10a2 2 0 002 2z"
-              />
-            </svg>
-          </div>
+            <div className="relative z-10 mt-6 flex items-center justify-between gap-6">
+              <div className="max-w-sm">
+                <h3 className="text-2xl font-bold text-slate-900 transition-colors duration-500 group-hover:text-white">
+                  Auditoría & Control Interno
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-slate-700 transition-colors duration-500 group-hover:text-blue-50">
+                  Evaluamos la transparencia y salud de tus procesos para
+                  asegurar el crecimiento sostenible.
+                </p>
+              </div>
+              <svg
+                className="h-24 w-24 shrink-0 text-blue-700/20 transition-colors duration-500 group-hover:text-white/30"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 12l2 2 4-4m-7 9h8a2 2 0 002-2V7l-6-4-6 4v10a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <div className="absolute -right-12 -bottom-12 h-40 w-40 rounded-full bg-brand-primary/10 blur-3xl transition-opacity duration-500 group-hover:opacity-0" />
+          </article>
         </div>
       </div>
     </section>

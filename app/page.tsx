@@ -23,12 +23,12 @@ export default function HomePage() {
         <TrustBar />
         <ClientLogos />
         <WhoWeHelp />
+        <BenefitsSection />
         <ServicesSection />
         <TechnologySection />
         <ProcessSection />
         <AboutSection />
         <TestimonialsSection />
-        <BenefitsSection />
         <ImpactSection />
         <PricingSection />
         <FinalCtaSection />

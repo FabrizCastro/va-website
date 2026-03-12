@@ -1,4 +1,4 @@
-export default function AboutSection() {
+﻿export default function AboutSection() {
   return (
     <section
       id="nosotros"
@@ -8,9 +8,11 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-8">
-            <h2 className="text-4xl lg:text-5xl font-extrabold font-heading text-white">
-              Liderazgo con visión{" "}
-              <span className="text-brand-secondary">estratégica</span>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading leading-[1.1] text-brand-primary">
+              Liderazgo con{" "}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary">
+                vision estratégica
+              </span>
             </h2>
             <div className="prose prose-invert prose-slate">
               <p className="text-lg text-slate-400 italic border-l-4 border-brand-primary pl-6">
