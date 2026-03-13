@@ -27,7 +27,7 @@ const plans: PricingPlan[] = [
   {
     name: "Plan Básico",
     monthlyPrice: "S/ 200",
-    annualPrice: "S/ 180",
+    annualPrice: "S/ 2200",
     noteMonthly: "+ IGV | Subplanes desde S/ 150 hasta S/ 200",
     noteAnnual: "+ IGV | Subplanes anuales desde S/ 120 hasta S/ 180",
     accent: "blue",
@@ -35,14 +35,14 @@ const plans: PricingPlan[] = [
       {
         name: "Plan Persona",
         monthlyPrice: "S/ 150",
-        annualPrice: "S/ 120",
+        annualPrice: "S/ 1650",
         noteMonthly: "+ IGV | Para gestión personal",
         noteAnnual: "+ IGV | Pago anual preferente",
       },
       {
         name: "Plan Empresa",
         monthlyPrice: "S/ 200",
-        annualPrice: "S/ 180",
+        annualPrice: "S/ 2200",
         noteMonthly: "+ IGV | Para operación empresarial",
         noteAnnual: "+ IGV | Mejor para negocio formal",
       },
@@ -57,7 +57,7 @@ const plans: PricingPlan[] = [
   {
     name: "Plan Intermedio",
     monthlyPrice: "S/ 250",
-    annualPrice: "S/ 230",
+    annualPrice: "S/ 3000",
     noteMonthly: "+ IGV | Subplanes desde S/ 250 hasta S/ 300",
     noteAnnual: "+ IGV | Subplanes anuales desde S/ 230 hasta S/ 270",
     accent: "orange",
@@ -65,9 +65,9 @@ const plans: PricingPlan[] = [
       {
         name: "Persona o Empresa",
         monthlyPrice: "S/ 300",
-        annualPrice: "S/ 270",
-        noteMonthly: "+ IGV | aprox. S/ 15,000",
-        noteAnnual: "+ IGV | Pago anual preferente",
+        annualPrice: "S/ 3300",
+        noteMonthly: "+ IGV | Ingresos aproximados de S/ 15,000",
+        noteAnnual: "+ IGV | Ingresos aproximados de S/ 15,000",
       },
     ],
     features: [
@@ -80,8 +80,8 @@ const plans: PricingPlan[] = [
   },
   {
     name: "Plan Avanzado",
-    monthlyPrice: "S/ 250",
-    annualPrice: "S/ 230",
+    monthlyPrice: "S/ 450",
+    annualPrice: "S/ 420",
     noteMonthly: "+ IGV | Subplanes desde S/ 400 hasta S/ 450",
     noteAnnual: "+ IGV | Subplanes anuales desde S/ 350 hasta S/ 420",
     accent: "orange",
@@ -89,9 +89,9 @@ const plans: PricingPlan[] = [
       {
         name: "Persona o Empresa",
         monthlyPrice: "S/ 450",
-        annualPrice: "S/ 420",
-        noteMonthly: "+ IGV | aprox. S/ 30,000",
-        noteAnnual: "+ IGV | Pago anual preferente",
+        annualPrice: "S/ 5100",
+        noteMonthly: "+ IGV | Ingresos aproximados de S/ 30,000",
+        noteAnnual: "+ IGV | Ingresos aproximados de S/ 30,000",
       },
     ],
     features: [
@@ -289,4 +289,3 @@ export default function PricingSection() {
     </section>
   );
 }
-

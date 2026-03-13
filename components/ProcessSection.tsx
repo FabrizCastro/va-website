@@ -21,48 +21,48 @@ export default function ProcessSection() {
         <div className="grid md:grid-cols-5 gap-4 relative">
           <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500/50 to-orange-500/50 -z-10"></div>
 
-          <div className="glass-panel p-6 rounded-3xl text-center flex flex-col items-center">
+          <div className="glass-panel border border-white/10 bg-white/[0.06] p-6 rounded-3xl text-center flex flex-col items-center">
             <div className="w-12 h-12 rounded-full bg-slate-800 border-2 border-blue-500 flex items-center justify-center font-bold text-blue-500 mb-4">
               01
             </div>
-            <h4 className="font-bold text-sm mb-2">Diagnóstico</h4>
-            <p className="text-[10px] text-slate-500">
+            <h4 className="font-bold text-sm mb-2 text-white">Diagnóstico</h4>
+            <p className="text-[11px] leading-5 text-blue-100/85">
               Evaluamos tu situación actual y riesgos potenciales.
             </p>
           </div>
-          <div className="glass-panel p-6 rounded-3xl text-center flex flex-col items-center">
+          <div className="glass-panel border border-white/10 bg-white/[0.06] p-6 rounded-3xl text-center flex flex-col items-center">
             <div className="w-12 h-12 rounded-full bg-slate-800 border-2 border-blue-500 flex items-center justify-center font-bold text-blue-500 mb-4">
               02
             </div>
-            <h4 className="font-bold text-sm mb-2">Organización</h4>
-            <p className="text-[10px] text-slate-500">
+            <h4 className="font-bold text-sm mb-2 text-white">Organización</h4>
+            <p className="text-[11px] leading-5 text-blue-100/85">
               Estructuramos tu data bajo estándares contables.
             </p>
           </div>
-          <div className="glass-panel p-6 rounded-3xl text-center flex flex-col items-center">
+          <div className="glass-panel border border-white/10 bg-white/[0.06] p-6 rounded-3xl text-center flex flex-col items-center">
             <div className="w-12 h-12 rounded-full bg-slate-800 border-2 border-orange-500 flex items-center justify-center font-bold text-orange-500 mb-4">
               03
             </div>
-            <h4 className="font-bold text-sm mb-2">Automatización</h4>
-            <p className="text-[10px] text-slate-500">
+            <h4 className="font-bold text-sm mb-2 text-white">Automatización</h4>
+            <p className="text-[11px] leading-5 text-blue-100/85">
               Implementamos workflows para agilizar procesos.
             </p>
           </div>
-          <div className="glass-panel p-6 rounded-3xl text-center flex flex-col items-center">
+          <div className="glass-panel border border-white/10 bg-white/[0.06] p-6 rounded-3xl text-center flex flex-col items-center">
             <div className="w-12 h-12 rounded-full bg-slate-800 border-2 border-orange-500 flex items-center justify-center font-bold text-orange-500 mb-4">
               04
             </div>
-            <h4 className="font-bold text-sm mb-2">Reporting</h4>
-            <p className="text-[10px] text-slate-500">
+            <h4 className="font-bold text-sm mb-2 text-white">Reporting</h4>
+            <p className="text-[11px] leading-5 text-blue-100/85">
               Control total con tableros de control gerencial.
             </p>
           </div>
-          <div className="glass-panel p-6 rounded-3xl text-center flex flex-col items-center">
+          <div className="glass-panel border border-white/10 bg-white/[0.06] p-6 rounded-3xl text-center flex flex-col items-center">
             <div className="w-12 h-12 rounded-full bg-slate-800 border-2 border-white flex items-center justify-center font-bold text-white mb-4">
               05
             </div>
-            <h4 className="font-bold text-sm mb-2">Acompañamiento</h4>
-            <p className="text-[10px] text-slate-500">
+            <h4 className="font-bold text-sm mb-2 text-white">Acompañamiento</h4>
+            <p className="text-[11px] leading-5 text-blue-100/85">
               Asesoría estratégica continua para crecer.
             </p>
           </div>
@@ -73,7 +73,7 @@ export default function ProcessSection() {
             <div className="flex items-center justify-between mb-6 px-2">
               <div>
                 <h3 className="font-bold text-slate-100">Panel Gerencial Real-Time</h3>
-                <p className="text-xs text-slate-500">V&A Profesionales Intelligence Dashboard</p>
+                <p className="text-xs text-blue-100/75">V&A Profesionales Intelligence Dashboard</p>
               </div>
               <div className="flex gap-2">
                 <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
@@ -84,26 +84,26 @@ export default function ProcessSection() {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
               <div className="glass-panel p-4 rounded-2xl dashboard-card border-white/5 bg-slate-800/40">
-                <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-1">Ingresos Mes</p>
+                <p className="text-[10px] text-blue-100/70 uppercase tracking-wider mb-1">Ingresos Mes</p>
                 <h4 className="text-xl font-bold text-blue-400">S/ 142.5k</h4>
                 <div className="mt-2 text-[10px] text-emerald-400 flex items-center gap-1">
                   <TrendingUp className="w-3 h-3" /> +12.4%
                 </div>
               </div>
               <div className="glass-panel p-4 rounded-2xl dashboard-card border-white/5 bg-slate-800/40">
-                <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-1">Gastos Op.</p>
+                <p className="text-[10px] text-blue-100/70 uppercase tracking-wider mb-1">Gastos Op.</p>
                 <h4 className="text-xl font-bold text-orange-400">S/ 48.2k</h4>
                 <div className="mt-2 text-[10px] text-emerald-400 flex items-center gap-1">
                   <TrendingDown className="w-3 h-3" /> -4.1%
                 </div>
               </div>
               <div className="glass-panel p-4 rounded-2xl dashboard-card border-white/5 bg-slate-800/40">
-                <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-1">IGV Estimado</p>
-                <h4 className="text-xl font-bold">S/ 25.6k</h4>
-                <div className="mt-2 text-[10px] text-slate-500">Cierre 28 Oct</div>
+                <p className="text-[10px] text-blue-100/70 uppercase tracking-wider mb-1">IGV Estimado</p>
+                <h4 className="text-xl font-bold text-white">S/ 25.6k</h4>
+                <div className="mt-2 text-[10px] text-blue-100/75">Cierre 28 Oct</div>
               </div>
               <div className="glass-panel p-4 rounded-2xl dashboard-card border-white/5 bg-slate-800/40">
-                <p className="text-[10px] text-slate-400 uppercase tracking-wider mb-1">EBITDA</p>
+                <p className="text-[10px] text-blue-100/70 uppercase tracking-wider mb-1">EBITDA</p>
                 <h4 className="text-xl font-bold text-white">S/ 68.7k</h4>
                 <div className="mt-2 text-[10px] text-blue-400">Saludable</div>
               </div>
@@ -112,12 +112,12 @@ export default function ProcessSection() {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="md:col-span-2 glass-panel p-4 rounded-2xl border-white/5 bg-slate-900/40 h-64 flex flex-col">
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-xs font-semibold">Flujo de Caja vs Proyección</span>
+                  <span className="text-xs font-semibold text-white">Flujo de Caja vs Proyección</span>
                   <div className="flex gap-4">
-                    <span className="flex items-center gap-1 text-[10px]">
+                    <span className="flex items-center gap-1 text-[10px] text-blue-100/80">
                       <span className="w-2 h-2 rounded-full bg-blue-500"></span> Real
                     </span>
-                    <span className="flex items-center gap-1 text-[10px]">
+                    <span className="flex items-center gap-1 text-[10px] text-blue-100/80">
                       <span className="w-2 h-2 rounded-full bg-orange-500"></span> Proyectado
                     </span>
                   </div>
@@ -151,7 +151,7 @@ export default function ProcessSection() {
 
             <div className="mt-6 glass-panel rounded-2xl border-white/5 overflow-hidden">
               <table className="w-full text-left text-[11px]">
-                <thead className="bg-white/5 text-slate-400 uppercase">
+                <thead className="bg-white/5 text-blue-100/70 uppercase">
                   <tr>
                     <th className="px-4 py-2">Transacción</th>
                     <th className="px-4 py-2">Estado</th>
@@ -159,7 +159,7 @@ export default function ProcessSection() {
                     <th className="px-4 py-2">Fecha</th>
                   </tr>
                 </thead>
-                <tbody className="text-slate-300">
+                <tbody className="text-blue-50/90">
                   <tr className="border-b border-white/5">
                     <td className="px-4 py-3 flex items-center gap-2">
                       <FileText className="w-3 h-3 text-blue-400" /> Factura F001-2983
@@ -170,7 +170,7 @@ export default function ProcessSection() {
                       </span>
                     </td>
                     <td className="px-4 py-3 font-medium">S/ 12,400.00</td>
-                    <td className="px-4 py-3 text-slate-500">22 Oct, 2023</td>
+                    <td className="px-4 py-3 text-blue-100/70">22 Oct, 2023</td>
                   </tr>
                   <tr>
                     <td className="px-4 py-3 flex items-center gap-2">
@@ -182,7 +182,7 @@ export default function ProcessSection() {
                       </span>
                     </td>
                     <td className="px-4 py-3 font-medium">S/ 45,920.00</td>
-                    <td className="px-4 py-3 text-slate-500">Hoy, 09:15 AM</td>
+                    <td className="px-4 py-3 text-blue-100/70">Hoy, 09:15 AM</td>
                   </tr>
                 </tbody>
               </table>

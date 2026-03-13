@@ -22,7 +22,7 @@ type RoadmapItem = {
   left: string;
   top: string;
   detailLeft: string;
-  detailTop: string;
+  detailOffset: string;
   detailSide: "top" | "bottom";
   detailAnchor: "start" | "center" | "end";
 };
@@ -39,7 +39,7 @@ const roadmap: RoadmapItem[] = [
     left: "6%",
     top: "59%",
     detailLeft: "8%",
-    detailTop: "62%",
+    detailOffset: "26px",
     detailSide: "bottom",
     detailAnchor: "start",
   },
@@ -54,7 +54,7 @@ const roadmap: RoadmapItem[] = [
     left: "22%",
     top: "28%",
     detailLeft: "22%",
-    detailTop: "2%",
+    detailOffset: "18px",
     detailSide: "top",
     detailAnchor: "center",
   },
@@ -69,7 +69,7 @@ const roadmap: RoadmapItem[] = [
     left: "38%",
     top: "62%",
     detailLeft: "38%",
-    detailTop: "64%",
+    detailOffset: "26px",
     detailSide: "bottom",
     detailAnchor: "center",
   },
@@ -84,7 +84,7 @@ const roadmap: RoadmapItem[] = [
     left: "54%",
     top: "24%",
     detailLeft: "54%",
-    detailTop: "2%",
+    detailOffset: "18px",
     detailSide: "top",
     detailAnchor: "center",
   },
@@ -99,7 +99,7 @@ const roadmap: RoadmapItem[] = [
     left: "70%",
     top: "60%",
     detailLeft: "70%",
-    detailTop: "64%",
+    detailOffset: "26px",
     detailSide: "bottom",
     detailAnchor: "center",
   },
@@ -114,7 +114,7 @@ const roadmap: RoadmapItem[] = [
     left: "86%",
     top: "27%",
     detailLeft: "92%",
-    detailTop: "4%",
+    detailOffset: "18px",
     detailSide: "top",
     detailAnchor: "end",
   },
@@ -173,7 +173,13 @@ export default function SuccessRoadmapSection() {
 
   return (
     <section className="relative overflow-hidden bg-brand-primary py-24">
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_12%_18%,rgba(59,130,246,0.22),transparent_30%),radial-gradient(circle_at_88%_78%,rgba(249,115,22,0.18),transparent_34%)]" />
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/assets/brand/backgroundfinanzas.jpg')",
+        }}
+      />
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(11,35,86,0.78),rgba(11,35,86,0.72)),radial-gradient(circle_at_12%_18%,rgba(255,255,255,0.12),transparent_28%),radial-gradient(circle_at_88%_78%,rgba(249,115,22,0.14),transparent_34%)]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="max-w-3xl">
@@ -222,7 +228,9 @@ export default function SuccessRoadmapSection() {
                   <p className="mt-3 text-lg font-bold text-white">
                     {item.title}
                   </p>
-                  <p className="mt-2 text-sm text-blue-100/75">{item.summary}</p>
+                  <p className="mt-2 text-sm text-blue-100/75">
+                    {item.summary}
+                  </p>
                 </button>
               );
             })}
@@ -242,7 +250,7 @@ export default function SuccessRoadmapSection() {
         </div>
 
         <div className="mt-14 hidden lg:block">
-          <div className="relative h-[560px] overflow-visible rounded-[2.5rem] border border-white/10 bg-white/[0.04] px-8 pt-10">
+          <div className="relative h-[620px] overflow-visible rounded-[2.5rem] border border-white/10 bg-white/[0.04] px-8 pt-10">
             <svg
               viewBox="0 0 1200 280"
               className="absolute left-0 top-[126px] h-[280px] w-full"
@@ -313,9 +321,22 @@ export default function SuccessRoadmapSection() {
 
             <div
               className={`absolute z-20 w-[290px] ${getDetailAnchorClass(
-                activeItem.detailAnchor
+                activeItem.detailAnchor,
               )}`}
-              style={{ left: activeItem.detailAnchor === "center" ? activeItem.detailLeft : undefined, top: activeItem.detailTop }}
+              style={{
+                left:
+                  activeItem.detailAnchor === "center"
+                    ? activeItem.detailLeft
+                    : undefined,
+                top:
+                  activeItem.detailSide === "top"
+                    ? activeItem.detailOffset
+                    : undefined,
+                bottom:
+                  activeItem.detailSide === "bottom"
+                    ? activeItem.detailOffset
+                    : undefined,
+              }}
             >
               <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.1] p-5 shadow-[0_24px_60px_-32px_rgba(2,6,23,0.5)] backdrop-blur-sm">
                 <p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-200/90">
@@ -366,4 +387,3 @@ export default function SuccessRoadmapSection() {
     </section>
   );
 }
-

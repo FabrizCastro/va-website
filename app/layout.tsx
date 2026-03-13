@@ -20,6 +20,11 @@ export const metadata: Metadata = {
   title: "V&A PROFESIONALES | Inteligencia Financiera y Contable",
   description:
     "Asesoría contable, tributaria y financiera con automatización, análisis con IA y control total de finanzas empresariales.",
+  icons: {
+    icon: "/assets/brand/v%26alogo.png",
+    shortcut: "/assets/brand/v%26alogo.png",
+    apple: "/assets/brand/v%26alogo.png",
+  },
 };
 
 export default function RootLayout({
@@ -35,4 +40,3 @@ export default function RootLayout({
     </html>
   );
 }
-
