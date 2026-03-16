@@ -1,4 +1,68 @@
-﻿export default function FinalCtaSection() {
+﻿"use client";
+
+import { FormEvent, useEffect, useState } from "react";
+
+const WHATSAPP_NUMBER = "51970616942";
+const planOptions = [
+  "Plan Básico",
+  "Plan Intermedio",
+  "Plan Avanzado",
+  "Otros Planes",
+];
+
+export default function FinalCtaSection() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [plan, setPlan] = useState(planOptions[0]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const incomingPlan = params.get("plan");
+
+    if (incomingPlan && planOptions.includes(incomingPlan)) {
+      setPlan(incomingPlan);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (window.location.hash !== "#contacto") return;
+
+    const scrollToContact = () => {
+      const section = document.getElementById("contacto");
+      if (!section) return;
+
+      const navOffset = 80;
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+
+      window.scrollTo({
+        top: Math.max(sectionTop - navOffset, 0),
+        behavior: "smooth",
+      });
+    };
+
+    const timer = window.setTimeout(scrollToContact, 120);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const contactName = name.trim() || "un interesado";
+    const contactEmail = email.trim() || "No indicó correo";
+    const interestedPlan = plan || "Información general";
+
+    const message = [
+      `Hola, vengo de la web de V&A Profesionales.`,
+      `Mi nombre es ${contactName}.`,
+      `Plan de interés: ${interestedPlan}.`,
+      `Correo: ${contactEmail}.`,
+      `Quiero solicitar más información y coordinar una asesoría.`,
+    ].join("\n");
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <section
       id="contacto"
@@ -25,23 +89,37 @@
             consultoría estratégica con Henry Valladares.
           </p>
 
-          <form className="max-w-sm mx-auto space-y-3">
+          <form className="max-w-sm mx-auto space-y-3" onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder="Tu nombre"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
               className="w-full px-5 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-brand-primary transition-colors text-white"
             />
             <input
               type="email"
               placeholder="Correo corporativo"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
               className="w-full px-5 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-brand-primary transition-colors text-white"
             />
+            <select
+              value={plan}
+              onChange={(event) => setPlan(event.target.value)}
+              className="w-full px-5 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-brand-primary transition-colors text-white"
+            >
+              {planOptions.map((option) => (
+                <option key={option} value={option} className="text-slate-900">
+                  {option}
+                </option>
+              ))}
+            </select>
             <button className="w-full py-3 bg-brand-primary hover:bg-brand-primary/90 text-white font-bold rounded-xl transition-all shadow-xl shadow-blue-500/20">
-              Solicitar Diagnóstico
+              Escribir por WhatsApp
             </button>
             <p className="text-[10px] text-slate-300 mt-4">
-              Al enviar aceptas nuestras políticas de privacidad y tratamiento
-              de datos.
+              Al enviar, abriremos WhatsApp con un mensaje base y tu plan de interés.
             </p>
           </form>
         </div>

@@ -47,8 +47,8 @@ export default function HeroChart() {
         labels: ["Ene", "Feb", "Mar", "Abr", "May", "Jun"],
         datasets: [
           {
-            label: "Ingresos",
-            data: [65, 78, 72, 95, 102, 120],
+            label: "Eficiencia",
+            data: [65, 68, 72, 74, 77, 81],
             borderColor: "#2563eb",
             borderWidth: 3,
             backgroundColor: gradient,
@@ -57,8 +57,8 @@ export default function HeroChart() {
             pointRadius: 0,
           },
           {
-            label: "Egresos",
-            data: [45, 52, 48, 62, 58, 65],
+            label: "Carga operativa",
+            data: [42, 44, 43, 41, 39, 37],
             borderColor: "#f97316",
             borderWidth: 2,
             backgroundColor: secondaryGradient,

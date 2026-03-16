@@ -23,7 +23,7 @@ export default function HeroSection() {
             <p className="text-base sm:text-xl text-slate-700 max-w-xl leading-relaxed">
               Asesoría contable, tributaria y financiera con automatización,
               análisis con IA y control total de tus finanzas empresariales para
-              emprendedores y corporaciones.
+              corporaciones y emprendedores.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <button className="px-6 sm:px-8 py-3.5 sm:py-4 bg-brand-primary hover:bg-brand-primary/90 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 group">
@@ -92,23 +92,23 @@ export default function HeroSection() {
               <div className="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-brand-dark/40 p-4 rounded-xl border border-white/5">
                   <p className="text-[10px] text-slate-500 uppercase font-bold mb-1">
-                    Ingresos Mensuales
+                    Eficiencia de ingresos
                   </p>
                   <div className="flex items-end justify-between">
-                    <h3 className="text-xl font-bold text-white">S/ 142,500</h3>
-                    <span className="text-[10px] text-emerald-400">+12%</span>
+                    <h3 className="text-xl font-bold text-white">78%</h3>
+                    <span className="text-[10px] text-emerald-400">
+                      +12 pts
+                    </span>
                   </div>
                 </div>
                 <div className="bg-brand-dark/40 p-4 rounded-xl border border-white/5">
                   <p className="text-[10px] text-slate-500 uppercase font-bold mb-1">
-                    Impuestos Est.
+                    Carga tributaria
                   </p>
                   <div className="flex items-end justify-between">
-                    <h3 className="text-xl font-bold text-orange-400">
-                      S/ 18,340
-                    </h3>
+                    <h3 className="text-xl font-bold text-orange-400">21%</h3>
                     <span className="text-[10px] text-slate-500">
-                      IGV/Renta
+                      IGV / Renta
                     </span>
                   </div>
                 </div>
@@ -174,4 +174,3 @@ export default function HeroSection() {
     </section>
   );
 }
-

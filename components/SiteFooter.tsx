@@ -7,7 +7,11 @@ export default function SiteFooter() {
         <div className="grid md:grid-cols-6 gap-12 mb-16">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-6">
-              <a href="#" className="brand-logo-text" aria-label="V&A Profesionales">
+              <a
+                href="#"
+                className="brand-logo-text"
+                aria-label="V&A Profesionales"
+              >
                 <span className="brand-logo-top">V&amp;A</span>
                 <span className="brand-logo-bottom">PROFESIONALES</span>
               </a>
@@ -136,7 +140,7 @@ export default function SiteFooter() {
                 vap.estudiocontable@gmail.com
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-orange-500" /> +51 987 654 321
+                <Phone className="w-4 h-4 text-orange-500" /> +51 970616942
               </li>
               <li className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-orange-500" /> Lima, Perú

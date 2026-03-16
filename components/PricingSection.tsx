@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 type BillingCycle = "monthly" | "annual";
@@ -275,12 +276,12 @@ export default function PricingSection() {
                   ))}
                 </ul>
 
-                <button
-                  type="button"
-                  className={`mt-10 w-full rounded-2xl py-4 text-sm font-extrabold transition-all ${accent.button}`}
+                <Link
+                  href={`/?plan=${encodeURIComponent(plan.name)}#contacto`}
+                  className={`mt-10 block w-full rounded-2xl py-4 text-center text-sm font-extrabold transition-all ${accent.button}`}
                 >
                   Más información
-                </button>
+                </Link>
               </article>
             );
           })}
@@ -289,3 +290,4 @@ export default function PricingSection() {
     </section>
   );
 }
+

@@ -167,9 +167,9 @@ function getDetailAnchorClass(anchor: RoadmapItem["detailAnchor"]) {
 }
 
 export default function SuccessRoadmapSection() {
-  const [activeStep, setActiveStep] = useState(roadmap[0].step);
+  const [activeStep, setActiveStep] = useState<string | null>(null);
   const activeItem =
-    roadmap.find((item) => item.step === activeStep) ?? roadmap[0];
+    roadmap.find((item) => item.step === activeStep) ?? null;
 
   return (
     <section className="relative overflow-hidden bg-brand-primary py-24">
@@ -237,20 +237,36 @@ export default function SuccessRoadmapSection() {
           </div>
 
           <div className="mt-6 rounded-[2rem] border border-white/10 bg-white/10 p-6">
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-orange-200/90">
-              Detalle de la etapa
-            </p>
-            <h3 className="mt-3 text-2xl font-extrabold font-heading text-white">
-              {activeItem.title}
-            </h3>
-            <p className="mt-3 text-sm leading-7 text-blue-50/85">
-              {activeItem.description}
-            </p>
+            {activeItem ? (
+              <>
+                <p className="text-sm font-bold uppercase tracking-[0.22em] text-orange-200/90">
+                  Detalle de la etapa
+                </p>
+                <h3 className="mt-3 text-2xl font-extrabold font-heading text-white">
+                  {activeItem.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-blue-50/85">
+                  {activeItem.description}
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="text-sm font-bold uppercase tracking-[0.22em] text-orange-200/90">
+                  Explora el timeline
+                </p>
+                <p className="mt-3 text-sm leading-7 text-blue-50/85">
+                  Selecciona una etapa para ver el detalle del caso de éxito.
+                </p>
+              </>
+            )}
           </div>
         </div>
 
         <div className="mt-14 hidden lg:block">
-          <div className="relative h-[620px] overflow-visible rounded-[2.5rem] border border-white/10 bg-white/[0.04] px-8 pt-10">
+          <div
+            className="relative h-[620px] overflow-visible rounded-[2.5rem] border border-white/10 bg-white/[0.04] px-8 pt-10"
+            onMouseLeave={() => setActiveStep(null)}
+          >
             <svg
               viewBox="0 0 1200 280"
               className="absolute left-0 top-[126px] h-[280px] w-full"
@@ -288,7 +304,6 @@ export default function SuccessRoadmapSection() {
                   type="button"
                   onMouseEnter={() => setActiveStep(item.step)}
                   onFocus={() => setActiveStep(item.step)}
-                  onClick={() => setActiveStep(item.step)}
                   className="absolute z-10 -translate-x-1/2 text-left"
                   style={{ left: item.left, top: item.top }}
                 >
@@ -319,45 +334,47 @@ export default function SuccessRoadmapSection() {
               );
             })}
 
-            <div
-              className={`absolute z-20 w-[290px] ${getDetailAnchorClass(
-                activeItem.detailAnchor,
-              )}`}
-              style={{
-                left:
-                  activeItem.detailAnchor === "center"
-                    ? activeItem.detailLeft
-                    : undefined,
-                top:
-                  activeItem.detailSide === "top"
-                    ? activeItem.detailOffset
-                    : undefined,
-                bottom:
-                  activeItem.detailSide === "bottom"
-                    ? activeItem.detailOffset
-                    : undefined,
-              }}
-            >
-              <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.1] p-5 shadow-[0_24px_60px_-32px_rgba(2,6,23,0.5)] backdrop-blur-sm">
-                <p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-200/90">
-                  Detalle de la etapa
-                </p>
-                <h3 className="mt-3 text-2xl font-extrabold font-heading text-white">
-                  {activeItem.title}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-blue-50/85">
-                  {activeItem.description}
-                </p>
-                <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-100/70">
-                    Resumen
+            {activeItem && (
+              <div
+                className={`absolute z-20 w-[290px] ${getDetailAnchorClass(
+                  activeItem.detailAnchor,
+                )}`}
+                style={{
+                  left:
+                    activeItem.detailAnchor === "center"
+                      ? activeItem.detailLeft
+                      : undefined,
+                  top:
+                    activeItem.detailSide === "top"
+                      ? activeItem.detailOffset
+                      : undefined,
+                  bottom:
+                    activeItem.detailSide === "bottom"
+                      ? activeItem.detailOffset
+                      : undefined,
+                }}
+              >
+                <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.1] p-5 shadow-[0_24px_60px_-32px_rgba(2,6,23,0.5)] backdrop-blur-sm">
+                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-200/90">
+                    Detalle de la etapa
                   </p>
-                  <p className="mt-2 text-sm leading-6 text-blue-50/80">
-                    {activeItem.summary}
+                  <h3 className="mt-3 text-2xl font-extrabold font-heading text-white">
+                    {activeItem.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-blue-50/85">
+                    {activeItem.description}
                   </p>
+                  <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-100/70">
+                      Resumen
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-blue-50/80">
+                      {activeItem.summary}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
 

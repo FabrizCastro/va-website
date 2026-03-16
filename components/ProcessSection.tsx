@@ -84,27 +84,27 @@ export default function ProcessSection() {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
               <div className="glass-panel p-4 rounded-2xl dashboard-card border-white/5 bg-slate-800/40">
-                <p className="text-[10px] text-blue-100/70 uppercase tracking-wider mb-1">Ingresos Mes</p>
-                <h4 className="text-xl font-bold text-blue-400">S/ 142.5k</h4>
+                <p className="text-[10px] text-blue-100/70 uppercase tracking-wider mb-1">Eficiencia mensual</p>
+                <h4 className="text-xl font-bold text-blue-400">78%</h4>
                 <div className="mt-2 text-[10px] text-emerald-400 flex items-center gap-1">
-                  <TrendingUp className="w-3 h-3" /> +12.4%
+                  <TrendingUp className="w-3 h-3" /> +12 pts
                 </div>
               </div>
               <div className="glass-panel p-4 rounded-2xl dashboard-card border-white/5 bg-slate-800/40">
-                <p className="text-[10px] text-blue-100/70 uppercase tracking-wider mb-1">Gastos Op.</p>
-                <h4 className="text-xl font-bold text-orange-400">S/ 48.2k</h4>
+                <p className="text-[10px] text-blue-100/70 uppercase tracking-wider mb-1">Carga operativa</p>
+                <h4 className="text-xl font-bold text-orange-400">34%</h4>
                 <div className="mt-2 text-[10px] text-emerald-400 flex items-center gap-1">
-                  <TrendingDown className="w-3 h-3" /> -4.1%
+                  <TrendingDown className="w-3 h-3" /> -4 pts
                 </div>
               </div>
               <div className="glass-panel p-4 rounded-2xl dashboard-card border-white/5 bg-slate-800/40">
-                <p className="text-[10px] text-blue-100/70 uppercase tracking-wider mb-1">IGV Estimado</p>
-                <h4 className="text-xl font-bold text-white">S/ 25.6k</h4>
-                <div className="mt-2 text-[10px] text-blue-100/75">Cierre 28 Oct</div>
+                <p className="text-[10px] text-blue-100/70 uppercase tracking-wider mb-1">Presión tributaria</p>
+                <h4 className="text-xl font-bold text-white">21%</h4>
+                <div className="mt-2 text-[10px] text-blue-100/75">Corte del periodo</div>
               </div>
               <div className="glass-panel p-4 rounded-2xl dashboard-card border-white/5 bg-slate-800/40">
-                <p className="text-[10px] text-blue-100/70 uppercase tracking-wider mb-1">EBITDA</p>
-                <h4 className="text-xl font-bold text-white">S/ 68.7k</h4>
+                <p className="text-[10px] text-blue-100/70 uppercase tracking-wider mb-1">Margen operativo</p>
+                <h4 className="text-xl font-bold text-white">44%</h4>
                 <div className="mt-2 text-[10px] text-blue-400">Saludable</div>
               </div>
             </div>
@@ -112,13 +112,13 @@ export default function ProcessSection() {
             <div className="grid md:grid-cols-3 gap-6">
               <div className="md:col-span-2 glass-panel p-4 rounded-2xl border-white/5 bg-slate-900/40 h-64 flex flex-col">
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-xs font-semibold text-white">Flujo de Caja vs Proyección</span>
+                  <span className="text-xs font-semibold text-white">Eficiencia vs carga operativa</span>
                   <div className="flex gap-4">
                     <span className="flex items-center gap-1 text-[10px] text-blue-100/80">
-                      <span className="w-2 h-2 rounded-full bg-blue-500"></span> Real
+                      <span className="w-2 h-2 rounded-full bg-blue-500"></span> Eficiencia
                     </span>
                     <span className="flex items-center gap-1 text-[10px] text-blue-100/80">
-                      <span className="w-2 h-2 rounded-full bg-orange-500"></span> Proyectado
+                      <span className="w-2 h-2 rounded-full bg-orange-500"></span> Carga
                     </span>
                   </div>
                 </div>
@@ -153,23 +153,23 @@ export default function ProcessSection() {
               <table className="w-full text-left text-[11px]">
                 <thead className="bg-white/5 text-blue-100/70 uppercase">
                   <tr>
-                    <th className="px-4 py-2">Transacción</th>
+                    <th className="px-4 py-2">Proceso</th>
                     <th className="px-4 py-2">Estado</th>
-                    <th className="px-4 py-2">Monto</th>
+                    <th className="px-4 py-2">Avance</th>
                     <th className="px-4 py-2">Fecha</th>
                   </tr>
                 </thead>
                 <tbody className="text-blue-50/90">
                   <tr className="border-b border-white/5">
                     <td className="px-4 py-3 flex items-center gap-2">
-                      <FileText className="w-3 h-3 text-blue-400" /> Factura F001-2983
+                      <FileText className="w-3 h-3 text-blue-400" /> Conciliación documental
                     </td>
                     <td className="px-4 py-3">
                       <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                         Conciliado
                       </span>
                     </td>
-                    <td className="px-4 py-3 font-medium">S/ 12,400.00</td>
+                    <td className="px-4 py-3 font-medium">92%</td>
                     <td className="px-4 py-3 text-blue-100/70">22 Oct, 2023</td>
                   </tr>
                   <tr>
@@ -181,7 +181,7 @@ export default function ProcessSection() {
                         Enviado PLAME
                       </span>
                     </td>
-                    <td className="px-4 py-3 font-medium">S/ 45,920.00</td>
+                    <td className="px-4 py-3 font-medium">100%</td>
                     <td className="px-4 py-3 text-blue-100/70">Hoy, 09:15 AM</td>
                   </tr>
                 </tbody>
