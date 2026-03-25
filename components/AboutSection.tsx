@@ -1,4 +1,6 @@
-﻿export default function AboutSection() {
+﻿import Image from "next/image";
+
+export default function AboutSection() {
   return (
     <section
       id="nosotros"
@@ -24,9 +26,11 @@
             <div className="flex items-center gap-6">
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-tr from-brand-primary to-brand-secondary rounded-full blur opacity-40 group-hover:opacity-100 transition duration-500"></div>
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400"
+                <Image
+                  src="/assets/people/henry.jpeg"
                   alt="Henry Valladares"
+                  width={96}
+                  height={96}
                   className="relative w-24 h-24 rounded-full object-cover border-2 border-brand-dark"
                 />
               </div>
@@ -91,4 +95,3 @@
     </section>
   );
 }
-

@@ -20,13 +20,14 @@
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-full bg-slate-800"></div>
               <div>
-                <p className="font-bold text-sm">Ricardo Méndez</p>
+                <p className="font-bold text-sm">Henry Valladares</p>
                 <p className="text-[10px] text-slate-500 uppercase tracking-widest">
-                  CEO, Fintech Solution
+                  Director, V&amp;A Profesionales
                 </p>
               </div>
             </div>
           </div>
+
           <div className="glass-card p-8 rounded-2xl border border-white/5 relative">
             <div className="text-brand-secondary mb-4 flex">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20">
@@ -47,6 +48,7 @@
               </div>
             </div>
           </div>
+
           <div className="glass-card p-8 rounded-2xl border border-white/5 relative">
             <div className="text-brand-secondary mb-4 flex">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20">
@@ -72,4 +74,3 @@
     </section>
   );
 }
-

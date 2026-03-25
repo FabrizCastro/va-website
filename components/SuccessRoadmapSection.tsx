@@ -236,7 +236,7 @@ export default function SuccessRoadmapSection() {
             })}
           </div>
 
-          <div className="mt-6 rounded-[2rem] border border-white/10 bg-white/10 p-6">
+          <div className="mt-6 rounded-[2rem] border border-white/15 bg-white/14 p-6 backdrop-blur-sm">
             {activeItem ? (
               <>
                 <p className="text-sm font-bold uppercase tracking-[0.22em] text-orange-200/90">
@@ -245,7 +245,7 @@ export default function SuccessRoadmapSection() {
                 <h3 className="mt-3 text-2xl font-extrabold font-heading text-white">
                   {activeItem.title}
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-blue-50/85">
+                <p className="mt-3 text-sm leading-7 text-sky-100">
                   {activeItem.description}
                 </p>
               </>
@@ -254,7 +254,7 @@ export default function SuccessRoadmapSection() {
                 <p className="text-sm font-bold uppercase tracking-[0.22em] text-orange-200/90">
                   Explora el timeline
                 </p>
-                <p className="mt-3 text-sm leading-7 text-blue-50/85">
+                <p className="mt-3 text-sm leading-7 text-sky-100">
                   Selecciona una etapa para ver el detalle del caso de éxito.
                 </p>
               </>
@@ -354,21 +354,21 @@ export default function SuccessRoadmapSection() {
                       : undefined,
                 }}
               >
-                <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.1] p-5 shadow-[0_24px_60px_-32px_rgba(2,6,23,0.5)] backdrop-blur-sm">
+                <div className="rounded-[1.75rem] border border-white/15 bg-white/[0.16] p-5 shadow-[0_24px_60px_-32px_rgba(2,6,23,0.5)] backdrop-blur-md">
                   <p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-200/90">
                     Detalle de la etapa
                   </p>
                   <h3 className="mt-3 text-2xl font-extrabold font-heading text-white">
                     {activeItem.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-7 text-blue-50/85">
+                  <p className="mt-3 text-sm leading-7 text-sky-100">
                     {activeItem.description}
                   </p>
-                  <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-100/70">
+                  <div className="mt-4 rounded-2xl border border-white/15 bg-white/10 p-4">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-100/80">
                       Resumen
                     </p>
-                    <p className="mt-2 text-sm leading-6 text-blue-50/80">
+                    <p className="mt-2 text-sm leading-6 text-cyan-50">
                       {activeItem.summary}
                     </p>
                   </div>

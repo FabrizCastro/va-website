@@ -1,11 +1,15 @@
 ﻿"use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function NavBar() {
   const [isAtTop, setIsAtTop] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isSuccessCasesPage = pathname === "/casos-de-exito";
+  const useLightHeaderText = isSuccessCasesPage && isAtTop;
 
   useEffect(() => {
     const onScroll = () => setIsAtTop(window.scrollY < 12);
@@ -38,11 +42,25 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           <Link href="/" className="brand-logo-text" aria-label="V&A Profesionales">
-            <span className="brand-logo-top">V&amp;A</span>
-            <span className="brand-logo-bottom">PROFESIONALES</span>
+            <span
+              className="brand-logo-top"
+              style={{ color: useLightHeaderText ? "#ffffff" : undefined }}
+            >
+              V&amp;A
+            </span>
+            <span
+              className="brand-logo-bottom"
+              style={{ color: useLightHeaderText ? "#ffffff" : undefined }}
+            >
+              PROFESIONALES
+            </span>
           </Link>
 
-          <div className="hidden lg:flex space-x-8 text-sm font-medium text-slate-700">
+          <div
+            className={`hidden lg:flex space-x-8 text-sm font-medium ${
+              useLightHeaderText ? "text-white" : "text-slate-700"
+            }`}
+          >
             <Link href="/#servicios" className="nav-link transition-colors">
               Servicios
             </Link>
@@ -64,7 +82,12 @@ export default function NavBar() {
           </div>
 
           <div className="flex items-center gap-3 sm:gap-4">
-            <Link href="/" className="hidden sm:block text-sm font-semibold text-slate-700">
+            <Link
+              href="/"
+              className={`hidden sm:block text-sm font-semibold ${
+                useLightHeaderText ? "text-white" : "text-slate-700"
+              }`}
+            >
               Login Portal
             </Link>
             <Link
@@ -78,7 +101,11 @@ export default function NavBar() {
               aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
               aria-expanded={isMenuOpen}
               onClick={() => setIsMenuOpen((current) => !current)}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-slate-300/80 bg-white/75 text-slate-800 transition-colors hover:bg-white lg:hidden"
+              className={`flex h-11 w-11 items-center justify-center rounded-full border transition-colors lg:hidden ${
+                useLightHeaderText
+                  ? "border-white/25 bg-white/10 text-white hover:bg-white/20"
+                  : "border-slate-300/80 bg-white/75 text-slate-800 hover:bg-white"
+              }`}
             >
               {isMenuOpen ? (
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
