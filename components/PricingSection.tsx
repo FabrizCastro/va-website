@@ -1,242 +1,275 @@
-﻿"use client";
-
-import Link from "next/link";
-import { Eye } from "lucide-react";
-import { useState } from "react";
-
-type PlanLevel = {
-  name: string;
-  description: string;
-};
+"use client";
 
 type PricingPlan = {
   name: string;
-  summary: string;
   accent: "blue" | "orange" | "mixed";
-  levels: PlanLevel[];
-  additionalServices: string[];
+  badge: string;
+  headline: string;
+  ideal: string;
+  formats?: string[];
+  includes: string[];
+  recommended?: boolean;
 };
 
 const plans: PricingPlan[] = [
   {
     name: "Plan Básico",
-    summary:
-      "Base operativa para personas y empresas que necesitan orden contable y cumplimiento recurrente.",
     accent: "blue",
-    levels: [
-      {
-        name: "Nivel Persona",
-        description:
-          "Enfoque inicial para gestión personal, control documental y cumplimiento tributario básico.",
-      },
-      {
-        name: "Nivel Empresa",
-        description:
-          "Pensado para negocio formal con mayor seguimiento operativo y estructura administrativa estable.",
-      },
-    ],
-    additionalServices: [
-      "Registro compras y ventas",
-      "Cálculo de Renta e IGV",
-      "Elaboración de la Planilla",
-      "PDT 621, Plame y AFPNet",
+    badge: "Empieza con orden",
+    headline: "La base ideal para organizar tu operación y cumplir sin estrés.",
+    ideal: "Ideal si recién estás estructurando tus procesos o necesitas una base contable clara.",
+    formats: ["Persona", "Empresa"],
+    includes: [
+      "Compras y ventas",
+      "Renta e IGV",
+      "Planilla y PLAME",
     ],
   },
   {
     name: "Plan Intermedio",
-    summary:
-      "Nivel de crecimiento para operaciones que ya necesitan más seguimiento, control y criterio consultivo.",
     accent: "orange",
-    levels: [
-      {
-        name: "Nivel Operación en Crecimiento",
-        description:
-          "Mayor acompañamiento contable y tributario para operaciones con más carga administrativa y seguimiento periódico.",
-      },
+    badge: "El más elegido",
+    headline: "Más seguimiento y mejores decisiones para una operación en crecimiento.",
+    ideal: "Ideal si tu negocio ya tiene más movimiento y necesitas mayor control del día a día.",
+    formats: ["Persona o Empresa"],
+    includes: [
+      "Todo lo del plan base",
+      "Asesoría integral",
+      "Mayor seguimiento tributario",
     ],
-    additionalServices: [
-      "Registro compras y ventas",
-      "Cálculo de Renta e IGV",
-      "Elaboración de la Planilla",
-      "PDT 621, Plame y AFPNet",
-      "Asesoría Integral",
-    ],
+    recommended: true,
   },
   {
     name: "Plan Avanzado",
-    summary:
-      "Nivel de expansión para empresas que necesitan más criterio estratégico, visibilidad y control interno.",
     accent: "orange",
-    levels: [
-      {
-        name: "Nivel Alta Exigencia",
-        description:
-          "Diseñado para operaciones con más movimiento, trazabilidad y necesidad de análisis continuo.",
-      },
-    ],
-    additionalServices: [
-      "Registro compras y ventas",
-      "Cálculo de Renta e IGV",
-      "Elaboración de la Planilla",
-      "PDT 621, Plame y AFPNet",
-      "Asesoría Integral",
+    badge: "Alta exigencia",
+    headline: "Una capa más estratégica para empresas que no pueden improvisar.",
+    ideal: "Ideal si manejas una operación intensa y necesitas más criterio y cercanía.",
+    formats: ["Persona o Empresa"],
+    includes: [
+      "Cobertura más cercana",
+      "Lectura estratégica",
+      "Control más fino del riesgo",
     ],
   },
   {
     name: "Otros Planes",
-    summary:
-      "Soluciones flexibles para casos especiales, estructuras mixtas o requerimientos fuera del alcance estándar.",
     accent: "mixed",
-    levels: [
-      {
-        name: "Nivel Personalizado",
-        description:
-          "Armamos el alcance según complejidad operativa, frecuencia de atención y necesidades adicionales.",
-      },
-    ],
-    additionalServices: [
-      "Registro compras y ventas",
-      "Cálculo de Renta e IGV",
-      "Elaboración de la Planilla",
-      "PDT 621, Plame y AFPNet",
-      "Asesoría Integral",
+    badge: "Hecho a medida",
+    headline: "Diseñamos una solución propia cuando tu caso no encaja en lo estándar.",
+    ideal: "Ideal para estructuras mixtas, casos especiales o necesidades fuera del formato tradicional.",
+    includes: [
+      "Alcance personalizado",
+      "Servicios especiales",
+      "Evaluación previa breve",
     ],
   },
 ];
 
 const accentClasses = {
   blue: {
-    card: "border-brand-primary/70 shadow-[0_16px_40px_-26px_rgba(11,35,86,0.55)]",
-    label: "bg-brand-primary text-white",
-    levelBox: "bg-blue-100/80 border border-brand-primary/10",
-    levelText: "text-brand-primary",
+    card: "border-brand-primary/50 shadow-[0_20px_55px_-34px_rgba(11,35,86,0.42)]",
+    badge: "bg-brand-primary text-white",
+    title: "text-brand-primary",
+    surface: "bg-blue-100/80 border border-blue-200/80",
     button: "bg-brand-primary text-white hover:bg-brand-primary/90",
+    dot: "bg-brand-primary",
+    icon: "border-brand-primary/20 bg-brand-primary/10 text-brand-primary",
   },
   orange: {
-    card: "border-brand-secondary/70 shadow-[0_16px_40px_-26px_rgba(249,115,22,0.5)]",
-    label: "bg-brand-secondary text-white",
-    levelBox: "bg-orange-100/80 border border-brand-secondary/10",
-    levelText: "text-brand-secondary",
+    card: "border-brand-secondary/50 shadow-[0_20px_55px_-34px_rgba(249,115,22,0.35)]",
+    badge: "bg-brand-secondary text-white",
+    title: "text-brand-secondary",
+    surface: "bg-orange-100/80 border border-orange-200/80",
     button: "bg-brand-secondary text-white hover:bg-brand-secondary/90",
+    dot: "bg-brand-secondary",
+    icon: "border-brand-secondary/20 bg-brand-secondary/10 text-brand-secondary",
   },
   mixed: {
-    card: "border-fuchsia-500/70 shadow-[0_16px_40px_-26px_rgba(217,70,239,0.4)]",
-    label: "bg-gradient-to-r from-brand-primary to-brand-secondary text-white",
-    levelBox: "bg-fuchsia-100/70 border border-fuchsia-300/50",
-    levelText: "text-brand-primary",
+    card: "border-fuchsia-400/45 shadow-[0_20px_55px_-34px_rgba(147,51,234,0.34)]",
+    badge: "bg-gradient-to-r from-brand-primary to-brand-secondary text-white",
+    title: "text-brand-primary",
+    surface: "bg-fuchsia-100/75 border border-fuchsia-200/80",
     button:
       "bg-gradient-to-r from-brand-primary to-brand-secondary text-white hover:opacity-95",
+    dot: "bg-fuchsia-500",
+    icon: "border-fuchsia-200/70 bg-white/70 text-brand-primary",
   },
 } as const;
 
+function scrollToContact(planName: string) {
+  const url = new URL(window.location.href);
+  url.hash = "contacto";
+  url.searchParams.set("plan", planName);
+  window.history.replaceState({}, "", url.toString());
+
+  const section = document.getElementById("contacto");
+  if (!section) return;
+
+  const navOffset = 80;
+  const top = section.getBoundingClientRect().top + window.scrollY - navOffset;
+  window.scrollTo({
+    top: Math.max(top, 0),
+    behavior: "smooth",
+  });
+}
+
 export default function PricingSection() {
-  const [openDetails, setOpenDetails] = useState<Record<string, boolean>>({});
-
-  const toggleDetail = (key: string) => {
-    setOpenDetails((current) => ({
-      ...current,
-      [key]: !current[key],
-    }));
-  };
-
   return (
     <section
       id="planes"
-      className="relative overflow-hidden bg-gradient-to-br from-sky-100 via-blue-50 to-orange-100 py-24"
+      className="section-shell relative overflow-hidden bg-gradient-to-br from-sky-100 via-blue-50 to-orange-100 py-24"
     >
       <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.22),transparent_40%),radial-gradient(circle_at_85%_80%,rgba(251,146,60,0.20),transparent_45%)]" />
+
       <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <div className="mb-14 text-center">
-          <h2 className="text-4xl font-extrabold font-heading leading-[1.05] text-brand-primary sm:text-5xl lg:text-6xl">
+        <div className="mx-auto mb-12 max-w-3xl text-center">
+          <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-brand-primary/15 bg-white/70 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.24em] text-brand-primary shadow-[0_12px_40px_-28px_rgba(15,23,42,0.45)] backdrop-blur-sm">
+            Elige con claridad
+          </div>
+          <h2 className="mt-5 text-4xl font-extrabold font-heading leading-[1.05] text-brand-primary sm:text-5xl lg:text-6xl">
             Nuestros{" "}
             <span className="bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
               Planes
             </span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-slate-700">
-            Estructura de servicios pensada para acompañar desde operaciones
-            básicas hasta necesidades empresariales más complejas.
+          <p className="mt-4 text-lg leading-8 text-slate-700">
+            Cada plan responde a un nivel distinto de acompañamiento. Elige el
+            que mejor calce con tu etapa actual.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mb-8 grid gap-3 rounded-[2rem] border border-white/70 bg-white/60 p-4 shadow-[0_20px_55px_-34px_rgba(15,23,42,0.35)] backdrop-blur-sm lg:grid-cols-3">
+          <div className="rounded-2xl border border-slate-200/80 bg-white/80 px-4 py-4">
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500">
+              1. Mira tu etapa
+            </p>
+            <p className="mt-2 text-sm font-semibold leading-6 text-slate-900">
+              Elige según el nivel de orden, seguimiento o estrategia que necesitas hoy.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-slate-200/80 bg-white/80 px-4 py-4">
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500">
+              2. Revisa el alcance
+            </p>
+            <p className="mt-2 text-sm font-semibold leading-6 text-slate-900">
+              Cada card resume para quién es el plan y qué cubre de forma directa.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-slate-200/80 bg-white/80 px-4 py-4">
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500">
+              3. Avanza a contacto
+            </p>
+            <p className="mt-2 text-sm font-semibold leading-6 text-slate-900">
+              Al elegir uno, te llevamos a contacto con el plan ya marcado.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid items-stretch gap-5 md:grid-cols-2 2xl:grid-cols-4">
           {plans.map((plan) => {
             const accent = accentClasses[plan.accent];
 
             return (
               <article
                 key={plan.name}
-                className={`relative flex flex-col rounded-[2rem] border bg-white/78 p-5 pt-0 backdrop-blur-sm ${accent.card}`}
+                className={`relative flex h-full min-w-0 flex-col overflow-hidden rounded-[2rem] border bg-white/80 p-5 backdrop-blur-sm ${accent.card} ${
+                  plan.recommended ? "ring-2 ring-brand-secondary/25" : ""
+                }`}
               >
-                <div className="flex justify-center">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex min-w-0 flex-wrap items-center gap-2 pr-2">
+                    <div
+                      className={`inline-flex rounded-full px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.22em] ${accent.badge}`}
+                    >
+                      {plan.badge}
+                    </div>
+                    {plan.recommended ? (
+                      <span className="rounded-full border border-orange-300/70 bg-orange-100/90 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.16em] text-brand-secondary">
+                        Recomendado
+                      </span>
+                    ) : null}
+                  </div>
                   <div
-                    className={`-mt-px rounded-b-2xl px-6 py-3 text-sm font-extrabold uppercase tracking-wide ${accent.label}`}
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border ${accent.icon}`}
+                    aria-hidden="true"
                   >
-                    {plan.name}
+                    <svg
+                      className="h-4 w-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
                   </div>
                 </div>
 
-                <div className="mt-8 grid gap-4">
-                  {plan.levels.map((level) => {
-                    const detailKey = `${plan.name}-${level.name}`;
-                    const isOpen = openDetails[detailKey] ?? false;
-
-                    return (
-                      <div
-                        key={level.name}
-                        className={`rounded-3xl p-5 text-center ${accent.levelBox}`}
-                      >
-                        <div
-                          className={`text-xs font-bold uppercase tracking-[0.18em] ${accent.levelText}`}
-                        >
-                          {level.name}
-                        </div>
-                        <p className="mt-3 text-sm leading-7 text-slate-700">
-                          {level.description}
-                        </p>
-                        <button
-                          type="button"
-                          onClick={() => toggleDetail(detailKey)}
-                          className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/70 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500 transition-colors hover:bg-white"
-                        >
-                          <Eye className="h-4 w-4" />
-                          {isOpen ? "Ver menos" : "Ver más"}
-                        </button>
-                        {isOpen && (
-                          <div className="mt-4 rounded-2xl border border-white/60 bg-white/70 p-4 text-left">
-                            <p className="text-sm leading-6 text-slate-700">
-                              {plan.summary}
-                            </p>
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
+                <div className="mt-5">
+                  <h3 className={`text-[1.85rem] font-extrabold leading-[1.05] tracking-[-0.03em] ${accent.title}`}>
+                    {plan.name}
+                  </h3>
                 </div>
 
-                <div className="mt-8 rounded-3xl border border-slate-200/70 bg-white/70 p-5">
-                  <p className="text-center text-[11px] font-bold uppercase tracking-[0.22em] text-slate-500">
-                    Servicios adicionales
+                <p className="mt-4 text-[1.05rem] font-bold leading-7 text-slate-900">
+                  {plan.headline}
+                </p>
+
+                <div className={`mt-5 rounded-[1.6rem] px-4 py-4 ${accent.surface}`}>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
+                    Ideal para
                   </p>
-                  <ul className="mt-5 space-y-4 text-center text-sm font-medium leading-relaxed text-slate-700">
-                    {plan.additionalServices.map((service) => (
-                      <li
-                        key={service}
-                        className="flex items-center justify-center gap-2"
-                      >
-                        <span className="h-1.5 w-1.5 rounded-full bg-current opacity-70" />
-                        <span>{service}</span>
+                  <p className="mt-2 text-sm leading-8 text-slate-800">
+                    {plan.ideal}
+                  </p>
+                </div>
+
+                {plan.formats?.length ? (
+                  <div className="mt-5">
+                    <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-500">
+                      Formato
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {plan.formats.map((format) => (
+                        <span
+                          key={format}
+                          className="rounded-full border border-slate-200/80 bg-white/75 px-3 py-2 text-xs font-semibold text-slate-700"
+                        >
+                          {format}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+
+                <div className="mt-5">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-500">
+                    Incluye
+                  </p>
+                  <ul className="mt-3 space-y-2.5 text-sm font-medium leading-7 text-slate-700">
+                    {plan.includes.map((feature) => (
+                      <li key={feature} className="flex items-start gap-3">
+                        <span
+                          className={`mt-1.5 h-1.5 w-1.5 rounded-full ${accent.dot}`}
+                        />
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <Link
-                  href={`/?plan=${encodeURIComponent(plan.name)}#contacto`}
-                  className={`mt-10 block w-full rounded-2xl py-4 text-center text-sm font-extrabold transition-all ${accent.button}`}
+                <button
+                  type="button"
+                  onClick={() => scrollToContact(plan.name)}
+                  className={`mt-6 w-full rounded-2xl py-4 text-center text-sm font-extrabold transition-all ${accent.button}`}
                 >
-                  Más información
-                </Link>
+                  Quiero este plan
+                </button>
               </article>
             );
           })}
