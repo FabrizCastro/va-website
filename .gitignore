@@ -1,13 +1,19 @@
 # Dependencies
 node_modules/
 
-# Next.js build output
+# Next.js
 .next/
 out/
+next-env.d.ts
 
-# Production
+# Production builds
 build/
 dist/
+
+# Environment files
+.env
+.env*.local
+!.env.example
 
 # Logs
 logs/
@@ -16,41 +22,50 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+lerna-debug.log*
 
 # TypeScript
 *.tsbuildinfo
+tsconfig.tsbuildinfo
 
-# Coverage / test artifacts
+# Tests and coverage
 coverage/
 .nyc_output/
+playwright-report/
+test-results/
 
-# Cache directories
+# Caches
 .cache/
-.turbo/
 .eslintcache
+.stylelintcache
+.turbo/
+.vercel/
+.parcel-cache/
 
-# Package manager stores
-.pnpm-store/
+# Package manager artifacts
 .npm/
-.yarn/
-.yarn/cache/
-.yarn/unplugged/
-.yarn/build-state.yml
-.yarn/install-state.gz
+.pnpm-store/
+.yarn/*
+!.yarn/patches/
+!.yarn/plugins/
+!.yarn/releases/
+!.yarn/sdks/
+!.yarn/versions/
 
 # OS files
 .DS_Store
 Thumbs.db
+ehthumbs.db
+Desktop.ini
 
-# Editor / IDE
-.vscode/
+# Editor and IDE
 .idea/
+.vscode/
 *.swp
 *.swo
+*.swn
+
+# Local archives and backups
+*.bak
+*.tmp
+*.temp

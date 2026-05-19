@@ -118,7 +118,7 @@ export default function PricingSection() {
   return (
     <section
       id="planes"
-      className="section-shell relative overflow-hidden bg-gradient-to-br from-sky-100 via-blue-50 to-orange-100 py-24"
+      className="relative overflow-hidden bg-gradient-to-br from-sky-100 via-blue-50 to-orange-100 py-24"
     >
       <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.22),transparent_40%),radial-gradient(circle_at_85%_80%,rgba(251,146,60,0.20),transparent_45%)]" />
 
@@ -139,8 +139,8 @@ export default function PricingSection() {
           </p>
         </div>
 
-        <div className="mb-8 grid gap-3 rounded-[2rem] border border-white/70 bg-white/60 p-4 shadow-[0_20px_55px_-34px_rgba(15,23,42,0.35)] backdrop-blur-sm lg:grid-cols-3">
-          <div className="rounded-2xl border border-slate-200/80 bg-white/80 px-4 py-4">
+        <div className="mb-8 grid gap-3 rounded-2xl border border-white/70 bg-white/64 p-3 shadow-[0_20px_55px_-34px_rgba(15,23,42,0.35)] backdrop-blur-sm lg:grid-cols-3">
+          <div className="rounded-xl border border-slate-200/80 bg-white/86 px-4 py-4">
             <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500">
               1. Mira tu etapa
             </p>
@@ -148,7 +148,7 @@ export default function PricingSection() {
               Elige según el nivel de orden, seguimiento o estrategia que necesitas hoy.
             </p>
           </div>
-          <div className="rounded-2xl border border-slate-200/80 bg-white/80 px-4 py-4">
+          <div className="rounded-xl border border-slate-200/80 bg-white/86 px-4 py-4">
             <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500">
               2. Revisa el alcance
             </p>
@@ -156,7 +156,7 @@ export default function PricingSection() {
               Cada card resume para quién es el plan y qué cubre de forma directa.
             </p>
           </div>
-          <div className="rounded-2xl border border-slate-200/80 bg-white/80 px-4 py-4">
+          <div className="rounded-xl border border-slate-200/80 bg-white/86 px-4 py-4">
             <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500">
               3. Avanza a contacto
             </p>
@@ -173,7 +173,7 @@ export default function PricingSection() {
             return (
               <article
                 key={plan.name}
-                className={`relative flex h-full min-w-0 flex-col overflow-hidden rounded-[2rem] border bg-white/80 p-5 backdrop-blur-sm ${accent.card} ${
+                className={`relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border bg-white/88 p-5 backdrop-blur-sm transition duration-300 hover:-translate-y-1 ${accent.card} ${
                   plan.recommended ? "ring-2 ring-brand-secondary/25" : ""
                 }`}
               >
@@ -211,7 +211,7 @@ export default function PricingSection() {
                 </div>
 
                 <div className="mt-5">
-                  <h3 className={`text-[1.85rem] font-extrabold leading-[1.05] tracking-[-0.03em] ${accent.title}`}>
+                  <h3 className={`text-[1.85rem] font-extrabold leading-[1.05] ${accent.title}`}>
                     {plan.name}
                   </h3>
                 </div>
@@ -220,7 +220,7 @@ export default function PricingSection() {
                   {plan.headline}
                 </p>
 
-                <div className={`mt-5 rounded-[1.6rem] px-4 py-4 ${accent.surface}`}>
+                <div className={`mt-5 rounded-xl px-4 py-4 ${accent.surface}`}>
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">
                     Ideal para
                   </p>
@@ -266,7 +266,7 @@ export default function PricingSection() {
                 <button
                   type="button"
                   onClick={() => scrollToContact(plan.name)}
-                  className={`mt-6 w-full rounded-2xl py-4 text-center text-sm font-extrabold transition-all ${accent.button}`}
+                  className={`mt-6 w-full rounded-xl py-4 text-center text-sm font-extrabold transition-all ${accent.button}`}
                 >
                   Quiero este plan
                 </button>

@@ -1,172 +1,131 @@
-﻿import HeroChart from "./HeroChart";
+import Link from "next/link";
+import { ArrowRight, BarChart3, CheckCircle2, ShieldCheck } from "lucide-react";
+import HeroChart from "./HeroChart";
+
+const heroMetrics = [
+  { value: "99%", label: "cumplimiento tributario" },
+  { value: "10+", label: "años de experiencia" },
+  { value: "48h", label: "alertas y seguimiento" },
+];
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-gradient-to-br from-sky-100 via-blue-50 to-orange-100">
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.22),transparent_40%),radial-gradient(circle_at_85%_80%,rgba(251,146,60,0.20),transparent_45%)]"></div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-700 text-xs font-bold uppercase tracking-widest">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
-              </span>
-              Contabilidad 4.0 en Perú
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold font-heading leading-[1.1] text-brand-primary">
-              Transformamos tu contabilidad en{" "}
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary">
-                inteligencia financiera
-              </span>
-            </h1>
-            <p className="text-base sm:text-xl text-slate-700 max-w-xl leading-relaxed">
-              Asesoría contable, tributaria y financiera con automatización,
-              análisis con IA y control total de tus finanzas empresariales para
-              corporaciones y emprendedores.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-6 sm:px-8 py-3.5 sm:py-4 bg-brand-primary hover:bg-brand-primary/90 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 group">
-                Agendar consulta
-                <svg
-                  className="w-5 h-5 group-hover:translate-x-1 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  ></path>
-                </svg>
-              </button>
-              <button className="px-6 sm:px-8 py-3.5 sm:py-4 bg-white/60 hover:bg-white/80 text-slate-900 font-bold rounded-xl border border-slate-300/80 transition-all">
-                Conoce nuestros servicios
-              </button>
-            </div>
-            <div className="flex items-center gap-6 pt-4">
-              <div className="flex -space-x-3">
-                <img
-                  src="https://i.pravatar.cc/100?u=1"
-                  className="w-10 h-10 rounded-full border-2 border-brand-dark"
-                  alt="Client"
-                />
-                <img
-                  src="https://i.pravatar.cc/100?u=2"
-                  className="w-10 h-10 rounded-full border-2 border-brand-dark"
-                  alt="Client"
-                />
-                <img
-                  src="https://i.pravatar.cc/100?u=3"
-                  className="w-10 h-10 rounded-full border-2 border-brand-dark"
-                  alt="Client"
-                />
-              </div>
-              <div className="text-sm">
-                <p className="font-bold text-slate-900">+10 empresas</p>
-                <p className="text-slate-600 text-xs">
-                  Confían en V&A Profesionales
-                </p>
-              </div>
-            </div>
+    <section className="relative overflow-hidden bg-brand-primary pt-32 text-white lg:pt-40">
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-30"
+        style={{ backgroundImage: "url('/assets/brand/backgroundoficina.avif')" }}
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,35,86,0.96),rgba(11,35,86,0.86)_46%,rgba(2,6,23,0.64)),radial-gradient(circle_at_80%_20%,rgba(249,115,22,0.28),transparent_34%)]" />
+
+      <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 pb-16 lg:grid-cols-[1.02fr_0.98fr] lg:pb-24">
+        <div className="max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/16 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-blue-50 backdrop-blur">
+            <ShieldCheck className="h-4 w-4 text-orange-300" />
+            Contabilidad 4.0 en Perú
           </div>
 
-          <div className="relative animate-float min-w-0">
-            <div className="absolute -inset-4 bg-gradient-to-tr from-brand-primary/20 to-brand-secondary/20 rounded-[2rem] blur-3xl opacity-30"></div>
-            <div className="glass-card rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-              <div className="p-4 border-b border-white/5 flex items-center justify-between gap-2 bg-white/5">
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-                </div>
-                <div className="hidden sm:block text-[10px] font-mono text-slate-500 uppercase tracking-widest truncate">
-                  Dashboard V&A - Real Time Data
-                </div>
-                <div className="w-8 h-8 rounded-full bg-slate-800 border border-white/10 flex items-center justify-center">
-                  <span className="text-[10px]">HV</span>
+          <h1 className="mt-7 max-w-4xl font-heading text-4xl font-extrabold leading-[1.04] sm:text-5xl lg:text-7xl">
+            Convierte tu contabilidad en decisiones financieras claras
+          </h1>
+
+          <p className="mt-6 max-w-2xl text-base leading-8 text-blue-50/86 sm:text-lg">
+            Asesoría contable, tributaria, laboral y financiera con procesos
+            ordenados, automatización y reportes que ayudan a dirigir mejor tu
+            empresa.
+          </p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/#contacto"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-secondary px-6 py-4 text-sm font-extrabold text-white shadow-xl shadow-orange-950/20 transition hover:bg-orange-600"
+            >
+              Agendar consulta
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link
+              href="/#servicios"
+              className="inline-flex items-center justify-center rounded-xl border border-white/18 bg-white/10 px-6 py-4 text-sm font-extrabold text-white backdrop-blur transition hover:bg-white/16"
+            >
+              Ver servicios
+            </Link>
+          </div>
+
+          <div className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-3">
+            {heroMetrics.map((metric) => (
+              <div
+                key={metric.label}
+                className="rounded-xl border border-white/12 bg-white/9 px-4 py-4 backdrop-blur"
+              >
+                <p className="font-heading text-2xl font-extrabold text-white">
+                  {metric.value}
+                </p>
+                <p className="mt-1 text-xs font-semibold leading-5 text-blue-50/78">
+                  {metric.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative min-w-0">
+          <div className="rounded-2xl border border-white/14 bg-slate-950/55 p-4 shadow-2xl shadow-slate-950/40 backdrop-blur-xl">
+            <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-4">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.24em] text-orange-200">
+                  Panel gerencial
+                </p>
+                <h2 className="mt-1 text-lg font-extrabold text-white">
+                  Control financiero mensual
+                </h2>
+              </div>
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-orange-200">
+                <BarChart3 className="h-5 w-5" />
+              </div>
+            </div>
+
+            <div className="grid gap-4 py-4 sm:grid-cols-2">
+              <div className="rounded-xl border border-white/8 bg-white/[0.06] p-4">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-100/68">
+                  Eficiencia
+                </p>
+                <div className="mt-3 flex items-end justify-between">
+                  <p className="font-heading text-3xl font-extrabold">78%</p>
+                  <span className="text-xs font-bold text-emerald-300">
+                    +12 pts
+                  </span>
                 </div>
               </div>
-              <div className="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-brand-dark/40 p-4 rounded-xl border border-white/5">
-                  <p className="text-[10px] text-slate-500 uppercase font-bold mb-1">
-                    Eficiencia de ingresos
+              <div className="rounded-xl border border-white/8 bg-white/[0.06] p-4">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-100/68">
+                  Riesgo tributario
+                </p>
+                <div className="mt-3 flex items-end justify-between">
+                  <p className="font-heading text-3xl font-extrabold text-orange-300">
+                    Bajo
                   </p>
-                  <div className="flex items-end justify-between">
-                    <h3 className="text-xl font-bold text-white">78%</h3>
-                    <span className="text-[10px] text-emerald-400">
-                      +12 pts
-                    </span>
-                  </div>
-                </div>
-                <div className="bg-brand-dark/40 p-4 rounded-xl border border-white/5">
-                  <p className="text-[10px] text-slate-500 uppercase font-bold mb-1">
-                    Carga tributaria
-                  </p>
-                  <div className="flex items-end justify-between">
-                    <h3 className="text-xl font-bold text-orange-400">21%</h3>
-                    <span className="text-[10px] text-slate-500">
-                      IGV / Renta
-                    </span>
-                  </div>
-                </div>
-                <div className="sm:col-span-2 bg-brand-dark/40 p-4 rounded-xl border border-white/5 h-48 flex flex-col">
-                  <div className="flex-1 min-h-0">
-                    <HeroChart />
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <h4 className="text-[11px] font-bold text-slate-400 uppercase">
-                    Alertas SUNAT
-                  </h4>
-                  <div className="flex items-center gap-3 p-2 rounded-lg bg-orange-500/5 border border-orange-500/20">
-                    <div className="w-2 h-2 rounded-full bg-orange-500"></div>
-                    <p className="text-[10px] text-orange-200">
-                      Presentación PDT 621
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3 p-2 rounded-lg bg-emerald-500/5 border border-emerald-500/20">
-                    <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                    <p className="text-[10px] text-emerald-200">
-                      Libros PLE validados
-                    </p>
-                  </div>
-                </div>
-                <div className="bg-brand-dark/40 p-4 rounded-xl border border-white/5 flex flex-col items-center justify-center">
-                  <div className="relative w-20 h-20">
-                    <svg className="w-full h-full transform -rotate-90">
-                      <circle
-                        cx="40"
-                        cy="40"
-                        r="35"
-                        stroke="currentColor"
-                        strokeWidth="6"
-                        fill="transparent"
-                        className="text-slate-800"
-                      />
-                      <circle
-                        cx="40"
-                        cy="40"
-                        r="35"
-                        stroke="currentColor"
-                        strokeWidth="6"
-                        fill="transparent"
-                        className="text-brand-primary"
-                        strokeDasharray="219"
-                        strokeDashoffset="60"
-                      />
-                    </svg>
-                    <div className="absolute inset-0 flex items-center justify-center text-[10px] font-bold">
-                      72%
-                    </div>
-                  </div>
-                  <p className="text-[9px] mt-2 text-slate-500 uppercase text-center leading-tight">
-                    Efectividad de Flujo
-                  </p>
+                  <span className="text-xs font-bold text-blue-100/70">
+                    monitoreo
+                  </span>
                 </div>
               </div>
+            </div>
+
+            <div className="h-56 rounded-xl border border-white/8 bg-slate-950/45 p-4">
+              <HeroChart />
+            </div>
+
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {["PDT 621 revisado", "Libros electrónicos validados"].map(
+                (item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 rounded-xl border border-emerald-400/16 bg-emerald-400/8 px-4 py-3 text-xs font-semibold text-emerald-100"
+                  >
+                    <CheckCircle2 className="h-4 w-4 text-emerald-300" />
+                    {item}
+                  </div>
+                )
+              )}
             </div>
           </div>
         </div>

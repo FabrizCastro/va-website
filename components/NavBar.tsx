@@ -8,8 +8,9 @@ export default function NavBar() {
   const [isAtTop, setIsAtTop] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const isSuccessCasesPage = pathname === "/casos-de-exito";
-  const useLightHeaderText = isSuccessCasesPage && isAtTop;
+  const useLightHeaderText = (isHomePage || isSuccessCasesPage) && isAtTop;
 
   useEffect(() => {
     const onScroll = () => setIsAtTop(window.scrollY < 12);

@@ -76,10 +76,7 @@ export default function FinalCtaSection() {
       />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,35,86,0.78),rgba(11,35,86,0.74)),radial-gradient(circle_at_15%_20%,rgba(255,255,255,0.10),transparent_32%),radial-gradient(circle_at_85%_80%,rgba(249,115,22,0.14),transparent_38%)] pointer-events-none" />
       <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
-        <div className="glass-card p-8 lg:p-12 rounded-[2rem] border border-brand-primary/20 relative overflow-hidden">
-          <div className="absolute -top-20 -right-20 w-48 h-48 bg-sky-400/25 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-orange-400/25 rounded-full blur-3xl"></div>
-
+        <div className="relative overflow-hidden rounded-2xl border border-white/16 bg-slate-950/48 p-8 shadow-2xl shadow-slate-950/30 backdrop-blur-md lg:p-12">
           <h2 className="text-3xl lg:text-4xl font-extrabold font-heading mb-5 text-white">
             ¿Listo para dar el siguiente paso{" "}
             <span className="text-brand-secondary">financiero</span>?
@@ -95,19 +92,19 @@ export default function FinalCtaSection() {
               placeholder="Tu nombre"
               value={name}
               onChange={(event) => setName(event.target.value)}
-              className="w-full px-5 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-brand-primary transition-colors text-white"
+              className="w-full rounded-xl border border-white/14 bg-white/8 px-5 py-3 text-white placeholder:text-slate-400 transition-colors focus:border-brand-secondary focus:outline-none"
             />
             <input
               type="email"
               placeholder="Correo corporativo"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              className="w-full px-5 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-brand-primary transition-colors text-white"
+              className="w-full rounded-xl border border-white/14 bg-white/8 px-5 py-3 text-white placeholder:text-slate-400 transition-colors focus:border-brand-secondary focus:outline-none"
             />
             <select
               value={plan}
               onChange={(event) => setPlan(event.target.value)}
-              className="w-full px-5 py-3 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-brand-primary transition-colors text-white"
+              className="w-full rounded-xl border border-white/14 bg-white/8 px-5 py-3 text-white transition-colors focus:border-brand-secondary focus:outline-none"
             >
               {planOptions.map((option) => (
                 <option key={option} value={option} className="text-slate-900">
@@ -115,7 +112,7 @@ export default function FinalCtaSection() {
                 </option>
               ))}
             </select>
-            <button className="w-full py-3 bg-brand-primary hover:bg-brand-primary/90 text-white font-bold rounded-xl transition-all shadow-xl shadow-blue-500/20">
+            <button className="w-full rounded-xl bg-brand-secondary py-3 font-bold text-white shadow-xl shadow-orange-950/20 transition-all hover:bg-orange-600">
               Escribir por WhatsApp
             </button>
             <p className="text-[10px] text-slate-300 mt-4">
