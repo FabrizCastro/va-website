@@ -84,12 +84,12 @@ export default function NavBar() {
 
           <div className="flex items-center gap-3 sm:gap-4">
             <Link
-              href="/"
+              href="/#contacto"
               className={`hidden sm:block text-sm font-semibold ${
                 useLightHeaderText ? "text-white" : "text-slate-700"
               }`}
             >
-              Login Portal
+              Solicitar acceso
             </Link>
             <Link
               href="/#contacto"

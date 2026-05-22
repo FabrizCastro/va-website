@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
+import FloatingContact from "@/components/FloatingContact";
 import { absoluteUrl, siteConfig } from "@/lib/seo";
 import "./globals.css";
 
@@ -20,7 +21,8 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "V&A Profesionales | Asesoría contable, tributaria y financiera",
+    default:
+      "Estudio contable en Lima y Perú | Asesoría contable y tributaria",
     template: "%s | V&A Profesionales",
   },
   description: siteConfig.description,
@@ -29,10 +31,12 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   publisher: siteConfig.name,
   keywords: [...siteConfig.keywords],
+  referrer: "origin-when-cross-origin",
   alternates: {
     canonical: absoluteUrl("/"),
     languages: {
       "es-PE": absoluteUrl("/"),
+      es: absoluteUrl("/"),
     },
   },
   openGraph: {
@@ -40,22 +44,22 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: siteConfig.locale,
     url: absoluteUrl("/"),
-    title: "V&A Profesionales | Inteligencia financiera y contable",
+    title: "Estudio contable en Perú | V&A Profesionales",
     description: siteConfig.description,
     images: [
       {
-        url: siteConfig.ogImage,
+        url: absoluteUrl(siteConfig.ogImage),
         width: 1200,
         height: 630,
-        alt: "V&A Profesionales - Asesoría contable y financiera",
+        alt: "V&A Profesionales - Asesoría contable, tributaria y financiera en Perú",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "V&A Profesionales | Inteligencia financiera y contable",
+    title: "Estudio contable en Perú | V&A Profesionales",
     description: siteConfig.description,
-    images: [siteConfig.ogImage],
+    images: [absoluteUrl(siteConfig.ogImage)],
   },
   robots: {
     index: true,
@@ -82,6 +86,7 @@ export default function RootLayout({
   const organizationJsonLd = {
     "@context": "https://schema.org",
     "@type": "AccountingService",
+    "@id": absoluteUrl("/#organization"),
     name: siteConfig.name,
     legalName: siteConfig.legalName,
     url: siteConfig.url,
@@ -90,22 +95,50 @@ export default function RootLayout({
     description: siteConfig.description,
     telephone: siteConfig.phone,
     email: siteConfig.email,
+    priceRange: "$$",
     areaServed: {
       "@type": "Country",
-      name: "Perú",
+      name: "Peru",
     },
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Lima",
-      addressCountry: "PE",
+      addressLocality: siteConfig.city,
+      addressRegion: siteConfig.region,
+      addressCountry: siteConfig.country,
     },
-    serviceType: [
-      "Asesoría contable",
-      "Asesoría tributaria",
-      "Gestión de planillas",
-      "Outsourcing contable",
-      "Asesoría financiera",
-    ],
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: siteConfig.phone,
+      email: siteConfig.email,
+      contactType: "customer service",
+      areaServed: siteConfig.country,
+      availableLanguage: ["Spanish"],
+    },
+    serviceType: [...siteConfig.services],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Servicios contables, tributarios y financieros",
+      itemListElement: siteConfig.services.map((service) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: service,
+          areaServed: "Peru",
+        },
+      })),
+    },
+  };
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": absoluteUrl("/#website"),
+    name: siteConfig.name,
+    url: siteConfig.url,
+    inLanguage: "es-PE",
+    publisher: {
+      "@id": absoluteUrl("/#organization"),
+    },
   };
 
   return (
@@ -116,10 +149,14 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
+            __html: JSON.stringify([organizationJsonLd, websiteJsonLd]).replace(
+              /</g,
+              "\\u003c",
+            ),
           }}
         />
         {children}
+        <FloatingContact />
       </body>
     </html>
   );

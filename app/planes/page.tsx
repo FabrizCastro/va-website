@@ -2,20 +2,42 @@ import type { Metadata } from "next";
 import NavBar from "@/components/NavBar";
 import PricingSection from "@/components/PricingSection";
 import SiteFooter from "@/components/SiteFooter";
-import { absoluteUrl } from "@/lib/seo";
+import { absoluteUrl, pageTitle, siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Planes contables para empresas",
+  title: "Planes contables para empresas en Perú",
   description:
-    "Conoce los planes de V&A Profesionales para ordenar tu contabilidad, cumplir con SUNAT y recibir acompañamiento financiero según la etapa de tu negocio.",
+    "Planes contables para empresas en Perú: contabilidad, impuestos, planillas, asesoría tributaria, SUNAT y reportes financieros según tu etapa.",
+  keywords: [
+    "planes contables para empresas",
+    "servicios contables precios Perú",
+    "outsourcing contable para empresas",
+    "plan contable tributario",
+    "asesoría contable mensual",
+  ],
   alternates: {
     canonical: absoluteUrl("/planes"),
   },
   openGraph: {
     url: absoluteUrl("/planes"),
-    title: "Planes contables para empresas | V&A Profesionales",
+    title: pageTitle("Planes contables para empresas en Perú"),
     description:
-      "Planes de asesoría contable, tributaria y financiera para negocios en crecimiento.",
+      "Planes de asesoría contable, tributaria y financiera para negocios en crecimiento en Perú.",
+    images: [
+      {
+        url: absoluteUrl(siteConfig.ogImage),
+        width: 1200,
+        height: 630,
+        alt: "Planes contables para empresas en Perú",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: pageTitle("Planes contables para empresas en Perú"),
+    description:
+      "Planes de asesoría contable, tributaria y financiera para negocios en crecimiento en Perú.",
+    images: [absoluteUrl(siteConfig.ogImage)],
   },
 };
 

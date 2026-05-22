@@ -1,0 +1,16 @@
+services:
+  va-website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fabrizziocastro/websites-containers:va-website
+    container_name: va-website
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3010:80"
+    networks:
+      - websites-network
+
+networks:
+  websites-network:
+    external: true

@@ -102,9 +102,18 @@ function scrollToContact(planName: string) {
   url.hash = "contacto";
   url.searchParams.set("plan", planName);
   window.history.replaceState({}, "", url.toString());
+  window.dispatchEvent(
+    new CustomEvent("va-plan-selected", { detail: planName }),
+  );
 
   const section = document.getElementById("contacto");
-  if (!section) return;
+  if (!section) {
+    const homeContactUrl = new URL("/", window.location.origin);
+    homeContactUrl.searchParams.set("plan", planName);
+    homeContactUrl.hash = "contacto";
+    window.location.href = homeContactUrl.toString();
+    return;
+  }
 
   const navOffset = 80;
   const top = section.getBoundingClientRect().top + window.scrollY - navOffset;

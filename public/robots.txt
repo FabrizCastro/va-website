@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://va-profesionales.com/sitemap.xml
+Host: https://vaprofesionales.com
+Sitemap: https://vaprofesionales.com/sitemap.xml
