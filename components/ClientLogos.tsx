@@ -10,24 +10,22 @@ export default function ClientLogos() {
   ];
 
   return (
-    <section className="py-20 relative overflow-hidden bg-gradient-to-tl from-sky-100 via-blue-50 to-orange-100">
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_85%_80%,rgba(56,189,248,0.22),transparent_40%),radial-gradient(circle_at_15%_20%,rgba(251,146,60,0.20),transparent_45%)]" />
-      <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
+    <section className="accounting-section relative overflow-hidden bg-[#f7f5ef] py-16">
+      <div className="max-w-7xl mx-auto px-6 text-center relative z-10" data-reveal>
         <h2 className="text-sm font-semibold tracking-widest text-slate-700 uppercase mb-12">
-          Empresas que confian en V&A PROFESIONALES
+          Organizaciones que han confiado en V&amp;A Profesionales
         </h2>
         <div className="relative overflow-hidden">
-          <div className="client-logos-track flex w-max items-center gap-10 py-2 opacity-100">
-            {[...logos, ...logos].map((logo, index) => (
+          <div className="client-logos-track grid grid-cols-2 items-center gap-4 py-2 sm:grid-cols-4 lg:grid-cols-7">
+            {logos.map((logo, index) => (
               <div
                 key={`${logo.alt}-${index}`}
-                aria-hidden={index >= logos.length}
-                className="flex items-center justify-center min-w-[220px] md:min-w-[280px] h-24 md:h-28 px-6 rounded-2xl bg-white/60 border border-slate-200/70"
+                className="flex h-24 items-center justify-center border border-slate-200 bg-white px-5"
               >
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-16 md:h-24 w-auto object-contain hover:opacity-100 transition-opacity"
+                  className="h-14 w-auto object-contain grayscale opacity-70 transition hover:grayscale-0 hover:opacity-100"
                 />
               </div>
             ))}

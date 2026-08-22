@@ -9,7 +9,7 @@ const config: Config = {
         brand: {
           dark: "#020617",
           primary: "#0B2356",
-          secondary: "#f97316",
+          secondary: "#a47b32",
           accent: "#3b82f6",
           glass: "rgba(255, 255, 255, 0.03)",
           border: "rgba(255, 255, 255, 0.1)",
@@ -17,7 +17,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", "sans-serif"],
-        heading: ["var(--font-heading)", "sans-serif"],
+        heading: ["var(--font-heading)", "Georgia", "serif"],
       },
       animation: {
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",

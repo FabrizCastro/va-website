@@ -7,9 +7,19 @@ html {
 }
 
 body {
-  background-color: #020617;
-  color: #f8fafc;
+  background-color: #ffffff;
+  color: #172033;
   overflow-x: hidden;
+}
+
+::selection {
+  background: #d9c49a;
+  color: #0b2356;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(164, 123, 50, 0.55);
+  outline-offset: 3px;
 }
 
 .glass-card {
@@ -26,7 +36,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #60a5fa 0%, #fb923c 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #d9c49a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -41,7 +51,7 @@ body {
 }
 
 .wordmark {
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading), Georgia, serif;
   font-weight: 500;
 }
 
@@ -51,7 +61,7 @@ body {
   align-items: center;
   line-height: 1;
   color: #0b2356;
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading), Georgia, serif;
 }
 
 .brand-logo-top {
@@ -85,7 +95,329 @@ body {
 }
 
 .nav-link:hover {
-  color: #f97316;
+  color: #a47b32;
+}
+
+.section-kicker {
+  color: #8a6729;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.accounting-section {
+  position: relative;
+  isolation: isolate;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+.accounting-section::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  background-image: linear-gradient(rgba(11, 35, 86, 0.025) 1px, transparent 1px);
+  background-size: 100% 48px;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(to left, black, transparent 78%);
+}
+
+.hero-aurora {
+  animation: auroraDrift 10s ease-in-out infinite alternate;
+}
+
+.hero-arc {
+  animation: arcBreathe 8s ease-in-out infinite alternate;
+}
+
+.hero-arc-delayed {
+  animation-delay: -3s;
+  animation-duration: 11s;
+}
+
+.finance-visual {
+  perspective: 1200px;
+  animation: visualFloat 7s ease-in-out infinite;
+}
+
+.finance-orbit {
+  position: absolute;
+  border: 1px solid rgba(217, 196, 154, 0.18);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.finance-orbit-one {
+  inset: -2rem 3rem;
+  animation: orbitSpin 18s linear infinite;
+}
+
+.finance-orbit-two {
+  inset: 2rem -2rem;
+  animation: orbitSpin 24s linear infinite reverse;
+}
+
+.finance-orbit::after {
+  position: absolute;
+  top: 50%;
+  left: -3px;
+  width: 6px;
+  height: 6px;
+  content: "";
+  border-radius: 999px;
+  background: #d9c49a;
+  box-shadow: 0 0 18px rgba(217, 196, 154, 0.9);
+}
+
+.flow-chart-line {
+  stroke-dasharray: 520;
+  stroke-dashoffset: 520;
+  animation: chartDraw 2.2s 0.35s ease-out forwards;
+}
+
+.flow-chart-pulse {
+  transform-origin: 360px 18px;
+  animation: nodePulse 2.2s ease-in-out infinite;
+}
+
+.flow-status-card {
+  opacity: 0;
+  transform: translateX(12px);
+  animation: statusEnter 0.65s 0.7s ease-out forwards;
+}
+
+.process-current {
+  animation: processTravel 4.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 7px rgba(217, 196, 154, 0.8));
+}
+
+.service-panel-enter {
+  animation: servicePanelEnter 0.48s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.service-image-enter {
+  animation: serviceImageEnter 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.service-nav-item::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(100deg, transparent, rgba(217, 196, 154, 0.12), transparent);
+  transform: translateX(-100%);
+}
+
+.service-nav-item:hover::before {
+  opacity: 1;
+  transform: translateX(100%);
+  transition: transform 0.7s ease, opacity 0.2s;
+}
+
+.technology-board::before {
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 25%;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, #d9c49a, transparent);
+  animation: boardScan 5s linear infinite;
+}
+
+.technology-node {
+  animation: technologyNode 4s ease-in-out infinite;
+}
+
+.review-orbit {
+  animation: orbitSpin 22s linear infinite;
+}
+
+.review-orbit::after,
+.review-orbit::before {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  content: "";
+  border-radius: 999px;
+  background: #d9c49a;
+  box-shadow: 0 0 16px rgba(217, 196, 154, 0.9);
+}
+
+.review-orbit::after { left: 28px; top: 28px; }
+.review-orbit::before { bottom: 28px; right: 28px; }
+
+.review-orbit-reverse {
+  animation-direction: reverse;
+  animation-duration: 16s;
+}
+
+.technology-signal {
+  animation: signalTravel 3.2s ease-in-out infinite;
+}
+
+.success-progress {
+  animation: successProgress 5s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(164, 123, 50, 0.65));
+}
+
+.case-company-lockup {
+  position: relative;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.035);
+}
+
+.case-company-lockup::after {
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  width: 34px;
+  height: 34px;
+  content: "";
+  border-right: 1px solid rgba(217, 196, 154, 0.38);
+  border-bottom: 1px solid rgba(217, 196, 154, 0.38);
+}
+
+.success-arrow {
+  animation: successArrow 1.8s ease-in-out infinite;
+}
+
+.footer-contact-card::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(120deg, transparent 20%, rgba(217, 196, 154, 0.08) 48%, transparent 72%);
+  transform: translateX(-120%);
+  animation: footerContactShine 7s ease-in-out infinite;
+}
+
+.premium-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.premium-card::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  opacity: 0;
+  background: linear-gradient(130deg, rgba(255, 255, 255, 0.6), transparent 35%);
+  transition: opacity 0.4s ease;
+}
+
+.premium-card:hover::after {
+  opacity: 1;
+}
+
+.motion-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.motion-ready [data-reveal="left"] {
+  transform: translateX(-34px);
+}
+
+.motion-ready [data-reveal="right"] {
+  transform: translateX(34px);
+}
+
+.motion-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+.motion-ready [data-reveal-delay="1"] { transition-delay: 100ms; }
+.motion-ready [data-reveal-delay="2"] { transition-delay: 200ms; }
+.motion-ready [data-reveal-delay="3"] { transition-delay: 300ms; }
+
+@keyframes auroraDrift {
+  to { transform: translate3d(-70px, 45px, 0) scale(1.12); }
+}
+
+@keyframes arcBreathe {
+  to { transform: scale(1.08) translate3d(16px, -8px, 0); opacity: 0.45; }
+}
+
+@keyframes visualFloat {
+  0%, 100% { transform: translateY(0) rotateX(0.2deg); }
+  50% { transform: translateY(-9px) rotateX(-0.2deg); }
+}
+
+@keyframes orbitSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes chartDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes nodePulse {
+  50% { transform: scale(1.7); opacity: 0.45; }
+}
+
+@keyframes statusEnter {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes processTravel {
+  0%, 100% { transform: translateY(0); opacity: 0; }
+  15%, 85% { opacity: 1; }
+  50% { transform: translateY(calc(100vh - 12rem)); }
+}
+
+@keyframes servicePanelEnter {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes serviceImageEnter {
+  from { opacity: 0.35; filter: saturate(0); }
+  to { opacity: 1; filter: saturate(1); }
+}
+
+@keyframes technologyNode {
+  0%, 100% { border-color: rgba(255, 255, 255, 0.1); }
+  50% { border-color: rgba(217, 196, 154, 0.3); }
+}
+
+@keyframes signalTravel {
+  from { transform: translateX(-80%); opacity: 0; }
+  20%, 80% { opacity: 1; }
+  to { transform: translateX(450%); opacity: 0; }
+}
+
+@keyframes boardScan {
+  to { left: 110%; }
+}
+
+@keyframes successProgress {
+  0%, 100% { transform: translateY(0); opacity: 0; }
+  12%, 88% { opacity: 1; }
+  50% { transform: translateY(540px); }
+}
+
+@keyframes successArrow {
+  50% { transform: translateY(5px); }
+}
+
+@keyframes footerContactShine {
+  0%, 65% { transform: translateX(-120%); }
+  88%, 100% { transform: translateX(120%); }
 }
 
 .sidebar-active {
@@ -99,11 +431,11 @@ body {
 }
 
 .who-we-help-track {
-  animation: whoWeHelpScroll 42s linear infinite;
+  animation: none;
 }
 
 .client-logos-track {
-  animation: clientLogosScroll 42s linear infinite;
+  animation: none;
 }
 
 @keyframes whoWeHelpScroll {
@@ -125,6 +457,19 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .motion-ready [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
   .who-we-help-track {
     animation: none;
   }

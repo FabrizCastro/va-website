@@ -1,4 +1,4 @@
-import { Quote, Star } from "lucide-react";
+import { Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -26,10 +26,9 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-tr from-sky-100 via-blue-50 to-orange-100 py-24">
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_15%_80%,rgba(56,189,248,0.22),transparent_40%),radial-gradient(circle_at_85%_20%,rgba(251,146,60,0.20),transparent_45%)]" />
+    <section className="accounting-section relative overflow-hidden bg-white py-24">
       <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl text-center" data-reveal>
           <p className="text-sm font-bold uppercase tracking-[0.28em] text-brand-primary/70">
             Confianza
           </p>
@@ -42,21 +41,18 @@ export default function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <article
               key={testimonial.name}
-              className={`rounded-2xl border bg-white/86 p-7 shadow-[0_18px_50px_-32px_rgba(15,23,42,0.28)] backdrop-blur-sm ${
+              className={`border bg-white p-7 shadow-[0_18px_50px_-32px_rgba(15,23,42,0.28)] ${
                 index === 0
                   ? "border-brand-secondary/28"
                   : "border-brand-primary/16"
               }`}
+              data-reveal
+              data-reveal-delay={String(index + 1)}
             >
               <div className="mb-6 flex items-center justify-between gap-4">
-                <div className="flex gap-1 text-brand-secondary">
-                  {Array.from({ length: 5 }).map((_, starIndex) => (
-                    <Star
-                      key={starIndex}
-                      className="h-4 w-4 fill-current"
-                    />
-                  ))}
-                </div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-secondary">
+                  {index === 0 ? "Experiencia de cliente" : "Criterio profesional"}
+                </p>
                 <Quote className="h-8 w-8 text-brand-primary/18" />
               </div>
 

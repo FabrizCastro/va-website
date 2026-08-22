@@ -1,197 +1,91 @@
-﻿import {
-  AlertCircle,
-  Cpu,
-  Database,
-  FileText,
-  TrendingDown,
-  TrendingUp
+import {
+  BadgeCheck,
+  BarChart3,
+  FileInput,
+  FileSearch,
+  FolderCheck,
+  MessageSquareText,
+  ScanSearch,
 } from "lucide-react";
-import HeroChart from "@/components/HeroChart";
+
+const stages = [
+  { number: "01", title: "Recibimos y ordenamos", description: "Centralizamos compras, ventas, bancos, planillas y documentos de sustento.", Icon: FileInput, detail: "Información centralizada" },
+  { number: "02", title: "Conciliamos", description: "Contrastamos movimientos, comprobantes y saldos para encontrar diferencias.", Icon: ScanSearch, detail: "Cruces y trazabilidad" },
+  { number: "03", title: "Revisamos riesgos", description: "Validamos obligaciones, libros electrónicos y puntos críticos ante SUNAT.", Icon: FileSearch, detail: "Revisión profesional" },
+  { number: "04", title: "Cerramos el periodo", description: "Preparamos declaraciones y estados con respaldo documental verificable.", Icon: FolderCheck, detail: "Cierre sustentado" },
+  { number: "05", title: "Traducimos en decisiones", description: "Presentamos indicadores, observaciones y próximos pasos en lenguaje claro.", Icon: BarChart3, detail: "Lectura gerencial" },
+];
 
 export default function ProcessSection() {
   return (
-    <section id="proceso" className="py-24 bg-brand-primary">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="mb-20 text-center text-4xl font-extrabold font-heading leading-[1.1] text-white sm:text-5xl lg:text-6xl">
-          Nuestra{" "}
-          <span className="bg-gradient-to-r from-blue-100 to-orange-300 bg-clip-text text-transparent">
-            Metodología
-          </span>
-        </h2>
-        <div className="grid md:grid-cols-5 gap-4 relative">
-          <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500/50 to-orange-500/50 -z-10"></div>
+    <section id="proceso" className="relative overflow-hidden bg-[#071a3f] py-24 text-white">
+      <div className="hero-grid absolute inset-0 opacity-35" />
+      <div className="absolute -left-32 top-24 h-96 w-96 rounded-full bg-blue-500/10 blur-[100px]" />
+      <div className="absolute -right-32 bottom-20 h-96 w-96 rounded-full bg-[#b88a38]/15 blur-[100px]" />
 
-          <div className="glass-panel border border-white/10 bg-white/[0.06] p-6 rounded-3xl text-center flex flex-col items-center">
-            <div className="w-12 h-12 rounded-full bg-slate-800 border-2 border-blue-500 flex items-center justify-center font-bold text-blue-500 mb-4">
-              01
-            </div>
-            <h4 className="font-bold text-sm mb-2 text-white">Diagnóstico</h4>
-            <p className="text-[11px] leading-5 text-blue-100/85">
-              Evaluamos tu situación actual y riesgos potenciales.
-            </p>
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="grid gap-8 lg:grid-cols-[.75fr_1.25fr] lg:items-end" data-reveal>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-[#d9c49a]">Arquitectura de servicio</p>
+            <h2 className="mt-5 font-heading text-4xl font-bold leading-[1.08] sm:text-5xl lg:text-6xl">Del documento a la decisión.</h2>
           </div>
-          <div className="glass-panel border border-white/10 bg-white/[0.06] p-6 rounded-3xl text-center flex flex-col items-center">
-            <div className="w-12 h-12 rounded-full bg-slate-800 border-2 border-blue-500 flex items-center justify-center font-bold text-blue-500 mb-4">
-              02
-            </div>
-            <h4 className="font-bold text-sm mb-2 text-white">Organización</h4>
-            <p className="text-[11px] leading-5 text-blue-100/85">
-              Estructuramos tu data bajo estándares contables.
-            </p>
+          <p className="max-w-2xl text-base leading-8 text-blue-50/70 lg:justify-self-end lg:text-lg">
+            Diseñamos un flujo mensual visible y repetible. Cada etapa deja evidencia, responsables y una salida concreta para que tu contabilidad no dependa de improvisaciones.
+          </p>
+        </div>
+
+        <div className="relative mt-16">
+          <div className="absolute left-1/2 top-8 hidden h-[calc(100%-4rem)] w-px bg-white/10 md:block">
+            <span className="process-current absolute left-0 top-0 h-24 w-px bg-gradient-to-b from-transparent via-[#d9c49a] to-transparent" />
           </div>
-          <div className="glass-panel border border-white/10 bg-white/[0.06] p-6 rounded-3xl text-center flex flex-col items-center">
-            <div className="w-12 h-12 rounded-full bg-slate-800 border-2 border-orange-500 flex items-center justify-center font-bold text-orange-500 mb-4">
-              03
-            </div>
-            <h4 className="font-bold text-sm mb-2 text-white">Automatización</h4>
-            <p className="text-[11px] leading-5 text-blue-100/85">
-              Implementamos workflows para agilizar procesos.
-            </p>
-          </div>
-          <div className="glass-panel border border-white/10 bg-white/[0.06] p-6 rounded-3xl text-center flex flex-col items-center">
-            <div className="w-12 h-12 rounded-full bg-slate-800 border-2 border-orange-500 flex items-center justify-center font-bold text-orange-500 mb-4">
-              04
-            </div>
-            <h4 className="font-bold text-sm mb-2 text-white">Reporting</h4>
-            <p className="text-[11px] leading-5 text-blue-100/85">
-              Control total con tableros de control gerencial.
-            </p>
-          </div>
-          <div className="glass-panel border border-white/10 bg-white/[0.06] p-6 rounded-3xl text-center flex flex-col items-center">
-            <div className="w-12 h-12 rounded-full bg-slate-800 border-2 border-white flex items-center justify-center font-bold text-white mb-4">
-              05
-            </div>
-            <h4 className="font-bold text-sm mb-2 text-white">Acompañamiento</h4>
-            <p className="text-[11px] leading-5 text-blue-100/85">
-              Asesoría estratégica continua para crecer.
-            </p>
+
+          <div className="space-y-5 md:space-y-0">
+            {stages.map(({ number, title, description, Icon, detail }, index) => (
+              <article key={number} className="relative grid items-center gap-5 md:min-h-48 md:grid-cols-[1fr_5rem_1fr]" data-reveal={index % 2 === 0 ? "left" : "right"}>
+                <div className={`group border border-white/10 bg-white/[0.055] p-6 backdrop-blur-sm transition duration-500 hover:-translate-y-1 hover:border-[#d9c49a]/40 hover:bg-white/[0.08] ${index % 2 === 0 ? "md:col-start-1" : "md:col-start-3"}`}>
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#d9c49a]/25 bg-[#d9c49a]/10 text-[#d9c49a] transition group-hover:bg-[#d9c49a] group-hover:text-[#071a3f]">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <div className="flex flex-wrap items-center gap-3">
+                        <span className="text-[10px] font-extrabold tracking-[0.2em] text-[#d9c49a]">PASO {number}</span>
+                        <span className="h-px w-8 bg-white/15" />
+                        <span className="text-[9px] font-bold uppercase tracking-wider text-blue-100/45">{detail}</span>
+                      </div>
+                      <h3 className="mt-3 font-heading text-2xl font-bold">{title}</h3>
+                      <p className="mt-3 text-sm leading-7 text-blue-50/65">{description}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute left-1/2 top-1/2 z-10 hidden h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#d9c49a]/40 bg-[#071a3f] text-xs font-bold text-[#d9c49a] md:flex">{number}</div>
+              </article>
+            ))}
           </div>
         </div>
 
-        <div className="mt-16">
-          <div className="glass-panel p-4 rounded-3xl border-white/20 shadow-2xl animate-float">
-            <div className="flex items-center justify-between mb-6 px-2">
-              <div>
-                <h3 className="font-bold text-slate-100">Panel Gerencial Real-Time</h3>
-                <p className="text-xs text-blue-100/75">V&A Profesionales Intelligence Dashboard</p>
-              </div>
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-              </div>
+        <div className="mt-16 grid overflow-hidden border border-white/10 bg-white/[0.045] lg:grid-cols-[1.05fr_.95fr]" data-reveal>
+          <div className="p-7 sm:p-10">
+            <div className="flex items-center gap-3 text-[#d9c49a]">
+              <MessageSquareText className="h-5 w-5" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.22em]">Entrega mensual</span>
             </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-              <div className="glass-panel p-4 rounded-2xl dashboard-card border-white/5 bg-slate-800/40">
-                <p className="text-[10px] text-blue-100/70 uppercase tracking-wider mb-1">Eficiencia mensual</p>
-                <h4 className="text-xl font-bold text-blue-400">78%</h4>
-                <div className="mt-2 text-[10px] text-emerald-400 flex items-center gap-1">
-                  <TrendingUp className="w-3 h-3" /> +12 pts
+            <h3 className="mt-5 max-w-xl font-heading text-3xl font-bold leading-tight sm:text-4xl">No entregamos solo números. Entregamos contexto.</h3>
+            <p className="mt-5 max-w-xl leading-7 text-blue-50/65">El cierre se presenta con pendientes, riesgos detectados, indicadores relevantes y acciones recomendadas para el siguiente periodo.</p>
+          </div>
+          <div className="grid border-t border-white/10 sm:grid-cols-3 lg:border-l lg:border-t-0">
+            {["Estado del periodo", "Alertas prioritarias", "Próximas acciones"].map((item, index) => (
+              <div key={item} className="flex min-h-40 flex-col justify-between border-white/10 p-6 sm:border-l first:sm:border-l-0">
+                <BadgeCheck className="h-5 w-5 text-emerald-300" />
+                <div>
+                  <p className="font-heading text-3xl font-bold text-[#d9c49a]">0{index + 1}</p>
+                  <p className="mt-2 text-sm font-bold">{item}</p>
                 </div>
               </div>
-              <div className="glass-panel p-4 rounded-2xl dashboard-card border-white/5 bg-slate-800/40">
-                <p className="text-[10px] text-blue-100/70 uppercase tracking-wider mb-1">Carga operativa</p>
-                <h4 className="text-xl font-bold text-orange-400">34%</h4>
-                <div className="mt-2 text-[10px] text-emerald-400 flex items-center gap-1">
-                  <TrendingDown className="w-3 h-3" /> -4 pts
-                </div>
-              </div>
-              <div className="glass-panel p-4 rounded-2xl dashboard-card border-white/5 bg-slate-800/40">
-                <p className="text-[10px] text-blue-100/70 uppercase tracking-wider mb-1">Presión tributaria</p>
-                <h4 className="text-xl font-bold text-white">21%</h4>
-                <div className="mt-2 text-[10px] text-blue-100/75">Corte del periodo</div>
-              </div>
-              <div className="glass-panel p-4 rounded-2xl dashboard-card border-white/5 bg-slate-800/40">
-                <p className="text-[10px] text-blue-100/70 uppercase tracking-wider mb-1">Margen operativo</p>
-                <h4 className="text-xl font-bold text-white">44%</h4>
-                <div className="mt-2 text-[10px] text-blue-400">Saludable</div>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="md:col-span-2 glass-panel p-4 rounded-2xl border-white/5 bg-slate-900/40 h-64 flex flex-col">
-                <div className="flex justify-between items-center mb-4">
-                  <span className="text-xs font-semibold text-white">Eficiencia vs carga operativa</span>
-                  <div className="flex gap-4">
-                    <span className="flex items-center gap-1 text-[10px] text-blue-100/80">
-                      <span className="w-2 h-2 rounded-full bg-blue-500"></span> Eficiencia
-                    </span>
-                    <span className="flex items-center gap-1 text-[10px] text-blue-100/80">
-                      <span className="w-2 h-2 rounded-full bg-orange-500"></span> Carga
-                    </span>
-                  </div>
-                </div>
-                <div className="flex-1 min-h-0">
-                  <HeroChart />
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="glass-panel p-4 rounded-2xl border-orange-500/20 bg-orange-500/5">
-                  <div className="flex items-center gap-3 mb-2">
-                    <AlertCircle className="w-4 h-4 text-orange-500" />
-                    <span className="text-xs font-bold text-orange-200">Alertas SUNAT</span>
-                  </div>
-                  <p className="text-[10px] text-orange-100/70">
-                    Vencimiento de PDT 621 en 48 horas. Data enviada a revisión.
-                  </p>
-                </div>
-                <div className="glass-panel p-4 rounded-2xl border-blue-500/20 bg-blue-500/5">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Cpu className="w-4 h-4 text-blue-400" />
-                    <span className="text-xs font-bold text-blue-200">IA Insight</span>
-                  </div>
-                  <p className="text-[10px] text-blue-100/70">
-                    Deducción de gastos optimizable en 15%. Ver reporte analítico.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-6 glass-panel rounded-2xl border-white/5 overflow-hidden">
-              <table className="w-full text-left text-[11px]">
-                <thead className="bg-white/5 text-blue-100/70 uppercase">
-                  <tr>
-                    <th className="px-4 py-2">Proceso</th>
-                    <th className="px-4 py-2">Estado</th>
-                    <th className="px-4 py-2">Avance</th>
-                    <th className="px-4 py-2">Fecha</th>
-                  </tr>
-                </thead>
-                <tbody className="text-blue-50/90">
-                  <tr className="border-b border-white/5">
-                    <td className="px-4 py-3 flex items-center gap-2">
-                      <FileText className="w-3 h-3 text-blue-400" /> Conciliación documental
-                    </td>
-                    <td className="px-4 py-3">
-                      <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                        Conciliado
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 font-medium">92%</td>
-                    <td className="px-4 py-3 text-blue-100/70">22 Oct, 2023</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 flex items-center gap-2">
-                      <Database className="w-3 h-3 text-orange-400" /> Planilla Electrónica
-                    </td>
-                    <td className="px-4 py-3">
-                      <span className="px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                        Enviado PLAME
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 font-medium">100%</td>
-                    <td className="px-4 py-3 text-blue-100/70">Hoy, 09:15 AM</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            ))}
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-

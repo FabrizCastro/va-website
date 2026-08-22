@@ -1,84 +1,67 @@
-﻿const impactMetrics = [
-  {
-    value: "24/7",
-    label: "Visibilidad de información crítica",
-    tone: "orange",
-  },
-  {
-    value: "3x",
-    label: "Más rapidez para responder requerimientos",
-    tone: "blue",
-  },
-  {
-    value: "-60%",
-    label: "Menos seguimiento manual en tareas repetitivas",
-    tone: "orange",
-  },
-];
+import Link from "next/link";
+import {
+  ArrowRight,
+  BadgeCheck,
+  FileClock,
+  Files,
+  Lightbulb,
+  ShieldCheck,
+} from "lucide-react";
 
-const impactSteps = [
-  "Tableros y reportes con foco en caja, impuestos y obligaciones.",
-  "Seguimiento operativo para detectar atrasos antes de que escalen.",
-  "Mayor confianza para decidir contrataciones, compras e inversión.",
-];
+const before = ["Documentos dispersos", "Seguimiento reactivo", "Poca visibilidad del periodo"];
+const after = ["Información centralizada", "Rutina mensual definida", "Reportes y alertas con contexto"];
 
 export default function ImpactSection() {
   return (
-    <section className="relative overflow-hidden bg-brand-primary py-24">
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.22),transparent_35%),radial-gradient(circle_at_82%_78%,rgba(249,115,22,0.18),transparent_38%)]" />
-      <div className="relative z-10 mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-        <div>
-          <p className="text-sm font-bold uppercase tracking-[0.32em] text-orange-200/90">
-            Impacto
-          </p>
-          <h2 className="mt-4 text-4xl font-extrabold font-heading leading-[1.05] text-white sm:text-5xl">
-            Resultados que se notan en la{" "}
-            <span className="text-orange-300">gestión financiera</span>
-          </h2>
-          <p className="mt-5 max-w-2xl text-lg text-blue-100/85">
-            El valor del servicio no está solo en cumplir. Está en ordenar la
-            operación, reducir ruido y darte información útil para mover el
-            negocio con más precisión.
-          </p>
+    <section className="relative overflow-hidden bg-white py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid gap-10 lg:grid-cols-[.78fr_1.22fr] lg:items-end" data-reveal>
+          <div>
+            <p className="section-kicker">Impacto operativo</p>
+            <h2 className="mt-5 font-heading text-4xl font-bold leading-[1.07] text-brand-primary sm:text-5xl lg:text-6xl">El resultado para Margales fue una forma distinta de trabajar.</h2>
+          </div>
+          <p className="max-w-2xl text-base leading-8 text-slate-600 lg:justify-self-end lg:text-lg">Más que digitalizar archivos, el proceso permitió a Margales Company establecer una nueva disciplina para recibir información, revisar obligaciones y conversar sobre resultados.</p>
+        </div>
 
-          <div className="mt-8 space-y-4">
-            {impactSteps.map((step) => (
-              <div
-                key={step}
-                className="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4"
-              >
-                <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-brand-secondary" />
-                <p className="text-sm leading-7 text-blue-50/90">{step}</p>
+        <div className="mt-14 grid overflow-hidden border border-slate-200 lg:grid-cols-[1fr_auto_1fr]" data-reveal>
+          <div className="bg-[#f7f5ef] p-7 sm:p-10">
+            <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-slate-400">Antes</p>
+            <h3 className="mt-4 font-heading text-3xl font-bold text-slate-500">Operación reactiva</h3>
+            <div className="mt-8 space-y-4">
+              {before.map((item) => <div key={item} className="flex items-center gap-3 border-b border-slate-200 pb-4 text-sm font-bold text-slate-500"><span className="h-1.5 w-1.5 rounded-full bg-slate-400" />{item}</div>)}
+            </div>
+          </div>
+          <div className="relative flex min-h-20 items-center justify-center border-y border-slate-200 bg-white px-7 lg:border-x lg:border-y-0">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-primary text-white shadow-xl"><ArrowRight className="h-5 w-5" /></div>
+          </div>
+          <div className="relative overflow-hidden bg-brand-primary p-7 text-white sm:p-10">
+            <div className="hero-grid absolute inset-0 opacity-20" />
+            <div className="relative">
+              <p className="text-[10px] font-extrabold uppercase tracking-[0.22em] text-[#d9c49a]">Después</p>
+              <h3 className="mt-4 font-heading text-3xl font-bold">Gestión con control</h3>
+              <div className="mt-8 space-y-4">
+                {after.map((item) => <div key={item} className="flex items-center gap-3 border-b border-white/10 pb-4 text-sm font-bold text-blue-50/80"><BadgeCheck className="h-4 w-4 text-emerald-300" />{item}</div>)}
               </div>
-            ))}
+            </div>
           </div>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3 lg:grid-cols-1">
-          {impactMetrics.map((metric) => (
-            <article
-              key={metric.label}
-              className={`rounded-[2rem] border p-7 shadow-[0_24px_60px_-32px_rgba(2,6,23,0.55)] ${
-                metric.tone === "orange"
-                  ? "border-brand-secondary/35 bg-white/[0.08]"
-                  : "border-blue-300/25 bg-white/[0.06]"
-              }`}
-            >
-              <p
-                className={`text-4xl font-extrabold font-heading ${
-                  metric.tone === "orange" ? "text-orange-300" : "text-white"
-                }`}
-              >
-                {metric.value}
-              </p>
-              <p className="mt-3 text-sm font-medium leading-6 text-blue-50/80">
-                {metric.label}
-              </p>
-            </article>
-          ))}
+        <div className="mt-5 grid gap-4 md:grid-cols-3">
+          {[
+            [Files, "Trazabilidad", "Los documentos importantes pueden encontrarse y relacionarse con el periodo."],
+            [FileClock, "Anticipación", "Los pendientes aparecen antes de convertirse en urgencias tributarias."],
+            [Lightbulb, "Decisión", "La información se presenta con observaciones y próximos pasos."],
+          ].map(([Icon, title, copy]) => {
+            const ItemIcon = Icon as typeof Files;
+            return <article key={title as string} className="premium-card border border-slate-200 bg-white p-7" data-reveal><ItemIcon className="h-6 w-6 text-brand-secondary" /><h3 className="mt-8 font-heading text-2xl font-bold text-brand-primary">{title as string}</h3><p className="mt-3 text-sm leading-7 text-slate-600">{copy as string}</p></article>;
+          })}
+        </div>
+
+        <div className="mt-16 flex flex-col justify-between gap-7 border-t border-slate-200 pt-10 sm:flex-row sm:items-center" data-reveal>
+          <div className="flex items-start gap-4"><ShieldCheck className="mt-1 h-6 w-6 shrink-0 text-brand-secondary" /><div><p className="font-heading text-2xl font-bold text-brand-primary">¿Tu operación se parece al punto de partida?</p><p className="mt-2 text-sm text-slate-600">Podemos comenzar con un diagnóstico del estado contable y tributario.</p></div></div>
+          <Link href="/#contacto" className="group inline-flex shrink-0 items-center gap-3 bg-brand-primary px-6 py-4 text-sm font-extrabold text-white transition hover:bg-[#071a3f]">Solicitar diagnóstico <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></Link>
         </div>
       </div>
     </section>
   );
 }
-

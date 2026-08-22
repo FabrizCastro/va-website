@@ -1,156 +1,91 @@
 import {
   ArrowRight,
-  BarChart3,
-  CheckCircle2,
-  Clock3,
+  BadgeCheck,
+  CalendarClock,
+  Check,
+  CircleDollarSign,
   FileCheck2,
+  Gauge,
   ShieldCheck,
-  TrendingUp,
 } from "lucide-react";
 
-const benefits = [
-  {
-    title: "Cumplimiento sin correr a última hora",
-    description:
-      "Organizamos vencimientos, declaraciones y validaciones para que cada periodo tenga responsables, fechas y soporte claro.",
-    metric: "48h",
-    metricLabel: "alertas previas",
-    Icon: ShieldCheck,
-    accent: "text-brand-primary",
-    surface: "border-blue-200/80 bg-blue-50/70",
-  },
-  {
-    title: "Menos tareas repetidas",
-    description:
-      "Estandarizamos el flujo de compras, ventas, bancos y planillas para reducir reprocesos y consultas innecesarias.",
-    metric: "-30%",
-    metricLabel: "carga operativa",
-    Icon: Clock3,
-    accent: "text-brand-secondary",
-    surface: "border-orange-200/80 bg-orange-50/70",
-  },
-  {
-    title: "Información útil para decidir",
-    description:
-      "Convertimos la data contable en señales prácticas sobre caja, margen, costos, riesgo tributario y crecimiento.",
-    metric: "1",
-    metricLabel: "lectura gerencial",
-    Icon: BarChart3,
-    accent: "text-indigo-700",
-    surface: "border-indigo-200/80 bg-indigo-50/70",
-  },
-];
-
-const outcomes = [
-  "Compras, ventas y bancos con trazabilidad.",
-  "Declaraciones y reportes bajo una cadencia fija.",
-  "Riesgos tributarios detectados antes del cierre.",
-  "Indicadores financieros fáciles de revisar.",
+const closeItems = [
+  ["Compras y ventas", "Revisado"],
+  ["Conciliación bancaria", "Completo"],
+  ["Obligaciones del periodo", "Programado"],
 ];
 
 export default function BenefitsSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-sky-100 via-blue-50 to-orange-100 py-16 sm:py-20 lg:py-24">
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.20),transparent_40%),radial-gradient(circle_at_85%_80%,rgba(251,146,60,0.18),transparent_45%)]" />
-
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+    <section className="accounting-section overflow-hidden bg-[#f7f5ef] py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-end" data-reveal>
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand-primary/15 bg-white/80 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-primary shadow-[0_14px_38px_-30px_rgba(15,23,42,0.55)]">
-              <TrendingUp className="h-4 w-4" />
-              Beneficios
-            </div>
-            <h2 className="mt-5 text-3xl font-extrabold font-heading leading-tight text-brand-primary sm:text-5xl lg:text-6xl">
-              Beneficios que se sienten en la operación diaria.
-            </h2>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-slate-700 sm:text-lg">
-              El objetivo no es solo cumplir. Es que tu equipo trabaje con
-              menos ruido, mejores datos y decisiones más rápidas.
-            </p>
+            <p className="section-kicker">Lo que cambia</p>
+            <h2 className="mt-5 font-heading text-4xl font-bold leading-[1.07] text-brand-primary sm:text-5xl lg:text-6xl">Más control.<br /><span className="italic text-brand-secondary">Menos ruido.</span></h2>
           </div>
+          <p className="max-w-2xl text-base leading-8 text-slate-600 lg:justify-self-end lg:text-lg">
+            Una buena gestión contable se nota en la operación diaria: pendientes visibles, fechas controladas y números que pueden explicarse.
+          </p>
+        </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {outcomes.map((outcome) => (
-              <div
-                key={outcome}
-                className="rounded-xl border border-white/70 bg-white/80 px-4 py-4 shadow-[0_16px_38px_-30px_rgba(15,23,42,0.4)]"
-              >
-                <CheckCircle2 className="h-5 w-5 text-emerald-600" />
-                <p className="mt-3 text-sm font-bold leading-6 text-slate-800">
-                  {outcome}
-                </p>
+        <div className="mt-14 grid gap-4 lg:grid-cols-12 lg:grid-rows-2">
+          <article className="benefit-feature relative overflow-hidden bg-brand-primary p-7 text-white shadow-[0_28px_70px_-36px_rgba(11,35,86,.65)] sm:p-9 lg:col-span-7 lg:row-span-2" data-reveal="left">
+            <div className="hero-grid absolute inset-0 opacity-20" />
+            <div className="relative flex h-full flex-col">
+              <div className="flex items-center justify-between">
+                <div className="flex h-12 w-12 items-center justify-center border border-[#d9c49a]/30 bg-[#d9c49a]/10 text-[#d9c49a]"><ShieldCheck className="h-5 w-5" /></div>
+                <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-blue-100/45">Beneficio principal</span>
               </div>
-            ))}
+              <h3 className="mt-9 max-w-xl font-heading text-3xl font-bold leading-tight sm:text-4xl">Cada cierre tiene un estado visible, no una colección de pendientes ocultos.</h3>
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-blue-50/65">Organizamos responsables, validaciones y vencimientos para que sepas qué está listo, qué requiere atención y qué ocurrirá después.</p>
+
+              <div className="mt-10 overflow-hidden border border-white/10 bg-[#071a3f]/70">
+                <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+                  <div className="flex items-center gap-3"><CalendarClock className="h-4 w-4 text-[#d9c49a]" /><span className="text-xs font-bold">Estado del cierre mensual</span></div>
+                  <span className="inline-flex items-center gap-2 text-[10px] font-bold text-emerald-300"><span className="h-1.5 w-1.5 rounded-full bg-emerald-300" /> En curso</span>
+                </div>
+                <div className="divide-y divide-white/10">
+                  {closeItems.map(([label, state], index) => (
+                    <div key={label} className="flex items-center gap-4 px-5 py-4">
+                      <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/10 text-[9px] text-blue-100/55">0{index + 1}</span>
+                      <span className="text-xs font-bold text-blue-50/80">{label}</span>
+                      <span className="ml-auto flex items-center gap-2 text-[10px] font-bold text-[#d9c49a]"><Check className="h-3 w-3" />{state}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article className="premium-card relative overflow-hidden border border-slate-200 bg-white p-7 shadow-[0_22px_55px_-38px_rgba(15,23,42,.35)] lg:col-span-5" data-reveal="right">
+            <div className="flex items-start justify-between">
+              <div className="flex h-11 w-11 items-center justify-center bg-[#f0e7d5] text-brand-secondary"><Gauge className="h-5 w-5" /></div>
+              <span className="font-heading text-5xl font-bold text-brand-primary/5">01</span>
+            </div>
+            <h3 className="mt-6 font-heading text-2xl font-bold text-brand-primary">Menos trabajo repetido</h3>
+            <p className="mt-3 text-sm leading-7 text-slate-600">Un flujo definido reduce búsquedas, reprocesos y solicitudes de última hora.</p>
+            <div className="mt-6 flex items-center gap-3 border-t border-slate-200 pt-5 text-xs font-bold text-brand-secondary">Documentos <ArrowRight className="h-3.5 w-3.5" /> Validación <ArrowRight className="h-3.5 w-3.5" /> Cierre</div>
+          </article>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:col-span-5" data-reveal="right" data-reveal-delay="1">
+            <article className="premium-card border border-[#d8c39a]/45 bg-[#efe5d2] p-6">
+              <CircleDollarSign className="h-6 w-6 text-brand-secondary" />
+              <h3 className="mt-7 font-heading text-xl font-bold text-brand-primary">Caja y margen legibles</h3>
+              <p className="mt-3 text-xs leading-6 text-slate-600">Los datos se traducen en señales concretas para la gerencia.</p>
+            </article>
+            <article className="premium-card border border-blue-200 bg-[#eaf0f8] p-6">
+              <FileCheck2 className="h-6 w-6 text-brand-primary" />
+              <h3 className="mt-7 font-heading text-xl font-bold text-brand-primary">Sustento disponible</h3>
+              <p className="mt-3 text-xs leading-6 text-slate-600">Cada cifra importante conserva su origen y documentación.</p>
+            </article>
           </div>
         </div>
 
-        <div className="mt-10 grid gap-4 lg:grid-cols-3">
-          {benefits.map((benefit) => {
-            const Icon = benefit.Icon;
-
-            return (
-              <article
-                key={benefit.title}
-                className={`min-h-[20rem] rounded-2xl border p-5 shadow-[0_18px_48px_-34px_rgba(15,23,42,0.38)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 ${benefit.surface}`}
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-slate-950 shadow-sm">
-                    <Icon className={`h-6 w-6 ${benefit.accent}`} />
-                  </div>
-                  <div className="text-right">
-                    <p className={`font-heading text-3xl font-extrabold ${benefit.accent}`}>
-                      {benefit.metric}
-                    </p>
-                    <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.16em] text-slate-500">
-                      {benefit.metricLabel}
-                    </p>
-                  </div>
-                </div>
-
-                <h3 className="mt-6 text-2xl font-extrabold leading-tight text-slate-950">
-                  {benefit.title}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-slate-700">
-                  {benefit.description}
-                </p>
-              </article>
-            );
-          })}
-        </div>
-
-        <div className="mt-6 grid gap-4 rounded-2xl border border-slate-200/80 bg-white/82 p-5 shadow-[0_20px_55px_-34px_rgba(15,23,42,0.4)] lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-          <div>
-            <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-slate-950 text-white">
-              <FileCheck2 className="h-6 w-6" />
-            </div>
-            <h3 className="mt-4 text-2xl font-extrabold text-slate-950">
-              De documentos sueltos a gestión controlada.
-            </h3>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-3">
-            {["Recibimos", "Validamos", "Reportamos"].map((step, index) => (
-              <div key={step} className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-4">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary text-xs font-extrabold text-white">
-                  {index + 1}
-                </span>
-                <div>
-                  <p className="text-sm font-extrabold text-slate-950">
-                    {step}
-                  </p>
-                  <p className="mt-1 text-xs font-semibold leading-5 text-slate-600">
-                    {index === 0
-                      ? "Comprobantes y data del periodo."
-                      : index === 1
-                        ? "Cruces, observaciones y pendientes."
-                        : "Indicadores y próximos pasos."}
-                  </p>
-                </div>
-                {index < 2 ? (
-                  <ArrowRight className="ml-auto hidden h-4 w-4 text-slate-400 sm:block" />
-                ) : null}
-              </div>
-            ))}
-          </div>
+        <div className="mt-5 grid gap-px overflow-hidden border border-slate-200 bg-slate-200 sm:grid-cols-4" data-reveal>
+          {["Vencimientos controlados", "Compras y ventas conciliadas", "Riesgos detectados", "Indicadores explicados"].map((item) => (
+            <div key={item} className="flex items-center gap-3 bg-white px-5 py-5 text-xs font-bold text-slate-700"><BadgeCheck className="h-4 w-4 shrink-0 text-emerald-600" />{item}</div>
+          ))}
         </div>
       </div>
     </section>

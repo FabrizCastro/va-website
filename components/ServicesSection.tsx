@@ -5,393 +5,165 @@ import {
   ArrowRight,
   BarChart3,
   Calculator,
-  CheckCircle2,
+  Check,
   FileSearch,
   Scale,
   ShieldCheck,
   Users,
 } from "lucide-react";
 
-type Service = {
-  id: string;
-  eyebrow: string;
-  name: string;
-  shortName: string;
-  contactValue: string;
-  summary: string;
-  outcome: string;
-  image: string;
-  accent: "blue" | "orange" | "emerald" | "indigo" | "slate";
-  Icon: typeof Calculator;
-  features: string[];
-};
-
-const services: Service[] = [
+const services = [
   {
     id: "contabilidad",
-    eyebrow: "Contabilidad integral",
-    name: "Gestión contable dinámica",
-    shortName: "Contable",
+    label: "Contabilidad integral",
+    title: "Gestión contable mensual",
     contactValue: "Asesoría contable",
-    summary:
-      "Ordenamos compras, ventas, bancos, préstamos y formatos contables para que cada cierre mensual tenga sustento.",
-    outcome: "Cierres más claros y menos reprocesos al declarar.",
-    image:
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80",
-    accent: "blue",
+    description: "Ordenamos compras, ventas, bancos, préstamos y cuentas para construir cierres mensuales con sustento y trazabilidad.",
+    outcome: "Una contabilidad que explica lo ocurrido y prepara la siguiente decisión.",
+    image: "/assets/brand/backgroundfinanzas.jpg",
     Icon: Calculator,
-    features: [
-      "Libros contables",
-      "Conciliación bancaria",
-      "Análisis de cuentas",
-      "Reconocimiento de ingresos",
-    ],
+    features: ["Libros contables", "Conciliación bancaria", "Análisis de cuentas", "Cierre mensual"],
   },
   {
     id: "tributaria",
-    eyebrow: "SUNAT & Tax",
-    name: "Estrategia tributaria",
-    shortName: "Tributaria",
+    label: "Tributación",
+    title: "Control tributario y SUNAT",
     contactValue: "Asesoría tributaria",
-    summary:
-      "Gestionamos impuestos, PDTs, SIRE y alertas tributarias para reducir riesgos y evitar decisiones de último minuto.",
-    outcome: "Mayor control de vencimientos, obligaciones y contingencias.",
-    image:
-      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1200&q=80",
-    accent: "orange",
+    description: "Gestionamos impuestos, PDT, SIRE y obligaciones periódicas con una revisión preventiva de los puntos críticos.",
+    outcome: "Menos incertidumbre frente a vencimientos y contingencias tributarias.",
+    image: "/assets/brand/backgroundfinanciero.avif",
     Icon: Scale,
-    features: [
-      "Liquidación de impuestos",
-      "Presentación de PDTs",
-      "Libros electrónicos SIRE",
-      "Revisión preventiva",
-    ],
+    features: ["Liquidación de impuestos", "Presentación de PDT", "SIRE", "Revisión preventiva"],
   },
   {
     id: "laboral",
-    eyebrow: "HR & Payroll",
-    name: "Gestión laboral",
-    shortName: "Laboral",
+    label: "Laboral",
+    title: "Planillas y obligaciones laborales",
     contactValue: "Planillas y laboral",
-    summary:
-      "Mantenemos planillas, boletas, beneficios y trámites laborales bajo control operativo y normativo.",
-    outcome: "Planillas ordenadas y pagos laborales más previsibles.",
-    image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
-    accent: "emerald",
+    description: "Administramos planillas, boletas, beneficios sociales y declaraciones laborales bajo una cadencia clara.",
+    outcome: "Pagos y obligaciones laborales ordenados y previsibles.",
+    image: "/assets/brand/backgroundoficina.avif",
     Icon: Users,
-    features: [
-      "PLAME",
-      "Boletas y gratificaciones",
-      "CTS y beneficios sociales",
-      "AFP y ONP",
-    ],
+    features: ["PLAME", "Boletas de pago", "CTS y gratificaciones", "AFP y ONP"],
   },
   {
     id: "reportes",
-    eyebrow: "Finanzas",
-    name: "Analítica financiera",
-    shortName: "Reportes",
+    label: "Finanzas",
+    title: "Reportes para la gerencia",
     contactValue: "Reportes financieros",
-    summary:
-      "Convertimos estados financieros, balances y flujos en reportes gerenciales pensados para decidir.",
-    outcome: "Indicadores legibles para margen, caja, costos y crecimiento.",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-    accent: "indigo",
+    description: "Convertimos balances, flujos y resultados en una lectura concreta sobre caja, margen, costos y crecimiento.",
+    outcome: "Información financiera que puede entenderse y utilizarse.",
+    image: "/assets/brand/backgroundfinanzas.jpg",
     Icon: BarChart3,
-    features: [
-      "Estados financieros",
-      "Flujo de efectivo",
-      "Tableros de control",
-      "Lectura de indicadores",
-    ],
+    features: ["Estados financieros", "Flujo de efectivo", "Indicadores", "Lectura gerencial"],
   },
   {
     id: "control",
-    eyebrow: "Control interno",
-    name: "Auditoría y procesos",
-    shortName: "Control",
+    label: "Control interno",
+    title: "Revisión de procesos",
     contactValue: "Reportes financieros",
-    summary:
-      "Revisamos procesos, documentación y puntos críticos para encontrar riesgos antes de que afecten la operación.",
-    outcome: "Procesos más trazables y mejor preparados para crecer.",
-    image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
-    accent: "slate",
+    description: "Analizamos documentación, responsabilidades y puntos de control para detectar riesgos antes de que afecten la operación.",
+    outcome: "Procesos más verificables y preparados para crecer.",
+    image: "/assets/brand/backgroundoficina.avif",
     Icon: FileSearch,
-    features: [
-      "Revisión documental",
-      "Control de riesgos",
-      "Mapa de procesos",
-      "Mejoras operativas",
-    ],
+    features: ["Revisión documental", "Mapa de riesgos", "Puntos de control", "Plan de mejora"],
   },
 ];
-
-const accentClasses = {
-  blue: {
-    chip: "border-blue-200 bg-blue-50 text-brand-primary",
-    icon: "bg-brand-primary text-white",
-    card: "border-blue-200/80 hover:border-brand-primary/45",
-    active: "border-brand-primary bg-brand-primary text-white",
-    bullet: "text-brand-primary",
-  },
-  orange: {
-    chip: "border-orange-200 bg-orange-50 text-brand-secondary",
-    icon: "bg-brand-secondary text-white",
-    card: "border-orange-200/80 hover:border-brand-secondary/45",
-    active: "border-brand-secondary bg-brand-secondary text-white",
-    bullet: "text-brand-secondary",
-  },
-  emerald: {
-    chip: "border-emerald-200 bg-emerald-50 text-emerald-700",
-    icon: "bg-emerald-600 text-white",
-    card: "border-emerald-200/80 hover:border-emerald-500/45",
-    active: "border-emerald-600 bg-emerald-600 text-white",
-    bullet: "text-emerald-600",
-  },
-  indigo: {
-    chip: "border-indigo-200 bg-indigo-50 text-indigo-700",
-    icon: "bg-indigo-600 text-white",
-    card: "border-indigo-200/80 hover:border-indigo-500/45",
-    active: "border-indigo-600 bg-indigo-600 text-white",
-    bullet: "text-indigo-600",
-  },
-  slate: {
-    chip: "border-slate-200 bg-slate-100 text-slate-700",
-    icon: "bg-slate-800 text-white",
-    card: "border-slate-200/80 hover:border-slate-500/45",
-    active: "border-slate-800 bg-slate-800 text-white",
-    bullet: "text-slate-700",
-  },
-} as const;
 
 function scrollToContact(serviceName: string) {
   const url = new URL(window.location.href);
   url.hash = "contacto";
   url.searchParams.set("servicio", serviceName);
   window.history.replaceState({}, "", url.toString());
-  window.dispatchEvent(
-    new CustomEvent("va-service-selected", { detail: serviceName }),
-  );
+  window.dispatchEvent(new CustomEvent("va-service-selected", { detail: serviceName }));
 
   const section = document.getElementById("contacto");
   if (!section) {
-    const homeContactUrl = new URL("/", window.location.origin);
-    homeContactUrl.searchParams.set("servicio", serviceName);
-    homeContactUrl.hash = "contacto";
-    window.location.href = homeContactUrl.toString();
+    window.location.href = `/?servicio=${encodeURIComponent(serviceName)}#contacto`;
     return;
   }
-
-  const navOffset = 80;
-  const top = section.getBoundingClientRect().top + window.scrollY - navOffset;
-  window.scrollTo({
-    top: Math.max(top, 0),
-    behavior: "smooth",
-  });
+  window.scrollTo({ top: Math.max(section.getBoundingClientRect().top + window.scrollY - 80, 0), behavior: "smooth" });
 }
 
 export default function ServicesSection() {
-  const [activeServiceId, setActiveServiceId] = useState(services[0].id);
-  const activeService =
-    services.find((service) => service.id === activeServiceId) ?? services[0];
-  const activeAccent = accentClasses[activeService.accent];
-  const ActiveIcon = activeService.Icon;
+  const [activeId, setActiveId] = useState(services[0].id);
+  const active = services.find((service) => service.id === activeId) ?? services[0];
+  const ActiveIcon = active.Icon;
 
   return (
-    <section
-      id="servicios"
-      className="relative overflow-hidden bg-gradient-to-br from-sky-100 via-blue-50 to-orange-100 py-16 sm:py-20 lg:py-24"
-    >
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.22),transparent_40%),radial-gradient(circle_at_85%_80%,rgba(251,146,60,0.20),transparent_45%)]" />
+    <section id="servicios" className="relative overflow-hidden bg-[#f4f0e7] py-24">
+      <div className="absolute inset-y-0 right-0 hidden w-[34%] bg-brand-primary lg:block" />
+      <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-[#a47b32]/50 to-transparent" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="mb-10 grid gap-6 lg:grid-cols-[1fr_0.72fr] lg:items-end">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-brand-primary/15 bg-white/80 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-primary shadow-[0_14px_38px_-30px_rgba(15,23,42,0.55)]">
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="grid gap-8 lg:grid-cols-[.72fr_1.28fr] lg:items-end" data-reveal>
+          <div>
+            <div className="flex items-center gap-3 text-brand-secondary">
               <ShieldCheck className="h-4 w-4" />
-              Servicios especializados
+              <p className="text-[11px] font-extrabold uppercase tracking-[0.25em]">Servicios especializados</p>
             </div>
-            <h2 className="mt-5 text-3xl font-extrabold font-heading leading-tight text-brand-primary sm:text-5xl lg:text-6xl">
-              Elige el soporte que tu operación necesita ahora.
-            </h2>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-slate-700 sm:text-lg">
-              Cada servicio está pensado para resolver una parte concreta de la
-              gestión: orden contable, cumplimiento, planillas, reportes y
-              control operativo.
-            </p>
+            <h2 className="mt-5 font-heading text-4xl font-bold leading-[1.06] text-brand-primary sm:text-5xl lg:text-6xl">Una firma.<br />Cinco frentes de control.</h2>
           </div>
-
-          <div className="grid grid-cols-3 gap-2">
-            <div className="rounded-xl border border-white/70 bg-white/80 px-3 py-4 text-center shadow-[0_18px_42px_-34px_rgba(15,23,42,0.42)]">
-              <p className="font-heading text-2xl font-extrabold text-brand-primary">
-                5
-              </p>
-              <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">
-                frentes
-              </p>
-            </div>
-            <div className="rounded-xl border border-white/70 bg-white/80 px-3 py-4 text-center shadow-[0_18px_42px_-34px_rgba(15,23,42,0.42)]">
-              <p className="font-heading text-2xl font-extrabold text-brand-secondary">
-                SUNAT
-              </p>
-              <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">
-                control
-              </p>
-            </div>
-            <div className="rounded-xl border border-white/70 bg-white/80 px-3 py-4 text-center shadow-[0_18px_42px_-34px_rgba(15,23,42,0.42)]">
-              <p className="font-heading text-2xl font-extrabold text-slate-900">
-                48h
-              </p>
-              <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.14em] text-slate-500">
-                respuesta
-              </p>
-            </div>
-          </div>
+          <p className="max-w-2xl text-base leading-8 text-slate-600 lg:pb-1 lg:text-lg">
+            Selecciona un área para conocer su alcance. Los servicios se pueden contratar por separado o integrar en una gestión contable completa.
+          </p>
         </div>
 
-        <div className="mb-6 flex gap-2 overflow-x-auto pb-2 [scrollbar-width:none]">
-          {services.map((service) => {
-            const isActive = service.id === activeService.id;
-            const accent = accentClasses[service.accent];
-
-            return (
-              <button
-                key={service.id}
-                type="button"
-                onClick={() => setActiveServiceId(service.id)}
-                className={`shrink-0 rounded-full border px-4 py-3 text-sm font-extrabold transition-colors ${
-                  isActive
-                    ? accent.active
-                    : "border-slate-200 bg-white/85 text-slate-700 hover:border-slate-300 hover:bg-white"
-                }`}
-              >
-                {service.shortName}
-              </button>
-            );
-          })}
-        </div>
-
-        <div className="grid gap-5 lg:grid-cols-[1fr_0.42fr] lg:items-start">
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {services.map((service) => {
-              const accent = accentClasses[service.accent];
-              const isActive = service.id === activeService.id;
+        <div className="mt-14 grid min-h-[39rem] overflow-hidden border border-slate-300/80 bg-white shadow-[0_35px_90px_-45px_rgba(11,35,86,.42)] lg:grid-cols-[.7fr_1.05fr_1fr]" data-reveal>
+          <nav aria-label="Seleccionar servicio" className="flex overflow-x-auto border-b border-slate-200 bg-[#faf8f3] lg:flex-col lg:border-b-0 lg:border-r">
+            {services.map((service, index) => {
               const Icon = service.Icon;
-
+              const selected = service.id === active.id;
               return (
-                <article
+                <button
                   key={service.id}
-                  className={`group relative min-h-[24rem] overflow-hidden rounded-2xl border bg-white/88 shadow-[0_18px_48px_-34px_rgba(15,23,42,0.38)] transition duration-300 hover:-translate-y-1 ${accent.card} ${
-                    isActive ? "ring-2 ring-slate-900/10" : ""
-                  }`}
+                  type="button"
+                  onClick={() => setActiveId(service.id)}
+                  aria-pressed={selected}
+                  className={`service-nav-item group relative flex min-w-[13rem] flex-1 items-center gap-4 border-r border-slate-200 px-5 py-5 text-left transition lg:min-w-0 lg:border-b lg:border-r-0 ${selected ? "is-active bg-brand-primary text-white" : "text-slate-600 hover:bg-white hover:text-brand-primary"}`}
                 >
-                  <div
-                    className="absolute inset-x-0 top-0 h-32 bg-cover bg-center"
-                    style={{ backgroundImage: `url('${service.image}')` }}
-                  />
-                  <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-slate-950/28 to-white/0" />
-
-                  <div className="relative z-10 flex h-full flex-col p-5 pt-24">
-                    <div className="flex items-start justify-between gap-3">
-                      <span
-                        className={`inline-flex rounded-full border px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.16em] ${accent.chip}`}
-                      >
-                        {service.eyebrow}
-                      </span>
-                      <div
-                        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${accent.icon}`}
-                      >
-                        <Icon className="h-5 w-5" />
-                      </div>
-                    </div>
-
-                    <h3 className="mt-4 text-2xl font-extrabold leading-tight text-slate-950">
-                      {service.name}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-600">
-                      {service.summary}
-                    </p>
-
-                    <ul className="mt-5 grid gap-2 text-sm font-semibold text-slate-700">
-                      {service.features.slice(0, 3).map((feature) => (
-                        <li key={feature} className="flex items-start gap-2">
-                          <CheckCircle2
-                            className={`mt-0.5 h-4 w-4 shrink-0 ${accent.bullet}`}
-                          />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="mt-auto pt-5">
-                      <button
-                        type="button"
-                        onClick={() => scrollToContact(service.contactValue)}
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-950 px-4 py-3 text-sm font-extrabold text-white transition hover:bg-brand-primary"
-                      >
-                        Consultar servicio
-                        <ArrowRight className="h-4 w-4" />
-                      </button>
-                    </div>
-                  </div>
-                </article>
+                  <span className={`text-[10px] font-extrabold tracking-[0.18em] ${selected ? "text-[#d9c49a]" : "text-slate-400"}`}>0{index + 1}</span>
+                  <Icon className={`h-5 w-5 shrink-0 ${selected ? "text-[#d9c49a]" : "text-slate-400 group-hover:text-brand-secondary"}`} />
+                  <span className="text-sm font-bold">{service.label}</span>
+                  {selected ? <span className="absolute bottom-0 left-0 h-0.5 w-full bg-[#d9c49a] lg:bottom-auto lg:left-auto lg:right-0 lg:h-full lg:w-0.5" /> : null}
+                </button>
               );
             })}
+          </nav>
+
+          <div key={`${active.id}-image`} className="service-image-enter relative min-h-[22rem] overflow-hidden bg-brand-primary lg:min-h-full">
+            <div className="absolute inset-0 scale-105 bg-cover bg-center transition duration-700 hover:scale-100" style={{ backgroundImage: `url('${active.image}')` }} />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#071a3f] via-[#071a3f]/28 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-7 text-white sm:p-9">
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#d9c49a]">Resultado esperado</p>
+              <p className="mt-3 max-w-md font-heading text-2xl font-bold leading-snug">{active.outcome}</p>
+            </div>
           </div>
 
-          <aside className="rounded-2xl border border-white/70 bg-white/86 p-5 shadow-[0_20px_55px_-34px_rgba(15,23,42,0.4)] backdrop-blur-sm lg:sticky lg:top-24">
-            <div
-              className="h-36 rounded-xl bg-cover bg-center"
-              style={{ backgroundImage: `url('${activeService.image}')` }}
-            />
-            <div className="mt-5 flex items-start gap-3">
-              <div
-                className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${activeAccent.icon}`}
-              >
-                <ActiveIcon className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-slate-500">
-                  Servicio seleccionado
-                </p>
-                <h3 className="mt-1 text-xl font-extrabold leading-tight text-slate-950">
-                  {activeService.name}
-                </h3>
-              </div>
-            </div>
+          <div key={`${active.id}-content`} className="service-panel-enter relative flex flex-col bg-white p-7 sm:p-9 lg:p-10">
+            <div className="flex h-12 w-12 items-center justify-center bg-[#f4f0e7] text-brand-secondary"><ActiveIcon className="h-5 w-5" /></div>
+            <p className="mt-8 text-[10px] font-extrabold uppercase tracking-[0.22em] text-slate-400">{active.label}</p>
+            <h3 className="mt-3 font-heading text-3xl font-bold leading-tight text-brand-primary">{active.title}</h3>
+            <p className="mt-5 text-sm leading-7 text-slate-600">{active.description}</p>
 
-            <p className="mt-4 text-sm leading-7 text-slate-700">
-              {activeService.outcome}
-            </p>
+            <ul className="mt-7 grid grid-cols-2 gap-x-4 gap-y-4 border-y border-slate-200 py-6">
+              {active.features.map((feature) => (
+                <li key={feature} className="flex items-start gap-2 text-xs font-bold leading-5 text-slate-700">
+                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-secondary" />{feature}
+                </li>
+              ))}
+            </ul>
 
-            <div className="mt-5 border-t border-slate-200 pt-5">
-              <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-slate-500">
-                Incluye
-              </p>
-              <ul className="mt-3 space-y-2 text-sm font-semibold text-slate-700">
-                {activeService.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2">
-                    <CheckCircle2
-                      className={`mt-0.5 h-4 w-4 shrink-0 ${activeAccent.bullet}`}
-                    />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <button
-              type="button"
-              onClick={() => scrollToContact(activeService.contactValue)}
-              className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-secondary px-4 py-4 text-sm font-extrabold text-white shadow-lg shadow-orange-950/18 transition hover:bg-orange-600"
-            >
-              Quiero revisar este punto
-              <ArrowRight className="h-4 w-4" />
+            <button type="button" onClick={() => scrollToContact(active.contactValue)} className="group mt-auto flex items-center justify-between border-b border-brand-primary pb-3 pt-8 text-left text-sm font-extrabold text-brand-primary transition hover:border-brand-secondary hover:text-brand-secondary">
+              Consultar este servicio
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-2" />
             </button>
-          </aside>
+          </div>
+        </div>
+
+        <div className="mt-6 flex flex-col justify-between gap-4 border-t border-slate-300 pt-5 text-xs font-bold uppercase tracking-[0.16em] text-slate-500 sm:flex-row">
+          <span>Atención en Lima y todo el Perú</span>
+          <span className="text-brand-secondary">Diagnóstico inicial · Alcance definido · Seguimiento mensual</span>
         </div>
       </div>
     </section>

@@ -127,21 +127,20 @@ export default function PricingSection() {
   return (
     <section
       id="planes"
-      className="relative overflow-hidden bg-gradient-to-br from-sky-100 via-blue-50 to-orange-100 py-24"
+      className="accounting-section relative overflow-hidden bg-[#f7f5ef] py-24"
     >
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.22),transparent_40%),radial-gradient(circle_at_85%_80%,rgba(251,146,60,0.20),transparent_45%)]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6">
         <div className="mx-auto mb-12 max-w-3xl text-center">
           <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-brand-primary/15 bg-white/70 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.24em] text-brand-primary shadow-[0_12px_40px_-28px_rgba(15,23,42,0.45)] backdrop-blur-sm">
             Elige con claridad
           </div>
-          <h2 className="mt-5 text-4xl font-extrabold font-heading leading-[1.05] text-brand-primary sm:text-5xl lg:text-6xl">
+          <h1 className="mt-5 text-4xl font-extrabold font-heading leading-[1.05] text-brand-primary sm:text-5xl lg:text-6xl">
             Nuestros{" "}
             <span className="bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
               Planes
             </span>
-          </h2>
+          </h1>
           <p className="mt-4 text-lg leading-8 text-slate-700">
             Cada plan responde a un nivel distinto de acompañamiento. Elige el
             que mejor calce con tu etapa actual.

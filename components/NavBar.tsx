@@ -36,8 +36,8 @@ export default function NavBar() {
     <nav
       className={`fixed w-full z-50 backdrop-blur-md transition-colors duration-300 ${
         isAtTop
-          ? "bg-transparent border-b border-transparent"
-          : "bg-white/80 border-b border-slate-200/80"
+          ? "bg-transparent border-b border-white/10"
+          : "bg-white/95 border-b border-slate-200"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,9 +65,7 @@ export default function NavBar() {
             <Link href="/#servicios" className="nav-link transition-colors">
               Servicios
             </Link>
-            <Link href="/#tecnologia" className="nav-link transition-colors">
-              Tecnología
-            </Link>
+            <Link href="/#proceso" className="nav-link transition-colors">Cómo trabajamos</Link>
             <Link href="/casos-de-exito" className="nav-link transition-colors">
               Casos de éxito
             </Link>
@@ -89,11 +87,11 @@ export default function NavBar() {
                 useLightHeaderText ? "text-white" : "text-slate-700"
               }`}
             >
-              Solicitar acceso
+              {"(+51) 970 616 942"}
             </Link>
             <Link
               href="/#contacto"
-              className="hidden sm:inline-flex px-6 py-2.5 bg-brand-primary hover:bg-brand-primary/90 text-white text-sm font-bold rounded-full transition-all shadow-lg shadow-[#0B2356]/25"
+              className="hidden sm:inline-flex rounded-sm bg-brand-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-[#0B2356]/20 transition-all hover:bg-[#071a3f]"
             >
               Agenda una consulta
             </Link>
@@ -128,8 +126,8 @@ export default function NavBar() {
                 <Link href="/#servicios" className="rounded-xl px-4 py-3 transition-colors hover:bg-slate-100 hover:text-brand-primary" onClick={closeMenu}>
                   Servicios
                 </Link>
-                <Link href="/#tecnologia" className="rounded-xl px-4 py-3 transition-colors hover:bg-slate-100 hover:text-brand-primary" onClick={closeMenu}>
-                  Tecnología
+                <Link href="/#proceso" className="rounded-xl px-4 py-3 transition-colors hover:bg-slate-100 hover:text-brand-primary" onClick={closeMenu}>
+                  Cómo trabajamos
                 </Link>
                 <Link href="/casos-de-exito" className="rounded-xl px-4 py-3 transition-colors hover:bg-slate-100 hover:text-brand-primary" onClick={closeMenu}>
                   Casos de éxito

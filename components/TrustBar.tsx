@@ -3,67 +3,58 @@
   Landmark,
   RefreshCcw,
   ShieldCheck,
-  Sparkles,
   Users,
 } from "lucide-react";
 
 export default function TrustBar() {
   return (
-    <div className="border-y border-white/10 bg-brand-primary py-10 overflow-hidden">
+    <section aria-label="Áreas de especialidad" className="overflow-hidden border-b border-slate-200 bg-white py-8">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-wrap justify-center md:justify-between items-center gap-8 text-white transition-all">
+        <div className="grid grid-cols-2 gap-6 text-brand-primary md:grid-cols-5">
           <div className="flex flex-col items-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-100/80 mb-2">
+            <span className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-500">
               Asesoría
             </span>
             <span className="flex text-xl gap-2 items-center font-heading font-bold">
-              <ShieldCheck className="text-orange-300" /> Contable
+              <ShieldCheck className="text-brand-secondary" /> Contable
             </span>
           </div>
           <div className="flex flex-col items-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-100/80 mb-2">
+            <span className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-500">
               Cumplimiento
             </span>
-            <span className="flex text-xl gap-2 items-center font-heading font-bold text-white">
-              <Landmark className="text-orange-300" />
+            <span className="flex text-xl gap-2 items-center font-heading font-bold">
+              <Landmark className="text-brand-secondary" />
               Tributario
             </span>
           </div>
           <div className="flex flex-col items-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-100/80 mb-2">
+            <span className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-500">
               Gestión
             </span>
             <span className="flex text-xl gap-2 items-center font-heading font-bold">
-              <Users className="text-orange-300" /> Laboral
+              <Users className="text-brand-secondary" /> Laboral
             </span>
           </div>
           <div className="flex flex-col items-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-100/80 mb-2">
+            <span className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-500">
               Estrategia
             </span>
             <span className="flex text-xl gap-2 items-center font-heading font-bold">
-              <Activity className="text-orange-300" /> Financiera
+              <Activity className="text-brand-secondary" /> Financiera
             </span>
           </div>
           <div className="flex flex-col items-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-100/80 mb-2">
+            <span className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-500">
               Procesos
             </span>
-            <span className="flex text-xl gap-2 items-center font-heading font-bold text-white">
-              <RefreshCcw className="text-orange-300" /> Outsourcing
-            </span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="text-xs font-bold uppercase tracking-widest text-blue-100/80 mb-2">
-              Automatización
-            </span>
-            <span className="flex text-xl gap-2 items-center font-heading font-bold text-white">
-              <Sparkles className="text-orange-300" /> IA AUTOMATION
+            <span className="flex text-xl gap-2 items-center font-heading font-bold">
+              <RefreshCcw className="text-brand-secondary" /> Outsourcing
             </span>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

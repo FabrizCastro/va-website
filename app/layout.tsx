@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Outfit } from "next/font/google";
+import { Libre_Baskerville, Plus_Jakarta_Sans } from "next/font/google";
 import FloatingContact from "@/components/FloatingContact";
-import { absoluteUrl, siteConfig } from "@/lib/seo";
+import RevealManager from "@/components/RevealManager";
+import { absoluteUrl, languageAlternates, siteConfig } from "@/lib/seo";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -11,9 +12,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const outfit = Outfit({
+const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "700"],
   variable: "--font-heading",
   display: "swap",
 });
@@ -30,14 +31,16 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   publisher: siteConfig.name,
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   keywords: [...siteConfig.keywords],
   referrer: "origin-when-cross-origin",
   alternates: {
     canonical: absoluteUrl("/"),
-    languages: {
-      "es-PE": absoluteUrl("/"),
-      es: absoluteUrl("/"),
-    },
+    languages: languageAlternates("/"),
   },
   openGraph: {
     type: "website",
@@ -49,8 +52,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: absoluteUrl(siteConfig.ogImage),
-        width: 1200,
-        height: 630,
+        width: siteConfig.ogImageWidth,
+        height: siteConfig.ogImageHeight,
         alt: "V&A Profesionales - Asesoría contable, tributaria y financiera en Perú",
       },
     ],
@@ -73,6 +76,13 @@ export const metadata: Metadata = {
     },
   },
   category: "business",
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
+  other: {
+    "geo.region": "PE-LIM",
+    "geo.placename": "Lima",
+  },
   icons: {
     icon: siteConfig.logo,
     shortcut: siteConfig.logo,
@@ -92,6 +102,7 @@ export default function RootLayout({
     url: siteConfig.url,
     logo: absoluteUrl(siteConfig.logo),
     image: absoluteUrl(siteConfig.ogImage),
+    foundingDate: siteConfig.foundingDate,
     description: siteConfig.description,
     telephone: siteConfig.phone,
     email: siteConfig.email,
@@ -114,6 +125,13 @@ export default function RootLayout({
       areaServed: siteConfig.country,
       availableLanguage: ["Spanish"],
     },
+    knowsAbout: [
+      "Contabilidad empresarial",
+      "Tributación peruana",
+      "SUNAT",
+      "Planillas y legislación laboral peruana",
+      "Estados financieros",
+    ],
     serviceType: [...siteConfig.services],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -142,9 +160,9 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="es">
+    <html lang="es-PE">
       <body
-        className={`${plusJakartaSans.variable} ${outfit.variable} bg-brand-dark font-sans text-slate-50 antialiased`}
+        className={`${plusJakartaSans.variable} ${libreBaskerville.variable} bg-white font-sans text-slate-900 antialiased`}
       >
         <script
           type="application/ld+json"
@@ -155,6 +173,7 @@ export default function RootLayout({
             ),
           }}
         />
+        <RevealManager />
         {children}
         <FloatingContact />
       </body>

@@ -12,32 +12,41 @@ import TechnologySection from "@/components/TechnologySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import TrustBar from "@/components/TrustBar";
 import WhoWeHelp from "@/components/WhoWeHelp";
-import { absoluteUrl, pageTitle, siteConfig } from "@/lib/seo";
+import FaqSection, { faqItems } from "@/components/FaqSection";
+import { absoluteUrl, languageAlternates, pageTitle, siteConfig } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Estudio contable en Lima para empresas",
+  title: {
+    absolute: pageTitle("Estudio contable en Lima para MYPEs"),
+  },
   description:
-    "Estudio contable en Lima para empresas: asesoría contable, tributaria, planillas, control SUNAT, automatización y reportes gerenciales en Perú.",
+    "Estudio contable en Lima especializado en MYPEs: asesoría contable, tributaria y laboral, planillas, control SUNAT y reportes financieros.",
   keywords: [
     "estudio contable Lima",
     "asesoría contable Lima",
     "asesoría tributaria Perú",
     "outsourcing contable Perú",
     "contador para empresas",
+    "contador para MYPEs Lima",
+    "contabilidad para pequeñas empresas",
     "control SUNAT",
   ],
   alternates: {
     canonical: absoluteUrl("/"),
+    languages: languageAlternates("/"),
   },
   openGraph: {
+    type: "website",
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
     url: absoluteUrl("/"),
     title: pageTitle("Estudio contable en Lima para empresas"),
     description: siteConfig.description,
     images: [
       {
         url: absoluteUrl(siteConfig.ogImage),
-        width: 1200,
-        height: 630,
+        width: siteConfig.ogImageWidth,
+        height: siteConfig.ogImageHeight,
         alt: "Servicios contables y tributarios para empresas en Perú",
       },
     ],
@@ -51,8 +60,27 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map(({ question, answer }) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: answer,
+      },
+    })),
+  };
+
   return (
-    <div className="min-h-screen bg-brand-dark text-slate-50">
+    <div className="min-h-screen bg-white text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <NavBar />
       <main>
         <HeroSection />
@@ -65,6 +93,7 @@ export default function HomePage() {
         <ProcessSection />
         <AboutSection />
         <TestimonialsSection />
+        <FaqSection />
         <FinalCtaSection />
       </main>
       <SiteFooter />
