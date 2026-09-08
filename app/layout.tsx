@@ -3,6 +3,7 @@ import { Libre_Baskerville, Plus_Jakarta_Sans } from "next/font/google";
 import FloatingContact from "@/components/FloatingContact";
 import RevealManager from "@/components/RevealManager";
 import { absoluteUrl, languageAlternates, siteConfig } from "@/lib/seo";
+import { services } from "@/lib/services";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default:
-      "Estudio contable en Lima y Perú | Asesoría contable y tributaria",
+      "Estudio contable en Lima para empresas | V&A Profesionales",
     template: "%s | V&A Profesionales",
   },
   description: siteConfig.description,
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: siteConfig.locale,
     url: absoluteUrl("/"),
-    title: "Estudio contable en Perú | V&A Profesionales",
+    title: "Estudio contable en Lima para empresas | V&A Profesionales",
     description: siteConfig.description,
     images: [
       {
@@ -60,7 +61,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Estudio contable en Perú | V&A Profesionales",
+    title: "Estudio contable en Lima para empresas | V&A Profesionales",
     description: siteConfig.description,
     images: [absoluteUrl(siteConfig.ogImage)],
   },
@@ -132,16 +133,20 @@ export default function RootLayout({
       "Planillas y legislación laboral peruana",
       "Estados financieros",
     ],
-    serviceType: [...siteConfig.services],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Servicios contables, tributarios y financieros",
-      itemListElement: siteConfig.services.map((service) => ({
+      itemListElement: services.map((service) => ({
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
-          name: service,
-          areaServed: "Peru",
+          "@id": absoluteUrl(`/#service-${service.id}`),
+          name: service.title,
+          description: service.description,
+          serviceType: service.label,
+          url: absoluteUrl("/#servicios"),
+          provider: { "@id": absoluteUrl("/#organization") },
+          areaServed: { "@type": "Country", name: "Perú" },
         },
       })),
     },

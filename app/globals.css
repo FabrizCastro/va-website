@@ -456,6 +456,87 @@ body {
   }
 }
 
+.services-section { scroll-margin-top: 6rem; }
+
+.services-halo {
+  background: radial-gradient(circle, rgba(184, 138, 56, .16), transparent 68%);
+}
+
+.service-tabs { scrollbar-width: thin; scrollbar-color: #bba67e #f4f3ef; }
+.service-tab { transition: background-color .25s, color .25s, box-shadow .25s; }
+.service-tab::after {
+  position: absolute;
+  content: "";
+  left: 25%;
+  right: 25%;
+  bottom: 0;
+  height: 2px;
+  background: #d9c49a;
+  transform: scaleX(0);
+  transition: transform .3s ease;
+}
+.service-tab.is-active::after { transform: scaleX(1); }
+.service-tab:focus-visible { outline-offset: -3px; outline-color: #b88a38; }
+.service-tabpanel[hidden] { display: none; }
+.service-feature { animation: featureEnter .45s ease both; }
+.service-outcome { animation: outcomeEnter .65s ease both; }
+.service-icon { transition: transform .35s ease, box-shadow .35s ease; }
+.service-workspace:hover .service-icon { transform: rotate(-6deg); box-shadow: 0 8px 22px -12px #8a6729; }
+
+.ui-button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.ui-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 25%, rgba(217,196,154,.2) 50%, transparent 75%);
+  transform: translateX(-120%);
+  transition: transform .65s ease;
+}
+.ui-button:focus-visible::after { transform: translateX(120%); }
+.ui-button:active { transform: translateY(1px); }
+.premium-card { transition: box-shadow .3s ease, border-color .3s ease; }
+.nav-link { position: relative; transition: color .2s ease; }
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+.nav-link:hover::after, .nav-link:focus-visible::after { transform: scaleX(1); }
+#contacto input, #contacto select, #contacto textarea { transition: border-color .2s ease, box-shadow .2s ease; }
+#contacto input:focus, #contacto select:focus, #contacto textarea:focus { box-shadow: 0 0 0 3px rgba(217,196,154,.22); }
+.faq-item { transition: background-color .25s ease; }
+.faq-item[open] { background-color: rgba(255,255,255,.65); }
+.faq-item summary > span:last-child { transition: transform .25s ease; }
+.faq-item[open] > p { animation: featureEnter .3s ease both; }
+
+@media (hover: hover) and (pointer: fine) {
+  .ui-button:hover { transform: translateY(-3px); box-shadow: 0 12px 25px -14px rgba(11,35,86,.6); }
+  .ui-button:hover::after { transform: translateX(120%); }
+  .premium-card:hover { border-color: #bba67e; box-shadow: 0 18px 38px -24px rgba(11,35,86,.35); }
+}
+
+@keyframes featureEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes outcomeEnter {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

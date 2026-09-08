@@ -45,14 +45,14 @@ export default function HeroSection() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/#contacto"
-              className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#b88a38] px-6 py-4 text-sm font-extrabold text-white shadow-xl shadow-slate-950/20 transition hover:bg-[#9b732e]"
+              className="ui-button inline-flex items-center justify-center gap-2 rounded-sm bg-[#b88a38] px-6 py-4 text-sm font-extrabold text-white shadow-xl shadow-slate-950/20 transition hover:bg-[#9b732e]"
             >
               Agendar consulta
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href="/#servicios"
-              className="inline-flex items-center justify-center rounded-sm border border-white/35 bg-transparent px-6 py-4 text-sm font-extrabold text-white transition hover:bg-white/10"
+              className="ui-button inline-flex items-center justify-center rounded-sm border border-white/35 bg-transparent px-6 py-4 text-sm font-extrabold text-white transition hover:bg-white/10"
             >
               Ver servicios
             </Link>

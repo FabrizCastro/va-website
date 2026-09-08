@@ -1,74 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import {
-  ArrowRight,
-  BarChart3,
-  Calculator,
-  Check,
-  FileSearch,
-  Scale,
-  ShieldCheck,
-  Users,
-} from "lucide-react";
+import { useRef, useState, type KeyboardEvent } from "react";
+import Image from "next/image";
+import { ArrowRight, BarChart3, Calculator, Check, FileSearch, Scale, ShieldCheck, Sparkles, Users } from "lucide-react";
+import { services } from "@/lib/services";
 
-const services = [
-  {
-    id: "contabilidad",
-    label: "Contabilidad integral",
-    title: "Gestión contable mensual",
-    contactValue: "Asesoría contable",
-    description: "Ordenamos compras, ventas, bancos, préstamos y cuentas para construir cierres mensuales con sustento y trazabilidad.",
-    outcome: "Una contabilidad que explica lo ocurrido y prepara la siguiente decisión.",
-    image: "/assets/brand/backgroundfinanzas.jpg",
-    Icon: Calculator,
-    features: ["Libros contables", "Conciliación bancaria", "Análisis de cuentas", "Cierre mensual"],
-  },
-  {
-    id: "tributaria",
-    label: "Tributación",
-    title: "Control tributario y SUNAT",
-    contactValue: "Asesoría tributaria",
-    description: "Gestionamos impuestos, PDT, SIRE y obligaciones periódicas con una revisión preventiva de los puntos críticos.",
-    outcome: "Menos incertidumbre frente a vencimientos y contingencias tributarias.",
-    image: "/assets/brand/backgroundfinanciero.avif",
-    Icon: Scale,
-    features: ["Liquidación de impuestos", "Presentación de PDT", "SIRE", "Revisión preventiva"],
-  },
-  {
-    id: "laboral",
-    label: "Laboral",
-    title: "Planillas y obligaciones laborales",
-    contactValue: "Planillas y laboral",
-    description: "Administramos planillas, boletas, beneficios sociales y declaraciones laborales bajo una cadencia clara.",
-    outcome: "Pagos y obligaciones laborales ordenados y previsibles.",
-    image: "/assets/brand/backgroundoficina.avif",
-    Icon: Users,
-    features: ["PLAME", "Boletas de pago", "CTS y gratificaciones", "AFP y ONP"],
-  },
-  {
-    id: "reportes",
-    label: "Finanzas",
-    title: "Reportes para la gerencia",
-    contactValue: "Reportes financieros",
-    description: "Convertimos balances, flujos y resultados en una lectura concreta sobre caja, margen, costos y crecimiento.",
-    outcome: "Información financiera que puede entenderse y utilizarse.",
-    image: "/assets/brand/backgroundfinanzas.jpg",
-    Icon: BarChart3,
-    features: ["Estados financieros", "Flujo de efectivo", "Indicadores", "Lectura gerencial"],
-  },
-  {
-    id: "control",
-    label: "Control interno",
-    title: "Revisión de procesos",
-    contactValue: "Reportes financieros",
-    description: "Analizamos documentación, responsabilidades y puntos de control para detectar riesgos antes de que afecten la operación.",
-    outcome: "Procesos más verificables y preparados para crecer.",
-    image: "/assets/brand/backgroundoficina.avif",
-    Icon: FileSearch,
-    features: ["Revisión documental", "Mapa de riesgos", "Puntos de control", "Plan de mejora"],
-  },
-];
+const icons = [Calculator, Scale, Users, BarChart3, FileSearch];
 
 function scrollToContact(serviceName: string) {
   const url = new URL(window.location.href);
@@ -76,94 +13,119 @@ function scrollToContact(serviceName: string) {
   url.searchParams.set("servicio", serviceName);
   window.history.replaceState({}, "", url.toString());
   window.dispatchEvent(new CustomEvent("va-service-selected", { detail: serviceName }));
-
   const section = document.getElementById("contacto");
   if (!section) {
     window.location.href = `/?servicio=${encodeURIComponent(serviceName)}#contacto`;
     return;
   }
-  window.scrollTo({ top: Math.max(section.getBoundingClientRect().top + window.scrollY - 80, 0), behavior: "smooth" });
+  window.scrollTo({
+    top: Math.max(section.getBoundingClientRect().top + window.scrollY - 80, 0),
+    behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+  });
+  section.querySelector<HTMLSelectElement>('select[name="servicio"]')?.focus({ preventScroll: true });
 }
 
 export default function ServicesSection() {
-  const [activeId, setActiveId] = useState(services[0].id);
-  const active = services.find((service) => service.id === activeId) ?? services[0];
-  const ActiveIcon = active.Icon;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const tabs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  function navigateTabs(event: KeyboardEvent<HTMLButtonElement>, index: number) {
+    let next = index;
+    if (event.key === "ArrowRight") next = (index + 1) % services.length;
+    else if (event.key === "ArrowLeft") next = (index - 1 + services.length) % services.length;
+    else if (event.key === "Home") next = 0;
+    else if (event.key === "End") next = services.length - 1;
+    else return;
+    event.preventDefault();
+    setActiveIndex(next);
+    tabs.current[next]?.focus({ preventScroll: true });
+    tabs.current[next]?.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "instant" });
+  }
 
   return (
-    <section id="servicios" className="relative overflow-hidden bg-[#f4f0e7] py-24">
-      <div className="absolute inset-y-0 right-0 hidden w-[34%] bg-brand-primary lg:block" />
-      <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-[#a47b32]/50 to-transparent" />
-
+    <section id="servicios" aria-labelledby="services-title" className="services-section relative isolate overflow-hidden bg-[#f4f0e7] py-20 sm:py-24">
+      <div aria-hidden="true" className="services-halo pointer-events-none absolute -right-40 top-0 h-[35rem] w-[35rem] rounded-full" />
       <div className="relative mx-auto max-w-7xl px-6">
-        <div className="grid gap-8 lg:grid-cols-[.72fr_1.28fr] lg:items-end" data-reveal>
+        <div className="grid gap-6 lg:grid-cols-[1.15fr_.85fr] lg:items-end" data-reveal>
           <div>
-            <div className="flex items-center gap-3 text-brand-secondary">
-              <ShieldCheck className="h-4 w-4" />
-              <p className="text-[11px] font-extrabold uppercase tracking-[0.25em]">Servicios especializados</p>
-            </div>
-            <h2 className="mt-5 font-heading text-4xl font-bold leading-[1.06] text-brand-primary sm:text-5xl lg:text-6xl">Una firma.<br />Cinco frentes de control.</h2>
+            <p className="section-kicker flex items-center gap-2"><Sparkles aria-hidden="true" className="h-4 w-4" />Servicios personalizados</p>
+            <h2 id="services-title" className="mt-5 font-heading text-4xl font-bold leading-[1.12] text-brand-primary sm:text-5xl lg:text-6xl">
+              Tu empresa es única.<br /><span className="italic text-[#8a6729]">Tu contabilidad también.</span>
+            </h2>
           </div>
-          <p className="max-w-2xl text-base leading-8 text-slate-600 lg:pb-1 lg:text-lg">
-            Selecciona un área para conocer su alcance. Los servicios se pueden contratar por separado o integrar en una gestión contable completa.
-          </p>
+          <div className="lg:pb-2 lg:pl-10">
+            <p className="max-w-xl text-base leading-8 text-slate-600">Servicios contables para empresas y MYPEs en Lima y todo el Perú. Integramos contabilidad, tributación y finanzas según lo que tu negocio necesita hoy.</p>
+            <p className="mt-4 flex items-center gap-2 text-xs font-bold text-brand-primary"><ShieldCheck aria-hidden="true" className="h-4 w-4 text-[#8a6729]" />Un servicio puntual o un acompañamiento integral.</p>
+          </div>
         </div>
 
-        <div className="mt-14 grid min-h-[39rem] overflow-hidden border border-slate-300/80 bg-white shadow-[0_35px_90px_-45px_rgba(11,35,86,.42)] lg:grid-cols-[.7fr_1.05fr_1fr]" data-reveal>
-          <nav aria-label="Seleccionar servicio" className="flex overflow-x-auto border-b border-slate-200 bg-[#faf8f3] lg:flex-col lg:border-b-0 lg:border-r">
+        <div className="service-workspace mt-10 rounded-[1.75rem] border border-white bg-white p-2 shadow-[0_30px_80px_-40px_rgba(11,35,86,.35)] sm:mt-12 sm:p-3" data-reveal>
+          <div role="tablist" aria-label="Servicios contables personalizados" className="service-tabs flex gap-1 overflow-x-auto rounded-2xl bg-[#f4f3ef] p-1.5">
             {services.map((service, index) => {
-              const Icon = service.Icon;
-              const selected = service.id === active.id;
+              const Icon = icons[index];
+              const selected = index === activeIndex;
               return (
-                <button
-                  key={service.id}
-                  type="button"
-                  onClick={() => setActiveId(service.id)}
-                  aria-pressed={selected}
-                  className={`service-nav-item group relative flex min-w-[13rem] flex-1 items-center gap-4 border-r border-slate-200 px-5 py-5 text-left transition lg:min-w-0 lg:border-b lg:border-r-0 ${selected ? "is-active bg-brand-primary text-white" : "text-slate-600 hover:bg-white hover:text-brand-primary"}`}
-                >
-                  <span className={`text-[10px] font-extrabold tracking-[0.18em] ${selected ? "text-[#d9c49a]" : "text-slate-400"}`}>0{index + 1}</span>
-                  <Icon className={`h-5 w-5 shrink-0 ${selected ? "text-[#d9c49a]" : "text-slate-400 group-hover:text-brand-secondary"}`} />
-                  <span className="text-sm font-bold">{service.label}</span>
-                  {selected ? <span className="absolute bottom-0 left-0 h-0.5 w-full bg-[#d9c49a] lg:bottom-auto lg:left-auto lg:right-0 lg:h-full lg:w-0.5" /> : null}
+                <button key={service.id} ref={(node) => { tabs.current[index] = node; }} id={`tab-${service.id}`} role="tab" type="button" aria-selected={selected} aria-controls={`panel-${service.id}`} tabIndex={selected ? 0 : -1} onClick={() => setActiveIndex(index)} onKeyDown={(event) => navigateTabs(event, index)}
+                  className={`service-tab relative flex min-w-max flex-1 items-center justify-center gap-2.5 overflow-hidden rounded-xl px-4 py-4 text-sm font-bold ${selected ? "is-active bg-brand-primary text-white shadow-md" : "text-slate-600 hover:bg-white hover:text-brand-primary"}`}>
+                  <Icon aria-hidden="true" className={`h-4 w-4 shrink-0 ${selected ? "text-[#e4cea4]" : "text-[#8a6729]"}`} />{service.label}
                 </button>
               );
             })}
-          </nav>
-
-          <div key={`${active.id}-image`} className="service-image-enter relative min-h-[22rem] overflow-hidden bg-brand-primary lg:min-h-full">
-            <div className="absolute inset-0 scale-105 bg-cover bg-center transition duration-700 hover:scale-100" style={{ backgroundImage: `url('${active.image}')` }} />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#071a3f] via-[#071a3f]/28 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-7 text-white sm:p-9">
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#d9c49a]">Resultado esperado</p>
-              <p className="mt-3 max-w-md font-heading text-2xl font-bold leading-snug">{active.outcome}</p>
-            </div>
           </div>
 
-          <div key={`${active.id}-content`} className="service-panel-enter relative flex flex-col bg-white p-7 sm:p-9 lg:p-10">
-            <div className="flex h-12 w-12 items-center justify-center bg-[#f4f0e7] text-brand-secondary"><ActiveIcon className="h-5 w-5" /></div>
-            <p className="mt-8 text-[10px] font-extrabold uppercase tracking-[0.22em] text-slate-400">{active.label}</p>
-            <h3 className="mt-3 font-heading text-3xl font-bold leading-tight text-brand-primary">{active.title}</h3>
-            <p className="mt-5 text-sm leading-7 text-slate-600">{active.description}</p>
-
-            <ul className="mt-7 grid grid-cols-2 gap-x-4 gap-y-4 border-y border-slate-200 py-6">
-              {active.features.map((feature) => (
-                <li key={feature} className="flex items-start gap-2 text-xs font-bold leading-5 text-slate-700">
-                  <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-secondary" />{feature}
-                </li>
-              ))}
-            </ul>
-
-            <button type="button" onClick={() => scrollToContact(active.contactValue)} className="group mt-auto flex items-center justify-between border-b border-brand-primary pb-3 pt-8 text-left text-sm font-extrabold text-brand-primary transition hover:border-brand-secondary hover:text-brand-secondary">
-              Consultar este servicio
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-2" />
-            </button>
-          </div>
+          {services.map((service, index) => {
+            const Icon = icons[index];
+            return (
+              <div key={service.id} id={`panel-${service.id}`} role="tabpanel" aria-labelledby={`tab-${service.id}`} hidden={index !== activeIndex} tabIndex={0} className="service-tabpanel mt-3 rounded-2xl focus-visible:outline-offset-4">
+                <div className="grid lg:min-h-[33rem] lg:grid-cols-[1.05fr_1fr]">
+                  <div className="service-panel-enter flex flex-col px-5 py-7 sm:p-9 lg:p-10">
+                    <div className="flex items-center gap-4">
+                      <span className="service-icon flex h-12 w-12 items-center justify-center rounded-2xl border border-[#d9c49a]/50 bg-[#f4f0e7] text-[#8a6729]"><Icon aria-hidden="true" className="h-6 w-6" /></span>
+                      <span className="text-[10px] font-extrabold uppercase tracking-[.22em] text-slate-500">Área 0{index + 1} / 05</span>
+                    </div>
+                    <h3 className="mt-6 max-w-md font-heading text-3xl font-bold leading-tight text-brand-primary sm:text-4xl">{service.title}</h3>
+                    <p className="mt-4 max-w-lg text-sm leading-7 text-slate-600">{service.description}</p>
+                    <ul className="my-7 grid gap-3 sm:grid-cols-2">
+                      {service.features.map((feature, featureIndex) => (
+                        <li key={feature} className="service-feature flex items-center gap-2.5 text-xs font-semibold leading-5 text-slate-700" style={{ animationDelay: `${featureIndex * 65}ms` }}>
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#eef3ed]"><Check aria-hidden="true" className="h-3 w-3 text-[#42704b]" /></span>{feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <button type="button" onClick={() => scrollToContact(service.contactValue)} className="ui-button group mt-auto inline-flex w-fit items-center gap-5 rounded-xl bg-brand-primary px-5 py-4 text-sm font-bold text-white">
+                      Consultar este servicio<ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </button>
+                  </div>
+                  <div className="service-image-enter service-photo group relative min-h-[20rem] overflow-hidden rounded-2xl bg-brand-primary sm:min-h-[24rem]">
+                    <Image src={service.image} alt="" fill sizes="(min-width: 1024px) 560px, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#061630] via-[#071a3f]/45 to-[#071a3f]/10" />
+                    <div className="absolute left-6 top-6 flex items-center gap-2 rounded-full border border-white/25 bg-[#071a3f]/60 px-3 py-2 text-[10px] font-bold uppercase tracking-[.16em] text-white backdrop-blur-md"><span className="h-1.5 w-1.5 rounded-full bg-[#e4cea4]" />{service.label}</div>
+                    <span aria-hidden="true" className="absolute right-6 top-4 font-heading text-7xl text-white/20">0{index + 1}</span>
+                    <div className="absolute inset-x-0 bottom-0 p-6 sm:p-9">
+                      <div className="service-outcome rounded-2xl border border-white/20 bg-white/10 p-5 text-white backdrop-blur-md sm:p-6">
+                        <p className="text-[10px] font-bold uppercase tracking-[.2em] text-[#e4cea4]">Lo que gana tu empresa</p>
+                        <p className="mt-3 font-heading text-xl font-bold leading-relaxed sm:text-2xl">{service.outcome}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        <div className="mt-6 flex flex-col justify-between gap-4 border-t border-slate-300 pt-5 text-xs font-bold uppercase tracking-[0.16em] text-slate-500 sm:flex-row">
-          <span>Atención en Lima y todo el Perú</span>
-          <span className="text-brand-secondary">Diagnóstico inicial · Alcance definido · Seguimiento mensual</span>
+        <div className="mt-5 flex flex-col gap-5 rounded-2xl border border-[#d9c49a]/60 bg-[#ece5d7]/60 p-6 sm:flex-row sm:items-center sm:justify-between" data-reveal>
+          <div className="flex items-start gap-4">
+            <Sparkles aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-[#8a6729]" />
+            <div><h3 className="font-bold text-brand-primary">¿Necesitas combinar varios servicios?</h3><p className="mt-1 text-sm leading-6 text-slate-600">Definimos juntos el alcance y armamos una solución a tu medida.</p></div>
+          </div>
+          <button type="button" onClick={() => {
+            const url = new URL(window.location.href);
+            url.searchParams.set("plan", "Otros Planes");
+            window.history.replaceState({}, "", url.toString());
+            window.dispatchEvent(new CustomEvent("va-plan-selected", { detail: "Otros Planes" }));
+            scrollToContact("Aún no lo tengo claro");
+          }} className="ui-button inline-flex shrink-0 items-center justify-center gap-3 rounded-xl border border-brand-primary/20 bg-white px-5 py-3 text-sm font-bold text-brand-primary">Diseñar mi solución<ArrowRight aria-hidden="true" className="h-4 w-4" /></button>
         </div>
       </div>
     </section>

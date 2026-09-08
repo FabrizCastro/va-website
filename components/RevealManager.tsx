@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function RevealManager() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const root = document.documentElement;
-    root.classList.add("motion-ready");
+    if (!("IntersectionObserver" in window)) return;
 
     const elements = Array.from(
       document.querySelectorAll<HTMLElement>("[data-reveal]"),
@@ -22,9 +25,13 @@ export default function RevealManager() {
       { rootMargin: "0px 0px -8%", threshold: 0.12 },
     );
 
+    root.classList.add("motion-ready");
     elements.forEach((element) => observer.observe(element));
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      observer.disconnect();
+      root.classList.remove("motion-ready");
+    };
+  }, [pathname]);
 
   return null;
 }

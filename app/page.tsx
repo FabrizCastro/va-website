@@ -17,10 +17,9 @@ import { absoluteUrl, languageAlternates, pageTitle, siteConfig } from "@/lib/se
 
 export const metadata: Metadata = {
   title: {
-    absolute: pageTitle("Estudio contable en Lima para MYPEs"),
+    absolute: pageTitle("Estudio contable en Lima para empresas"),
   },
-  description:
-    "Estudio contable en Lima especializado en MYPEs: asesoría contable, tributaria y laboral, planillas, control SUNAT y reportes financieros.",
+  description: siteConfig.description,
   keywords: [
     "estudio contable Lima",
     "asesoría contable Lima",

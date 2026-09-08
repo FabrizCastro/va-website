@@ -2,6 +2,11 @@ import { HelpCircle } from "lucide-react";
 
 export const faqItems = [
   {
+    question: "¿Cómo elegir un estudio contable para mi empresa?",
+    answer:
+      "Al comparar empresas contables o estudios contables, revisa que expliquen el alcance del servicio, los responsables, los plazos de entrega y cómo recibirás tus reportes. En V&A Profesionales definimos el acompañamiento según el régimen, el volumen de operaciones y las necesidades de tu negocio.",
+  },
+  {
     question: "¿Qué incluye el servicio contable mensual?",
     answer:
       "Registro y revisión de operaciones, conciliaciones, libros contables, determinación de impuestos, declaraciones y seguimiento mensual de pendientes. El alcance final se define según el régimen y el volumen de cada empresa.",
@@ -38,7 +43,7 @@ export default function FaqSection() {
         </div>
         <div className="divide-y divide-slate-200 border-y border-slate-200" data-reveal="right">
           {faqItems.map((item) => (
-            <details key={item.question} className="group py-5">
+            <details key={item.question} className="faq-item group rounded-lg px-3 py-5">
               <summary className="flex cursor-pointer list-none items-center gap-4 font-bold text-slate-900">
                 <HelpCircle className="h-5 w-5 shrink-0 text-[#a47b32]" />
                 <span>{item.question}</span>

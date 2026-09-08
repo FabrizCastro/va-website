@@ -24,6 +24,7 @@ const serviceOptions = [
   "Asesoría tributaria",
   "Planillas y laboral",
   "Reportes financieros",
+  "Control interno",
   "Automatización contable",
   "Aún no lo tengo claro",
 ];
@@ -299,6 +300,7 @@ export default function FinalCtaSection() {
           <label className="grid gap-2 text-sm font-semibold text-slate-200">
             Servicio
             <select
+              name="servicio"
               value={service}
               onChange={(event) => setService(event.target.value)}
               className="w-full rounded-xl border border-white/14 bg-white/8 px-4 py-3 text-white transition-colors focus:border-brand-secondary focus:outline-none"
@@ -355,7 +357,7 @@ export default function FinalCtaSection() {
 
           <button
             type="submit"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-secondary py-4 font-bold text-white shadow-xl shadow-orange-950/20 transition-all hover:bg-orange-600 sm:col-span-2"
+            className="ui-button inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-secondary py-4 font-bold text-white shadow-xl shadow-orange-950/20 transition-all hover:bg-orange-600 sm:col-span-2"
           >
             <Send className="h-4 w-4" />
             Preparar mensaje por WhatsApp

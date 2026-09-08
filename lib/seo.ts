@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "V&A Profesionales",
   legalName: "V&A Profesionales",
   description:
-    "Estudio contable en Lima especializado en MYPEs. Asesoría contable, tributaria y laboral, planillas, control SUNAT y reportes financieros en Perú.",
+    "Estudio contable en Lima para empresas y MYPEs. Contabilidad, asesoría tributaria, planillas y reportes financieros a medida. Atención en todo el Perú.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://vaprofesionales.com",
   phone: "+51 970 616 942",
   email: "vap.estudiocontable@gmail.com",
